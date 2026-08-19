@@ -41,3 +41,40 @@ document.querySelector('#cartBtn').onclick=openCart;document.querySelector('#clo
 const modal=document.querySelector('#searchModal'), input=document.querySelector('#searchInput');document.querySelector('#searchBtn').onclick=()=>{modal.classList.add('open');input.focus()};document.querySelector('#closeSearch').onclick=()=>modal.classList.remove('open');input.oninput=()=>{const q=input.value.toLowerCase();const r=products.filter(p=>(p.name+' '+p.cat).toLowerCase().includes(q));document.querySelector('#searchResults').innerHTML=r.length?r.map(p=>`<div style="padding:13px 0;border-bottom:1px solid #222;font-size:11px">${p.name} <span style="color:#777">${money(p.price)}</span></div>`).join(''):'<p style="color:#666;font-size:11px">Nenhuma arte encontrada.</p>'};
 document.querySelectorAll('.cat').forEach(c=>c.onclick=e=>{const cat=c.dataset.cat;if(cat){e.preventDefault();renderProducts(products.filter(p=>p.cat===cat));document.querySelector('#catalogo').scrollIntoView({behavior:'smooth'})}});
 renderProducts();save();
+/* =========================================================
+   ZIVA ART - BOTÕES MAGNÉTICOS
+   ========================================================= */
+
+document.querySelectorAll(".btn").forEach((button) => {
+
+    button.addEventListener("mousemove", (event) => {
+
+        const rect = button.getBoundingClientRect();
+
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        /*
+         * Quanto o botão acompanha o mouse.
+         * Quanto menor o número, mais sutil.
+         */
+        const moveX = (mouseX - centerX) * 0.12;
+        const moveY = (mouseY - centerY) * 0.12;
+
+        button.style.setProperty("--mouse-x", `${moveX}px`);
+        button.style.setProperty("--mouse-y", `${moveY}px`);
+
+    });
+
+
+    button.addEventListener("mouseleave", () => {
+
+        button.style.setProperty("--mouse-x", "0px");
+        button.style.setProperty("--mouse-y", "0px");
+
+    });
+
+});
