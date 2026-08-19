@@ -1631,3 +1631,96 @@ footer small {
   }
 
 }
+/* =========================================================
+   28. CANTOS ARREDONDADOS - ZIVA ART
+   ========================================================= */
+
+/* Cards das artes */
+.product {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Imagens dos produtos */
+.product-img {
+  border-radius: 12px 12px 0 0;
+}
+
+/* Botões */
+.btn,
+.add,
+.icon-btn,
+.cart-btn {
+  border-radius: 8px;
+}
+
+/* Campo de pesquisa */
+.search-box,
+.search-box input {
+  border-radius: 10px;
+}
+
+/* Categorias */
+.cat {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Poster principal */
+.poster {
+  border-radius: 10px;
+}
+
+/* Cards flutuantes */
+.floating-card {
+  border-radius: 7px;
+}
+
+/* Ticker */
+.ticker {
+  border-radius: 0;
+}
+
+/* Carrinho */
+.cart {
+  border-radius: 14px 0 0 14px;
+}
+
+/* Itens e áreas internas */
+.cart-item .mini {
+  border-radius: 8px;
+}
+
+/* Botões do carrinho */
+.cart-foot .btn {
+  border-radius: 8px;
+}
+
+/* Modal de busca */
+.search-modal {
+  border-radius: 12px;
+}
+
+/* Pequenos elementos */
+.tag {
+  border-radius: 5px;
+}
+
+
+/* =========================================================
+   29. HOVER MAIS ELEGANTE
+   ========================================================= */
+
+.product,
+.cat,
+.btn,
+.add,
+.icon-btn,
+.cart-btn,
+.floating-card {
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
