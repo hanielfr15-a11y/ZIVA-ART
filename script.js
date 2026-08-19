@@ -1,3 +1,23 @@
+/* =========================================================
+   ZIVA ART - LOADER
+   ========================================================= */
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("zivaLoader");
+
+    // Pequeno tempo para o logo aparecer
+    setTimeout(() => {
+
+        document.body.classList.add("ziva-loaded");
+
+        if (loader) {
+            loader.classList.add("hide");
+        }
+
+    }, 650);
+
+});
 const products=[
  {id:1,name:'Dragon Red Concept',cat:'Interclasse',price:14.99,old:55},
  {id:2,name:'Pantera Black',cat:'Mascotes',price:12.99,old:45},
