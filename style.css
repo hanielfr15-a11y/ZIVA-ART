@@ -1724,3 +1724,114 @@ footer small {
     box-shadow 0.35s ease,
     background 0.35s ease;
 }
+/* =========================================================
+   ZIVA ART - ANIMAÇÃO DE ENTRADA
+   ========================================================= */
+
+/* Estado inicial dos elementos */
+.hero,
+.hero-content,
+.hero h1,
+.hero p,
+.hero .actions,
+.hero .stats,
+.hero-visual,
+header,
+nav,
+.product,
+.category,
+.categories,
+.ticker {
+    animation-fill-mode: both;
+}
+
+/* Header */
+header {
+    animation: zivaFadeDown 0.45s ease-out 0.05s both;
+}
+
+/* Texto pequeno do hero */
+.hero-content > *:nth-child(1) {
+    animation: zivaFadeUp 0.45s ease-out 0.10s both;
+}
+
+/* Título */
+.hero h1 {
+    animation: zivaFadeUp 0.50s ease-out 0.18s both;
+}
+
+/* Descrição */
+.hero p {
+    animation: zivaFadeUp 0.45s ease-out 0.28s both;
+}
+
+/* Botões */
+.hero .actions {
+    animation: zivaFadeUp 0.45s ease-out 0.38s both;
+}
+
+/* Números */
+.hero .stats {
+    animation: zivaFadeUp 0.45s ease-out 0.48s both;
+}
+
+/* Arte visual do lado direito */
+.hero-visual {
+    animation: zivaFadeLeft 0.65s ease-out 0.20s both;
+}
+
+/* Faixa inferior */
+.ticker {
+    animation: zivaFadeUp 0.45s ease-out 0.55s both;
+}
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+@keyframes zivaFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zivaFadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zivaFadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Respeita usuários que preferem menos animação */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
