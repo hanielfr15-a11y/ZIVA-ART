@@ -564,3 +564,106 @@ function initMagneticButtons() {
 
 
 initMagneticButtons();
+
+/* =========================================================
+   ZIVA ART - CONTADORES
+   ========================================================= */
+
+function animateCounter(element, target, suffix = "", duration = 900) {
+
+    let startTime = null;
+
+    function updateCounter(currentTime) {
+
+        if (!startTime) {
+            startTime = currentTime;
+        }
+
+        const progress = Math.min(
+            (currentTime - startTime) / duration,
+            1
+        );
+
+        const easedProgress =
+            1 - Math.pow(1 - progress, 3);
+
+        const value =
+            Math.floor(easedProgress * target);
+
+        element.textContent =
+            value + suffix;
+
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent =
+                target + suffix;
+        }
+
+    }
+
+    requestAnimationFrame(updateCounter);
+}
+
+
+function initCounters() {
+
+    const stats =
+        document.querySelector(".stats");
+
+    if (!stats) return;
+
+    const counters =
+        stats.querySelectorAll("strong");
+
+    if (counters.length < 3) return;
+
+    let started = false;
+
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
+
+                if (
+                    entries[0].isIntersecting &&
+                    !started
+                ) {
+
+                    started = true;
+
+                    animateCounter(
+                        counters[0],
+                        100,
+                        "%",
+                        900
+                    );
+
+                    animateCounter(
+                        counters[1],
+                        4,
+                        "K",
+                        700
+                    );
+
+                    animateCounter(
+                        counters[2],
+                        24,
+                        "/7",
+                        900
+                    );
+
+                    observer.disconnect();
+                }
+
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+    observer.observe(stats);
+
+}
+
+
+initCounters();
