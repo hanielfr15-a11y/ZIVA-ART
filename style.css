@@ -2229,3 +2229,39 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
         letter-spacing: 2px;
     }
 }
+/* =========================================================
+   CORREÇÃO DO HERO
+   ========================================================= */
+
+.hero {
+    min-height: 560px !important;
+    height: auto !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 5;
+}
+
+.hero-art {
+    position: relative;
+    z-index: 2;
+    min-height: 500px;
+}
+
+.hero-actions {
+    position: relative;
+    z-index: 10;
+}
+
+.ticker {
+    position: relative;
+    z-index: 20;
+}
+
+.stats-section {
+    position: relative;
+    z-index: 10;
+}
