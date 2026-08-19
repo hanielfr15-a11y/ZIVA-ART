@@ -2038,110 +2038,116 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     transform: translateY(-2px);
   }
 }
+
 /* =========================================================
-   ESTATÍSTICAS - LAYOUT
+   36. CORREÇÃO FINAL - HERO + ESTATÍSTICAS
    ========================================================= */
 
+.hero {
+  min-height: 690px !important;
+  height: auto !important;
+  padding: 70px 6vw 65px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 0.9fr !important;
+  gap: 30px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.hero-copy {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.hero-actions {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.hero-art {
+  position: relative !important;
+  z-index: 1 !important;
+  min-height: 500px !important;
+}
+
+.ticker {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+
+/* ESTATÍSTICAS */
+
 .stats-section {
-    width: 100%;
-    padding: 48px 5vw 52px;
-    background: #050505;
-    border-bottom: 1px solid var(--line);
+  width: 100%;
+  padding: 60px 6vw;
+  background: #050505;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 2;
 }
 
 .stats-section .stats {
-    width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
-    align-items: center;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
 }
 
 .stats-section .stat-item {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 105px;
-    padding: 0 30px;
-
-    text-align: center;
+  position: relative;
+  min-height: 120px;
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-
-
-/* DIVISÓRIAS */
 
 .stats-section .stat-item:not(:last-child)::after {
-    content: "";
-
-    position: absolute;
-
-    right: 0;
-    top: 8px;
-
-    width: 1px;
-    height: calc(100% - 16px);
-
-    background: #262626;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: 1px;
+  height: calc(100% - 20px);
+  background: #252525;
 }
-
-
-/* NÚMEROS */
 
 .stats-section .stat-item strong {
-    display: block;
-
-    margin: 0;
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: clamp(52px, 4.2vw, 76px);
-
-    font-weight: 800;
-
-    line-height: 0.95;
-
-    letter-spacing: -3px;
-
-    color: #f4f4f4;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(48px, 4.5vw, 76px) !important;
+  font-weight: 800;
+  line-height: 1 !important;
+  letter-spacing: -3px;
+  color: #f4f4f4;
+  white-space: nowrap;
 }
-
-
-/* NOMES */
 
 .stats-section .stat-item small {
-    display: block;
-
-    margin-top: 16px;
-
-    font-family: "Inter", sans-serif;
-
-    font-size: 9px;
-
-    font-weight: 700;
-
-    line-height: 1;
-
-    letter-spacing: 3px;
-
-    color: #686868;
-
-    text-transform: uppercase;
+  display: block !important;
+  margin-top: 14px !important;
+  font-family: "Inter", sans-serif;
+  font-size: 9px !important;
+  font-weight: 700;
+  line-height: 1 !important;
+  letter-spacing: 3px;
+  color: #686868;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-
-/* =========================================================
-   ESPAÇAMENTO COM O CATÁLOGO
-   ========================================================= */
-
 .stats-section + .section {
-    padding-top: 62px;
+  padding-top: 80px;
 }
 
 
@@ -2151,117 +2157,51 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
 @media (max-width: 900px) {
 
-    .stats-section {
-        padding: 45px 25px;
-    }
+  .hero {
+    grid-template-columns: 1fr !important;
+  }
 
-    .stats-section .stat-item {
-        padding: 0 15px;
-    }
+  .stats-section {
+    padding: 50px 25px;
+  }
 
-    .stats-section .stat-item strong {
-        font-size: 48px;
-    }
+  .stats-section .stats {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+  }
 
+  .stats-section .stat-item {
+    min-height: 100px;
+    padding: 10px 15px;
+  }
+
+  .stats-section .stat-item:nth-child(2)::after,
+  .stats-section .stat-item:nth-child(4)::after {
+    display: none;
+  }
+
+  .stats-section .stat-item strong {
+    font-size: 48px !important;
+  }
 }
 
+@media (max-width: 600px) {
 
-@media (max-width: 650px) {
+  .stats-section {
+    padding: 40px 20px;
+  }
 
-    .stats-section {
-        padding: 40px 20px;
-    }
+  .stats-section .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .stats-section .stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 35px 0;
-    }
+  .stats-section .stat-item strong {
+    font-size: 40px !important;
+    letter-spacing: -2px;
+  }
 
-    .stats-section .stat-item:nth-child(2)::after {
-        display: none;
-    }
-
-    .stats-section .stat-item:nth-child(4)::after {
-        display: none;
-    }
-
-    .stats-section .stat-item strong {
-        font-size: 42px;
-    }
-
-}
-
-
-/* =========================================================
-   RESPONSIVO
-   ========================================================= */
-
-@media (max-width: 800px) {
-
-    .stats-section {
-        padding: 55px 20px;
-    }
-
-    .stats-section .stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px 10px;
-    }
-
-    .stats-section .stat-item:nth-child(2)::after {
-        display: none;
-    }
-}
-
-
-@media (max-width: 500px) {
-
-    .stats-section {
-        padding: 45px 15px;
-    }
-
-    .stats-section .stat-item strong {
-        font-size: 42px;
-        letter-spacing: -2px;
-    }
-
-    .stats-section .stat-item small {
-        font-size: 8px;
-        letter-spacing: 2px;
-    }
-}
-/* =========================================================
-   CORREÇÃO DO HERO
-   ========================================================= */
-
-.hero {
-    min-height: 560px !important;
-    height: auto !important;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-copy {
-    position: relative;
-    z-index: 5;
-}
-
-.hero-art {
-    position: relative;
-    z-index: 2;
-    min-height: 500px;
-}
-
-.hero-actions {
-    position: relative;
-    z-index: 10;
-}
-
-.ticker {
-    position: relative;
-    z-index: 20;
-}
-
-.stats-section {
-    position: relative;
-    z-index: 10;
+  .stats-section .stat-item small {
+    font-size: 8px !important;
+    letter-spacing: 2px;
+  }
 }
