@@ -564,16 +564,19 @@ function initMagneticButtons() {
 
 
 initMagneticButtons();
-
 /* =========================================================
    ZIVA ART - CONTADORES
    ========================================================= */
 
-function animateCounter(element, target, suffix = "", duration = 900) {
+function animateCounter(element) {
+
+    const target = Number(element.dataset.target);
+    const suffix = element.dataset.suffix || "";
+    const duration = 1400;
 
     let startTime = null;
 
-    function updateCounter(currentTime) {
+    function update(currentTime) {
 
         if (!startTime) {
             startTime = currentTime;
@@ -584,86 +587,69 @@ function animateCounter(element, target, suffix = "", duration = 900) {
             1
         );
 
-        const easedProgress =
+        const eased =
             1 - Math.pow(1 - progress, 3);
 
-        const value =
-            Math.floor(easedProgress * target);
+        const value = Math.floor(target * eased);
 
         element.textContent =
-            value + suffix;
+            value.toLocaleString("pt-BR") + suffix;
 
         if (progress < 1) {
-            requestAnimationFrame(updateCounter);
+            requestAnimationFrame(update);
         } else {
             element.textContent =
-                target + suffix;
+                target.toLocaleString("pt-BR") + suffix;
         }
-
     }
 
-    requestAnimationFrame(updateCounter);
+    requestAnimationFrame(update);
 }
 
 
 function initCounters() {
 
-    const stats =
-        document.querySelector(".stats");
+    const stats = document.querySelector(".stats");
 
     if (!stats) return;
 
     const counters =
-        stats.querySelectorAll("strong");
+        stats.querySelectorAll("strong[data-target]");
 
-    if (counters.length < 3) return;
+    if (!counters.length) return;
 
     let started = false;
 
-    const observer =
-        new IntersectionObserver(
-            (entries) => {
+    const observer = new IntersectionObserver(
+        (entries) => {
 
-                if (
-                    entries[0].isIntersecting &&
-                    !started
-                ) {
+            if (
+                entries[0].isIntersecting &&
+                !started
+            ) {
 
-                    started = true;
+                started = true;
 
-                    animateCounter(
-                        counters[0],
-                        100,
-                        "%",
-                        900
-                    );
+                counters.forEach((counter, index) => {
 
-                    animateCounter(
-                        counters[1],
-                        4,
-                        "K",
-                        700
-                    );
+                    setTimeout(() => {
+                        animateCounter(counter);
+                    }, index * 120);
 
-                    animateCounter(
-                        counters[2],
-                        24,
-                        "/7",
-                        900
-                    );
+                });
 
-                    observer.disconnect();
-                }
-
-            },
-            {
-                threshold: 0.5
+                observer.disconnect();
             }
-        );
+
+        },
+        {
+            threshold: 0.3
+        }
+    );
 
     observer.observe(stats);
-
 }
 
 
 initCounters();
+
