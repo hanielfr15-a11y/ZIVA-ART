@@ -1,97 +1,712 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ZIVA ART | Artes Digitais Premium</title>
-<meta name="description" content="ZIVA ART. Artes digitais premium para interclasse, uniformes, mascotes e projetos de impressão.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ZIVA ART | Artes Digitais Premium</title>
+
+  <meta
+    name="description"
+    content="ZIVA ART. Artes digitais premium para interclasse, uniformes, mascotes e projetos de impressão."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<!-- ZIVA ART - LOADER -->
-<div class="ziva-loader" id="zivaLoader">
-  <div class="loader-logo">
-    <span>ZIVA</span>
-    <small>ART</small>
+
+  <!-- =====================================================
+       LOADER
+       ===================================================== -->
+
+  <div class="ziva-loader" id="zivaLoader">
+
+    <div class="loader-logo">
+      <span>ZIVA</span>
+      <small>ART</small>
+    </div>
+
+    <div class="loader-line"></div>
+
   </div>
-  <div class="loader-line"></div>
-</div>
-<div class="announcement">
-<div class="announcement">⚡ NOVAS ARTES TODA SEMANA <span>•</span> DOWNLOAD DIGITAL</div>
-<header class="header">
-  <a class="brand" href="#inicio"><img src="assets/ziva-logo.png" alt="ZIVA ART"></a>
-  <nav class="nav">
-    <a href="#catalogo">Catálogo</a><a href="#categorias">Categorias</a><a href="#como-funciona">Como funciona</a><a href="#contato">Contato</a>
-  </nav>
-  <div class="actions"><button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button><button class="cart-btn" id="cartBtn">Carrinho <b id="cartCount">0</b></button></div>
-</header>
-<main id="inicio">
-<section class="hero">
-  <div class="hero-copy">
-    <div class="eyebrow"><span></span> ZIVA ART / DIGITAL STORE</div>
-    <h1>ARTE QUE<br><em>MARCA.</em></h1>
-    <p>Estampas digitais premium para interclasse, uniformes, mascotes e projetos que precisam chegar com presença.</p>
-    <div class="hero-actions"><a class="btn primary" href="#catalogo">Explorar artes <span>↗</span></a><a class="btn ghost" href="#categorias">Ver categorias</a></div>
-</div>
+
+
+  <!-- =====================================================
+       AVISO
+       ===================================================== -->
+
+  <div class="announcement">
+    ⚡ NOVAS ARTES TODA SEMANA
+    <span>•</span>
+    DOWNLOAD DIGITAL
   </div>
-  <div class="hero-art">
-    <div class="orb"></div><div class="grid"></div>
-    <div class="floating-card top">ZIVA / 001</div>
-    <div class="poster"><div class="poster-line">CREATE</div><div class="poster-word">YOUR<br>IDENTITY</div><div class="poster-bottom">DIGITAL ART • VECTOR • PRINT</div></div>
-  </div>
-</section>
-<section class="ticker"><div>INTERCLASSE</div><div>MASCOTES</div><div>VETORES</div><div>UNIFORMES</div><div>DESIGN PREMIUM</div><div>INTERCLASSE</div><div>MASCOTES</div></section>
-  <section class="stats-section">
 
-    <div class="stats">
 
-        <div class="stat-item">
-            <strong data-target="500" data-suffix="+">0</strong>
-            <small>ESTAMPAS</small>
-        </div>
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
 
-        <div class="stat-item">
-            <strong data-target="1500" data-suffix="+">0</strong>
-            <small>DOWNLOADS</small>
-        </div>
+  <header class="header">
 
-        <div class="stat-item">
-            <strong data-target="100" data-suffix="%">0</strong>
-            <small>DIGITAL</small>
-        </div>
+    <a class="brand" href="#inicio">
+      <img src="assets/ziva-logo.png" alt="ZIVA ART">
+    </a>
 
-        <div class="stat-item">
-            <strong data-target="24" data-suffix="/7">0</strong>
-            <small>SUPORTE</small>
-        </div>
+    <nav class="nav">
+
+      <a href="#catalogo">
+        Catálogo
+      </a>
+
+      <a href="#categorias">
+        Categorias
+      </a>
+
+      <a href="#como-funciona">
+        Como funciona
+      </a>
+
+      <a href="#contato">
+        Contato
+      </a>
+
+    </nav>
+
+    <div class="actions">
+
+      <button
+        class="icon-btn"
+        id="searchBtn"
+        aria-label="Buscar"
+      >
+        ⌕
+      </button>
+
+      <button
+        class="cart-btn"
+        id="cartBtn"
+      >
+        Carrinho
+        <b id="cartCount">0</b>
+      </button>
 
     </div>
 
-</section>
-<section class="section" id="catalogo">
-  <div class="section-head"><div><span class="eyebrow">01 / CATÁLOGO</span><h2>EM DESTAQUE</h2></div><a href="#catalogo" class="text-link">Ver tudo ↗</a></div>
-  <div class="products" id="products"></div>
-</section>
-<section class="section categories" id="categorias">
-  <div class="section-head"><div><span class="eyebrow">02 / EXPLORE</span><h2>CATEGORIAS</h2></div></div>
-  <div class="category-grid">
-    <a class="cat cat-big" href="#catalogo" data-cat="Interclasse"><span>01</span><h3>INTER<br>CLASSE</h3><b>Explorar ↗</b></a>
-    <a class="cat" href="#catalogo" data-cat="Mascotes"><span>02</span><h3>MASCOTES<br>& ESCUDOS</h3><b>Explorar ↗</b></a>
-    <a class="cat" href="#catalogo" data-cat="Vetores"><span>03</span><h3>VETORES</h3><b>Explorar ↗</b></a>
-    <a class="cat" href="#catalogo" data-cat="Esportivo"><span>04</span><h3>ESPORTIVO</h3><b>Explorar ↗</b></a>
+  </header>
+
+
+  <!-- =====================================================
+       CONTEÚDO PRINCIPAL
+       ===================================================== -->
+
+  <main id="inicio">
+
+
+    <!-- ===================================================
+         HERO
+         =================================================== -->
+
+    <section class="hero">
+
+      <div class="hero-copy">
+
+        <div class="eyebrow">
+          <span></span>
+          ZIVA ART / DIGITAL STORE
+        </div>
+
+        <h1>
+          ARTE QUE<br>
+          <em>MARCA.</em>
+        </h1>
+
+        <p>
+          Estampas digitais premium para interclasse,
+          uniformes, mascotes e projetos que precisam
+          chegar com presença.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            class="btn primary"
+            href="#catalogo"
+          >
+            Explorar artes
+            <span>↗</span>
+          </a>
+
+          <a
+            class="btn ghost"
+            href="#categorias"
+          >
+            Ver categorias
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-art">
+
+        <div class="orb"></div>
+
+        <div class="grid"></div>
+
+        <div class="floating-card top">
+          ZIVA / 001
+        </div>
+
+        <div class="poster">
+
+          <div class="poster-line">
+            CREATE
+          </div>
+
+          <div class="poster-word">
+            YOUR<br>
+            IDENTITY
+          </div>
+
+          <div class="poster-bottom">
+            DIGITAL ART • VECTOR • PRINT
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         TICKER
+         =================================================== -->
+
+    <section class="ticker">
+
+      <div>INTERCLASSE</div>
+      <div>MASCOTES</div>
+      <div>VETORES</div>
+      <div>UNIFORMES</div>
+      <div>DESIGN PREMIUM</div>
+      <div>INTERCLASSE</div>
+      <div>MASCOTES</div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ESTATÍSTICAS
+         =================================================== -->
+
+    <section class="stats-section">
+
+      <div class="stats">
+
+        <div class="stat-item">
+
+          <strong
+            data-target="500"
+            data-suffix="+"
+          >
+            0
+          </strong>
+
+          <small>
+            ESTAMPAS
+          </small>
+
+        </div>
+
+
+        <div class="stat-item">
+
+          <strong
+            data-target="1500"
+            data-suffix="+"
+          >
+            0
+          </strong>
+
+          <small>
+            DOWNLOADS
+          </small>
+
+        </div>
+
+
+        <div class="stat-item">
+
+          <strong
+            data-target="100"
+            data-suffix="%"
+          >
+            0
+          </strong>
+
+          <small>
+            DIGITAL
+          </small>
+
+        </div>
+
+
+        <div class="stat-item">
+
+          <strong
+            data-target="24"
+            data-suffix="/7"
+          >
+            0
+          </strong>
+
+          <small>
+            SUPORTE
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CATÁLOGO
+         =================================================== -->
+
+    <section
+      class="section"
+      id="catalogo"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <span class="eyebrow">
+            01 / CATÁLOGO
+          </span>
+
+          <h2>
+            EM DESTAQUE
+          </h2>
+
+        </div>
+
+        <a
+          href="#catalogo"
+          class="text-link"
+        >
+          Ver tudo ↗
+        </a>
+
+      </div>
+
+
+      <div
+        class="products"
+        id="products"
+      ></div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CATEGORIAS
+         =================================================== -->
+
+    <section
+      class="section categories"
+      id="categorias"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <span class="eyebrow">
+            02 / EXPLORE
+          </span>
+
+          <h2>
+            CATEGORIAS
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="category-grid">
+
+        <a
+          class="cat cat-big"
+          href="#catalogo"
+          data-cat="Interclasse"
+        >
+
+          <span>
+            01
+          </span>
+
+          <h3>
+            INTER<br>
+            CLASSE
+          </h3>
+
+          <b>
+            Explorar ↗
+          </b>
+
+        </a>
+
+
+        <a
+          class="cat"
+          href="#catalogo"
+          data-cat="Mascotes"
+        >
+
+          <span>
+            02
+          </span>
+
+          <h3>
+            MASCOTES<br>
+            & ESCUDOS
+          </h3>
+
+          <b>
+            Explorar ↗
+          </b>
+
+        </a>
+
+
+        <a
+          class="cat"
+          href="#catalogo"
+          data-cat="Vetores"
+        >
+
+          <span>
+            03
+          </span>
+
+          <h3>
+            VETORES
+          </h3>
+
+          <b>
+            Explorar ↗
+          </b>
+
+        </a>
+
+
+        <a
+          class="cat"
+          href="#catalogo"
+          data-cat="Esportivo"
+        >
+
+          <span>
+            04
+          </span>
+
+          <h3>
+            ESPORTIVO
+          </h3>
+
+          <b>
+            Explorar ↗
+          </b>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         COMO FUNCIONA
+         =================================================== -->
+
+    <section
+      class="feature"
+      id="como-funciona"
+    >
+
+      <div>
+
+        <span class="eyebrow">
+          03 / ZIVA EXPERIENCE
+        </span>
+
+        <h2>
+          DO ARQUIVO<br>
+          PARA A <em>CAMISA.</em>
+        </h2>
+
+      </div>
+
+
+      <div class="steps">
+
+        <div>
+
+          <b>
+            01
+          </b>
+
+          <h3>
+            Escolha sua arte
+          </h3>
+
+          <p>
+            Encontre o design que combina com seu projeto.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <b>
+            02
+          </b>
+
+          <h3>
+            Compre online
+          </h3>
+
+          <p>
+            Checkout simples e pagamento seguro.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <b>
+            03
+          </b>
+
+          <h3>
+            Baixe e produza
+          </h3>
+
+          <p>
+            Receba seu arquivo digital e leve para impressão.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONTATO
+         =================================================== -->
+
+    <section
+      class="cta"
+      id="contato"
+    >
+
+      <div class="cta-mark">
+        Z
+      </div>
+
+      <span class="eyebrow">
+        04 / ZIVA ART
+      </span>
+
+      <h2>
+        PRONTO PARA<br>
+        <em>CRIAR?</em>
+      </h2>
+
+      <p>
+        Entre em contato para artes exclusivas,
+        mascotes e projetos personalizados.
+      </p>
+
+      <a
+        class="btn primary"
+        href="https://wa.me/5500000000000"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Falar no WhatsApp ↗
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+
+      <img
+        src="assets/ziva-logo.png"
+        alt="ZIVA ART"
+      >
+
+    </div>
+
+    <p>
+      Artes digitais premium para quem não quer parecer igual.
+    </p>
+
+    <div class="footer-links">
+
+      <a href="#catalogo">
+        Catálogo
+      </a>
+
+      <a href="#categorias">
+        Categorias
+      </a>
+
+      <a href="#contato">
+        Contato
+      </a>
+
+    </div>
+
+    <small>
+      © 2026 ZIVA ART. Todos os direitos reservados.
+    </small>
+
+  </footer>
+
+
+  <!-- =====================================================
+       BUSCA
+       ===================================================== -->
+
+  <div
+    class="search-modal"
+    id="searchModal"
+  >
+
+    <div class="search-box">
+
+      <button id="closeSearch">
+        ×
+      </button>
+
+      <span>
+        BUSCAR NA ZIVA
+      </span>
+
+      <input
+        id="searchInput"
+        placeholder="Digite o nome da arte..."
+      >
+
+      <div id="searchResults"></div>
+
+    </div>
+
   </div>
-</section>
-<section class="feature" id="como-funciona">
-  <div><span class="eyebrow">03 / ZIVA EXPERIENCE</span><h2>DO ARQUIVO<br>PARA A <em>CAMISA.</em></h2></div>
-  <div class="steps"><div><b>01</b><h3>Escolha sua arte</h3><p>Encontre o design que combina com seu projeto.</p></div><div><b>02</b><h3>Compre online</h3><p>Checkout simples e pagamento seguro.</p></div><div><b>03</b><h3>Baixe e produza</h3><p>Receba seu arquivo digital e leve para impressão.</p></div></div>
-</section>
-<section class="cta" id="contato"><div class="cta-mark">Z</div><span class="eyebrow">04 / ZIVA ART</span><h2>PRONTO PARA<br><em>CRIAR?</em></h2><p>Entre em contato para artes exclusivas, mascotes e projetos personalizados.</p><a class="btn primary" href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">Falar no WhatsApp ↗</a></section>
-</main>
-<footer><div class="footer-brand"><img src="assets/ziva-logo.png" alt="ZIVA ART"></div><p>Artes digitais premium para quem não quer parecer igual.</p><div class="footer-links"><a href="#catalogo">Catálogo</a><a href="#categorias">Categorias</a><a href="#contato">Contato</a></div><small>© 2026 ZIVA ART. Todos os direitos reservados.</small></footer>
-<div class="search-modal" id="searchModal"><div class="search-box"><button id="closeSearch">×</button><span>BUSCAR NA ZIVA</span><input id="searchInput" placeholder="Digite o nome da arte..."><div id="searchResults"></div></div></div>
-<aside class="cart" id="cart"><div class="cart-head"><h3>SEU CARRINHO</h3><button id="closeCart">×</button></div><div id="cartItems" class="cart-items"><p class="empty">Seu carrinho está vazio.</p></div><div class="cart-foot"><div><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div><button class="btn primary" id="checkoutBtn">Finalizar compra</button></div></aside><div class="overlay" id="overlay"></div>
-<script src="script.js"></script>
-</body></html>
+
+
+  <!-- =====================================================
+       CARRINHO
+       ===================================================== -->
+
+  <aside
+    class="cart"
+    id="cart"
+  >
+
+    <div class="cart-head">
+
+      <h3>
+        SEU CARRINHO
+      </h3>
+
+      <button id="closeCart">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      id="cartItems"
+      class="cart-items"
+    >
+
+      <p class="empty">
+        Seu carrinho está vazio.
+      </p>
+
+    </div>
+
+
+    <div class="cart-foot">
+
+      <div>
+
+        <span>
+          Total
+        </span>
+
+        <strong id="cartTotal">
+          R$ 0,00
+        </strong>
+
+      </div>
+
+      <button
+        class="btn primary"
+        id="checkoutBtn"
+      >
+        Finalizar compra
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <div
+    class="overlay"
+    id="overlay"
+  ></div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
