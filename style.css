@@ -1780,7 +1780,6 @@ footer small {
 }
 
 .btn:hover {
-  transform: translateY(-4px);
   box-shadow:
     0 9px 24px rgba(255, 23, 34, 0.20),
     0 0 18px rgba(255, 23, 34, 0.10);
