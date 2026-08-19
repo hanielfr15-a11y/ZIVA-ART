@@ -2205,3 +2205,92 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     letter-spacing: 2px;
   }
 }
+/* =========================================================
+   CORREÇÃO DEFINITIVA DO HERO
+   ========================================================= */
+
+.hero {
+    min-height: 690px !important;
+    height: 690px !important;
+
+    box-sizing: border-box !important;
+
+    position: relative !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr 0.9fr !important;
+
+    padding: 70px 6vw 65px !important;
+
+    overflow: hidden !important;
+}
+
+
+.hero-copy {
+    position: relative !important;
+
+    z-index: 5 !important;
+
+    min-height: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    justify-content: center !important;
+
+    align-items: flex-start !important;
+}
+
+
+.hero-copy > p {
+    position: relative !important;
+    z-index: 5 !important;
+
+    margin-bottom: 28px !important;
+}
+
+
+.hero-actions {
+    position: relative !important;
+
+    z-index: 10 !important;
+
+    display: flex !important;
+
+    gap: 14px !important;
+}
+
+
+.hero-art {
+    position: relative !important;
+
+    z-index: 2 !important;
+
+    min-height: 500px !important;
+
+    height: 100% !important;
+}
+
+
+/* TICKER SEM SOBREPOSIÇÃO */
+
+.ticker {
+    position: relative !important;
+
+    z-index: 20 !important;
+
+    margin-top: 0 !important;
+
+    clear: both !important;
+}
+
+
+/* ESTATÍSTICAS */
+
+.stats-section {
+    position: relative !important;
+
+    z-index: 10 !important;
+
+    clear: both !important;
+}
