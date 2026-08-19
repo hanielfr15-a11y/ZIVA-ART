@@ -2294,3 +2294,35 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
     clear: both !important;
 }
+/* =========================================================
+   CORREÇÃO DA LOGO DO HEADER
+   ========================================================= */
+
+.header .brand {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.header .brand img {
+    display: block !important;
+
+    width: 125px !important;
+    height: auto !important;
+
+    background: transparent !important;
+
+    object-fit: contain;
+
+    border: 0 !important;
+    box-shadow: none !important;
+}
