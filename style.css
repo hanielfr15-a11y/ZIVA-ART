@@ -1752,9 +1752,18 @@ footer small {
    ========================================================= */
 
 .btn {
-  position: relative;
-  overflow: hidden;
-  will-change: transform;
+    position: relative;
+    overflow: hidden;
+
+    translate: var(--mouse-x, 0px) var(--mouse-y, 0px);
+
+    transition:
+        translate 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+
+    will-change: translate;
 }
 
 .btn::before {
