@@ -2038,3 +2038,106 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     transform: translateY(-2px);
   }
 }
+/* =========================================================
+   ZIVA ART - ESTATÍSTICAS
+   ========================================================= */
+
+.stats-section {
+    width: 100%;
+    padding: 75px 5vw 80px;
+    background: #050505;
+    border-bottom: 1px solid var(--line);
+}
+
+.stats-section .stats {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stats-section .stat-item {
+    position: relative;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.stats-section .stat-item:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+    right: 0;
+    top: 15%;
+
+    width: 1px;
+    height: 70%;
+
+    background: var(--line);
+}
+
+.stats-section .stat-item strong {
+    display: block;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(48px, 5vw, 82px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -4px;
+
+    color: #f4f4f4;
+}
+
+.stats-section .stat-item small {
+    display: block;
+
+    margin-top: 15px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    color: #666;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .stats-section {
+        padding: 55px 20px;
+    }
+
+    .stats-section .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 10px;
+    }
+
+    .stats-section .stat-item:nth-child(2)::after {
+        display: none;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .stats-section {
+        padding: 45px 15px;
+    }
+
+    .stats-section .stat-item strong {
+        font-size: 42px;
+        letter-spacing: -2px;
+    }
+
+    .stats-section .stat-item small {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+}
