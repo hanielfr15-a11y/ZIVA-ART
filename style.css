@@ -2097,3 +2097,39 @@ body.ziva-loaded .ticker {
     }
 
 }
+/* =========================================================
+   ZIVA ART - BOTÃO MAGNÉTICO
+   Preparação para seguir o mouse
+   ========================================================= */
+
+.btn {
+    position: relative;
+
+    transform:
+        translate3d(
+            var(--mouse-x, 0px),
+            var(--mouse-y, 0px),
+            0
+        );
+
+    transition:
+        transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+
+    will-change: transform;
+}
+
+/* Mantém o botão no lugar quando não há movimento */
+.btn:not(:hover) {
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+}
+
+/* Brilho suave */
+.btn:hover {
+    box-shadow:
+        0 10px 28px rgba(255, 23, 34, 0.22),
+        0 0 20px rgba(255, 23, 34, 0.12);
+}
