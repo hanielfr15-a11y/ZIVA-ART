@@ -2039,12 +2039,12 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
   }
 }
 /* =========================================================
-   ZIVA ART - ESTATÍSTICAS
+   ESTATÍSTICAS - LAYOUT
    ========================================================= */
 
 .stats-section {
     width: 100%;
-    padding: 75px 5vw 80px;
+    padding: 48px 5vw 52px;
     background: #050505;
     border-bottom: 1px solid var(--line);
 }
@@ -2056,51 +2056,139 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+
+    align-items: center;
 }
 
 .stats-section .stat-item {
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 105px;
+    padding: 0 30px;
+
     text-align: center;
-    padding: 10px 20px;
 }
+
+
+/* DIVISÓRIAS */
 
 .stats-section .stat-item:not(:last-child)::after {
     content: "";
 
     position: absolute;
+
     right: 0;
-    top: 15%;
+    top: 8px;
 
     width: 1px;
-    height: 70%;
+    height: calc(100% - 16px);
 
-    background: var(--line);
+    background: #262626;
 }
+
+
+/* NÚMEROS */
 
 .stats-section .stat-item strong {
     display: block;
 
+    margin: 0;
+
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(48px, 5vw, 82px);
+
+    font-size: clamp(52px, 4.2vw, 76px);
+
     font-weight: 800;
-    line-height: 1;
-    letter-spacing: -4px;
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
 
     color: #f4f4f4;
 }
 
+
+/* NOMES */
+
 .stats-section .stat-item small {
     display: block;
 
-    margin-top: 15px;
+    margin-top: 16px;
 
-    font-size: 10px;
+    font-family: "Inter", sans-serif;
+
+    font-size: 9px;
+
     font-weight: 700;
+
+    line-height: 1;
+
     letter-spacing: 3px;
 
-    color: #666;
+    color: #686868;
+
     text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ESPAÇAMENTO COM O CATÁLOGO
+   ========================================================= */
+
+.stats-section + .section {
+    padding-top: 62px;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .stats-section {
+        padding: 45px 25px;
+    }
+
+    .stats-section .stat-item {
+        padding: 0 15px;
+    }
+
+    .stats-section .stat-item strong {
+        font-size: 48px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .stats-section {
+        padding: 40px 20px;
+    }
+
+    .stats-section .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px 0;
+    }
+
+    .stats-section .stat-item:nth-child(2)::after {
+        display: none;
+    }
+
+    .stats-section .stat-item:nth-child(4)::after {
+        display: none;
+    }
+
+    .stats-section .stat-item strong {
+        font-size: 42px;
+    }
+
 }
 
 
