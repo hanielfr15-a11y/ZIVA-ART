@@ -1708,7 +1708,6 @@ footer small {
   border-radius: 5px;
 }
 
-
 /* =========================================================
    29. HOVER MAIS ELEGANTE
    ========================================================= */
@@ -1721,166 +1720,97 @@ footer small {
 .cart-btn,
 .floating-card {
   transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease,
-    background 0.35s ease;
-}
-/* =========================================================
-   ZIVA ART - ANIMAÇÃO DE ENTRADA
-   ========================================================= */
-
-/* Estado inicial dos elementos */
-.hero,
-.hero-content,
-.hero h1,
-.hero p,
-.hero .actions,
-.hero .stats,
-.hero-visual,
-header,
-nav,
-.product,
-.category,
-.categories,
-.ticker {
-    animation-fill-mode: both;
-}
-
-/* Header */
-header {
-    animation: zivaFadeDown 0.45s ease-out 0.05s both;
-}
-
-/* Texto pequeno do hero */
-.hero-content > *:nth-child(1) {
-    animation: zivaFadeUp 0.45s ease-out 0.10s both;
-}
-
-/* Título */
-.hero h1 {
-    animation: zivaFadeUp 0.50s ease-out 0.18s both;
-}
-
-/* Descrição */
-.hero p {
-    animation: zivaFadeUp 0.45s ease-out 0.28s both;
-}
-
-/* Botões */
-.hero .actions {
-    animation: zivaFadeUp 0.45s ease-out 0.38s both;
-}
-
-/* Números */
-.hero .stats {
-    animation: zivaFadeUp 0.45s ease-out 0.48s both;
-}
-
-/* Arte visual do lado direito */
-.hero-visual {
-    animation: zivaFadeLeft 0.65s ease-out 0.20s both;
-}
-
-/* Faixa inferior */
-.ticker {
-    animation: zivaFadeUp 0.45s ease-out 0.55s both;
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
 }
 
 /* =========================================================
-   ANIMAÇÕES
+   30. NEON DOS CARDS
    ========================================================= */
 
-@keyframes zivaFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(22px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* =========================================================
-   ZIVA ART - LOADER
-   ========================================================= */
-
-.ziva-loader {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background: #050505;
-
-    opacity: 1;
-    visibility: visible;
-
-    transition:
-        opacity 0.45s ease,
-        visibility 0.45s ease;
+.product:hover {
+  transform: translateY(-9px);
+  border-color: var(--red);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.55),
+    0 0 20px rgba(255, 23, 34, 0.28),
+    0 0 45px rgba(255, 23, 34, 0.12);
 }
 
-.ziva-loader.hide {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+.cat:hover {
+  transform: translateY(-6px);
+  border-color: var(--red);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(255, 23, 34, 0.14);
 }
-
-.loader-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    color: #fff;
-
-    animation: zivaLoaderLogo 0.45s ease-out both;
-}
-
-.loader-logo span {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 54px;
-    line-height: 0.85;
-    font-weight: 800;
-    letter-spacing: -4px;
-}
-
-.loader-logo small {
-    margin-top: 8px;
-
-    color: #ff1722;
-
-    font-family: "Inter", sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 8px;
-
-    transform: translateX(4px);
-}
-
-.loader-line {
-    width: 100px;
-    height: 2px;
-
-    margin-top: 28px;
-
-    background: #ff1722;
-
-    transform-origin: left;
-
-    animation: zivaLoaderLine 0.55s ease-out 0.1s both;
-}
-
 
 /* =========================================================
-   ENTRADA DOS ELEMENTOS
+   31. BOTÕES
    ========================================================= */
 
+.btn {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255, 255, 255, 0.16),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.45s ease;
+  pointer-events: none;
+}
+
+.btn:hover::before {
+  left: 140%;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 9px 24px rgba(255, 23, 34, 0.20),
+    0 0 18px rgba(255, 23, 34, 0.10);
+}
+
+.btn.primary:hover {
+  background: #ff3039;
+  border-color: #ff3039;
+  box-shadow:
+    0 9px 26px rgba(255, 23, 34, 0.30),
+    0 0 22px rgba(255, 23, 34, 0.16);
+}
+
+.btn.ghost:hover {
+  color: #fff;
+  border-color: var(--red);
+  box-shadow:
+    0 8px 22px rgba(255, 23, 34, 0.16),
+    inset 0 0 15px rgba(255, 23, 34, 0.04);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* =========================================================
+   32. ANIMAÇÃO DE ENTRADA
+   ========================================================= */
+
+/* Esconde o conteúdo somente enquanto o loader está ativo. */
 body:not(.ziva-loaded) .announcement,
 body:not(.ziva-loaded) .header,
 body:not(.ziva-loaded) .hero,
@@ -1889,249 +1819,214 @@ body:not(.ziva-loaded) .section,
 body:not(.ziva-loaded) .feature,
 body:not(.ziva-loaded) .cta,
 body:not(.ziva-loaded) footer {
-    opacity: 0;
+  opacity: 0;
 }
 
+/* Entrada rápida, mas perceptível. */
 body.ziva-loaded .announcement {
-    animation: zivaFadeDown 0.35s ease-out 0.05s both;
+  animation: zivaFadeDown 0.30s ease-out 0.02s both;
 }
 
 body.ziva-loaded .header {
-    animation: zivaFadeDown 0.4s ease-out 0.1s both;
+  animation: zivaFadeDown 0.38s ease-out 0.06s both;
 }
 
 body.ziva-loaded .hero-copy .eyebrow {
-    animation: zivaFadeUp 0.35s ease-out 0.16s both;
+  animation: zivaFadeUp 0.32s ease-out 0.10s both;
 }
 
 body.ziva-loaded .hero-copy h1 {
-    animation: zivaFadeUp 0.4s ease-out 0.22s both;
+  animation: zivaFadeUp 0.38s ease-out 0.15s both;
 }
 
 body.ziva-loaded .hero-copy > p {
-    animation: zivaFadeUp 0.35s ease-out 0.3s both;
+  animation: zivaFadeUp 0.32s ease-out 0.22s both;
 }
 
 body.ziva-loaded .hero-actions {
-    animation: zivaFadeUp 0.35s ease-out 0.38s both;
+  animation: zivaFadeUp 0.32s ease-out 0.28s both;
 }
 
 body.ziva-loaded .stats {
-    animation: zivaFadeUp 0.35s ease-out 0.45s both;
+  animation: zivaFadeUp 0.32s ease-out 0.34s both;
 }
 
 body.ziva-loaded .hero-art {
-    animation: zivaFadeLeft 0.5s ease-out 0.25s both;
+  animation: zivaFadeLeft 0.45s ease-out 0.18s both;
 }
 
 body.ziva-loaded .ticker {
-    animation: zivaFadeUp 0.35s ease-out 0.5s both;
+  animation: zivaFadeUp 0.30s ease-out 0.40s both;
 }
 
-
-/* =========================================================
-   ANIMAÇÕES
-   ========================================================= */
-
-@keyframes zivaLoaderLogo {
-
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-
+/* Cards entram em sequência. */
+body.ziva-loaded .product {
+  animation: zivaProductIn 0.45s ease-out both;
 }
 
-@keyframes zivaLoaderLine {
+body.ziva-loaded .product:nth-child(1) { animation-delay: 0.42s; }
+body.ziva-loaded .product:nth-child(2) { animation-delay: 0.47s; }
+body.ziva-loaded .product:nth-child(3) { animation-delay: 0.52s; }
+body.ziva-loaded .product:nth-child(4) { animation-delay: 0.57s; }
+body.ziva-loaded .product:nth-child(5) { animation-delay: 0.62s; }
+body.ziva-loaded .product:nth-child(6) { animation-delay: 0.67s; }
+body.ziva-loaded .product:nth-child(7) { animation-delay: 0.72s; }
+body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
-    from {
-        transform: scaleX(0);
-        opacity: 0;
-    }
+@keyframes zivaProductIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
 
-    to {
-        transform: scaleX(1);
-        opacity: 1;
-    }
-
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes zivaFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
 
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes zivaFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
 
-    from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes zivaFadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
 
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
 /* =========================================================
-   ZIVA ART - HOVER DOS BOTÕES
+   33. LOADER
    ========================================================= */
 
-.btn {
-    position: relative;
-    overflow: hidden;
-
-    transition:
-        transform 0.22s ease,
-        box-shadow 0.22s ease,
-        border-color 0.22s ease,
-        background-color 0.22s ease;
-
-    will-change: transform;
+.ziva-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #050505;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.40s ease,
+    visibility 0.40s ease;
 }
 
-/* Brilho que atravessa o botão */
-.btn::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: -120%;
-
-    width: 70%;
-    height: 100%;
-
-    background: linear-gradient(
-        110deg,
-        transparent,
-        rgba(255, 255, 255, 0.16),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-
-    transition: left 0.45s ease;
-
-    pointer-events: none;
+.ziva-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-/* Conteúdo fica acima do brilho */
-.btn > * {
-    position: relative;
-    z-index: 2;
+.loader-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  animation: zivaLoaderLogo 0.40s ease-out both;
 }
 
-/* Movimento ao passar o mouse */
-.btn:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 8px 22px rgba(255, 23, 34, 0.18),
-        0 0 18px rgba(255, 23, 34, 0.08);
+.loader-logo span {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 54px;
+  line-height: 0.85;
+  font-weight: 800;
+  letter-spacing: -4px;
 }
 
-/* Passagem do brilho */
-.btn:hover::before {
-    left: 140%;
+.loader-logo small {
+  margin-top: 8px;
+  color: #ff1722;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  transform: translateX(4px);
 }
 
-/* Botão vermelho */
-.btn.primary:hover {
-    background: #ff1722;
-    border-color: #ff1722;
-
-    box-shadow:
-        0 8px 25px rgba(255, 23, 34, 0.30),
-        0 0 20px rgba(255, 23, 34, 0.16);
+.loader-line {
+  width: 100px;
+  height: 2px;
+  margin-top: 28px;
+  background: #ff1722;
+  transform-origin: left;
+  animation: zivaLoaderLine 0.50s ease-out 0.08s both;
 }
 
-/* Botão transparente */
-.btn.ghost:hover {
-    color: #fff;
-    border-color: #ff1722;
+@keyframes zivaLoaderLogo {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
 
-    box-shadow:
-        0 8px 22px rgba(255, 23, 34, 0.16),
-        inset 0 0 15px rgba(255, 23, 34, 0.04);
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Quando clica */
-.btn:active {
-    transform: translateY(-1px) scale(0.98);
-    transition-duration: 0.08s;
+@keyframes zivaLoaderLine {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
-/* Evita animações exageradas no celular */
+/* =========================================================
+   34. ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   35. MOBILE
+   ========================================================= */
+
 @media (max-width: 700px) {
-
-    .btn:hover {
-        transform: none;
-        box-shadow: none;
-    }
-
-}
-/* =========================================================
-   ZIVA ART - BOTÃO MAGNÉTICO
-   Preparação para seguir o mouse
-   ========================================================= */
-
-.btn {
-    position: relative;
-
-    transform:
-        translate3d(
-            var(--mouse-x, 0px),
-            var(--mouse-y, 0px),
-            0
-        );
-
-    transition:
-        transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease;
-
-    will-change: transform;
-}
-
-/* Mantém o botão no lugar quando não há movimento */
-.btn:not(:hover) {
-    --mouse-x: 0px;
-    --mouse-y: 0px;
-}
-
-/* Brilho suave */
-.btn:hover {
-    box-shadow:
-        0 10px 28px rgba(255, 23, 34, 0.22),
-        0 0 20px rgba(255, 23, 34, 0.12);
+  .btn:hover {
+    transform: translateY(-2px);
+  }
 }
