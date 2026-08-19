@@ -572,7 +572,7 @@ function animateCounter(element) {
 
     const target = Number(element.dataset.target);
     const suffix = element.dataset.suffix || "";
-    const duration = 1400;
+    const duration = 2800;
 
     let startTime = null;
 
@@ -634,7 +634,7 @@ function initCounters() {
 
                     setTimeout(() => {
                         animateCounter(counter);
-                    }, index * 120);
+                    }, index * 180);
 
                 });
 
