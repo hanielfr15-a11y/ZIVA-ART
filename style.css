@@ -2314,15 +2314,13 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 }
 
 .header .brand img {
-    display: block !important;
+  height: 38px !important;
+  width: auto !important;
+  max-width: 200px !important;
+  object-fit: contain !important;
 
-    width: 125px !important;
-    height: auto !important;
-
-    background: transparent !important;
-
-    object-fit: contain;
-
-    border: 0 !important;
-    box-shadow: none !important;
+  display: block !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
