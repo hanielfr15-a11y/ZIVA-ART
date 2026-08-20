@@ -2460,3 +2460,18 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     }
 
 }
+/* =========================================================
+   ZIVA ART - DARK GLASS HEADER
+   ========================================================= */
+
+.header {
+    background: rgba(8, 8, 8, 0.72) !important;
+
+    backdrop-filter: blur(16px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(120%) !important;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.18) !important;
+}
