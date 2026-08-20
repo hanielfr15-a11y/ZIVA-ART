@@ -3049,3 +3049,17 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     grid-template-columns: 1fr !important;
   }
 }
+/* Quando você clica no menu de ordenar */
+#catalogSort:focus {
+  border-color: #ff0000 !important; /* Borda fica vermelha */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3) !important; /* Um brilho vermelho em volta */
+  outline: none;
+}
+
+/* Tenta mudar a cor da seleção (funciona em alguns navegadores) */
+#catalogSort option:checked,
+#catalogSort option:hover {
+  box-shadow: 0 0 10px #ff0000 inset !important;
+  background-color: #ff0000 !important;
+  color: white !important;
+}
