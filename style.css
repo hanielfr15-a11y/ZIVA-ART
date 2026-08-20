@@ -2461,17 +2461,17 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
 }
 /* =========================================================
-   ZIVA ART - DARK GLASS HEADER
+   ZIVA ART - DARK GLASS VISÍVEL
    ========================================================= */
 
 .header {
-    background: rgba(8, 8, 8, 0.72) !important;
+    background: rgba(20, 20, 20, 0.58) !important;
 
-    backdrop-filter: blur(16px) saturate(120%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(120%) !important;
+    backdrop-filter: blur(22px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(140%) !important;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
 
     box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.18) !important;
+        0 10px 40px rgba(0, 0, 0, 0.35) !important;
 }
