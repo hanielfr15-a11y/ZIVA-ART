@@ -1752,9 +1752,18 @@ footer small {
    ========================================================= */
 
 .btn {
-  position: relative;
-  overflow: hidden;
-  will-change: transform;
+    position: relative;
+    overflow: hidden;
+
+    translate: var(--mouse-x, 0px) var(--mouse-y, 0px);
+
+    transition:
+        translate 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+
+    will-change: translate;
 }
 
 .btn::before {
@@ -1780,7 +1789,6 @@ footer small {
 }
 
 .btn:hover {
-  transform: translateY(-4px);
   box-shadow:
     0 9px 24px rgba(255, 23, 34, 0.20),
     0 0 18px rgba(255, 23, 34, 0.10);
@@ -2029,4 +2037,674 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
   .btn:hover {
     transform: translateY(-2px);
   }
+}
+
+/* =========================================================
+   36. CORREÇÃO FINAL - HERO + ESTATÍSTICAS
+   ========================================================= */
+
+.hero {
+  min-height: 690px !important;
+  height: auto !important;
+  padding: 70px 6vw 65px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 0.9fr !important;
+  gap: 30px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.hero-copy {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.hero-actions {
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.hero-art {
+  position: relative !important;
+  z-index: 1 !important;
+  min-height: 500px !important;
+}
+
+.ticker {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+
+/* ESTATÍSTICAS */
+
+.stats-section {
+  width: 100%;
+  padding: 60px 6vw;
+  background: #050505;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 2;
+}
+
+.stats-section .stats {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.stats-section .stat-item {
+  position: relative;
+  min-height: 120px;
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.stats-section .stat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: 1px;
+  height: calc(100% - 20px);
+  background: #252525;
+}
+
+.stats-section .stat-item strong {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(48px, 4.5vw, 76px) !important;
+  font-weight: 800;
+  line-height: 1 !important;
+  letter-spacing: -3px;
+  color: #f4f4f4;
+  white-space: nowrap;
+}
+
+.stats-section .stat-item small {
+  display: block !important;
+  margin-top: 14px !important;
+  font-family: "Inter", sans-serif;
+  font-size: 9px !important;
+  font-weight: 700;
+  line-height: 1 !important;
+  letter-spacing: 3px;
+  color: #686868;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.stats-section + .section {
+  padding-top: 80px;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stats-section {
+    padding: 50px 25px;
+  }
+
+  .stats-section .stats {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+  }
+
+  .stats-section .stat-item {
+    min-height: 100px;
+    padding: 10px 15px;
+  }
+
+  .stats-section .stat-item:nth-child(2)::after,
+  .stats-section .stat-item:nth-child(4)::after {
+    display: none;
+  }
+
+  .stats-section .stat-item strong {
+    font-size: 48px !important;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .stats-section {
+    padding: 40px 20px;
+  }
+
+  .stats-section .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-section .stat-item strong {
+    font-size: 40px !important;
+    letter-spacing: -2px;
+  }
+
+  .stats-section .stat-item small {
+    font-size: 8px !important;
+    letter-spacing: 2px;
+  }
+}
+/* =========================================================
+   CORREÇÃO DEFINITIVA DO HERO
+   ========================================================= */
+
+.hero {
+    min-height: 690px !important;
+    height: 690px !important;
+
+    box-sizing: border-box !important;
+
+    position: relative !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr 0.9fr !important;
+
+    padding: 70px 6vw 65px !important;
+
+    overflow: hidden !important;
+}
+
+
+.hero-copy {
+    position: relative !important;
+
+    z-index: 5 !important;
+
+    min-height: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    justify-content: center !important;
+
+    align-items: flex-start !important;
+}
+
+
+.hero-copy > p {
+    position: relative !important;
+    z-index: 5 !important;
+
+    margin-bottom: 28px !important;
+}
+
+
+.hero-actions {
+    position: relative !important;
+
+    z-index: 10 !important;
+
+    display: flex !important;
+
+    gap: 14px !important;
+}
+
+
+.hero-art {
+    position: relative !important;
+
+    z-index: 2 !important;
+
+    min-height: 500px !important;
+
+    height: 100% !important;
+}
+
+
+/* TICKER SEM SOBREPOSIÇÃO */
+
+.ticker {
+    position: relative !important;
+
+    z-index: 20 !important;
+
+    margin-top: 0 !important;
+
+    clear: both !important;
+}
+
+
+/* ESTATÍSTICAS */
+
+.stats-section {
+    position: relative !important;
+
+    z-index: 10 !important;
+
+    clear: both !important;
+}
+/* =========================================================
+   CORREÇÃO DA LOGO DO HEADER
+   ========================================================= */
+
+.header .brand {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.header .brand img {
+  height: 58px !important;
+  width: auto !important;
+  max-width: 200px !important;
+  object-fit: contain !important;
+
+  display: block !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+/* =========================================================
+   TICKER CONTÍNUO - ZIVA ART
+   ========================================================= */
+
+.ticker {
+    width: 100%;
+    height: 82px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    border-top: 1px solid #242424;
+    border-bottom: 1px solid #242424;
+
+    background: #050505;
+
+    position: relative;
+    z-index: 20;
+}
+
+.ticker-track {
+    display: flex;
+    align-items: center;
+
+    width: max-content;
+
+    gap: 55px;
+
+    white-space: nowrap;
+
+    animation: tickerRight 28s linear infinite;
+
+    will-change: transform;
+}
+
+.ticker-track span {
+    display: inline-block;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    color: #eeeeee;
+
+    text-transform: uppercase;
+}
+
+.ticker-track b {
+    display: inline-block;
+
+    font-size: 13px;
+
+    color: #ff1722;
+
+    font-weight: 700;
+}
+
+
+/* Movimento da esquerda para a direita */
+
+/* =========================================================
+   TICKER ZIVA ART - MOVIMENTO CONTÍNUO
+   ========================================================= */
+
+.ticker {
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.ticker-track {
+    display: flex !important;
+    align-items: center !important;
+
+    width: max-content !important;
+    flex-shrink: 0 !important;
+
+    white-space: nowrap !important;
+
+    animation: tickerMoveRight 24s linear infinite !important;
+
+    will-change: transform !important;
+}
+
+
+/* ESQUERDA → DIREITA */
+
+@keyframes tickerMoveRight {
+
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* mantém o movimento mesmo quando passar o mouse */
+
+.ticker:hover .ticker-track {
+    animation-play-state: running !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .ticker {
+        height: 70px;
+    }
+
+    .ticker-track {
+        gap: 35px;
+        animation: tickerMoveRight 24s linear infinite !important;
+    }
+
+    .ticker-track span {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    .ticker-track b {
+        font-size: 10px;
+    }
+
+}
+
+/* =========================================================
+   ZIVA ART - CATÁLOGO FINAL / CLEAN PREMIUM
+   ========================================================= */
+
+#catalogo.catalog-section {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 90px 0 110px !important;
+}
+
+#catalogo .catalog-wrap {
+    position: relative !important;
+    width: min(1160px, calc(100% - 48px)) !important;
+    max-width: 1160px !important;
+    margin: 0 auto !important;
+}
+
+#catalogo .section-head {
+    width: 100% !important;
+    margin: 0 0 28px !important;
+}
+
+#catalogo .catalog-toolbar {
+    position: relative !important;
+    width: 100% !important;
+    height: 58px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 !important;
+    margin: 0 0 24px !important;
+    border-top: 1px solid rgba(255,255,255,.09) !important;
+    border-bottom: 1px solid rgba(255,255,255,.09) !important;
+    background: transparent !important;
+}
+
+#catalogo .catalog-left {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+#catalogo .catalog-filter-btn {
+    height: 40px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 0 16px !important;
+    border: 1px solid #292929 !important;
+    border-radius: 6px !important;
+    background: #111 !important;
+    color: #fff !important;
+    font-family: inherit !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease !important;
+}
+
+#catalogo .catalog-filter-btn:hover,
+#catalogo .catalog-filter-btn:focus-visible {
+    background: var(--red) !important;
+    border-color: var(--red) !important;
+    color: #fff !important;
+    outline: none !important;
+}
+
+#catalogo .catalog-filter-btn span {
+    font-size: 12px !important;
+    line-height: 1 !important;
+}
+
+#catalogo .catalog-results {
+    color: #777 !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+}
+
+/* MENU FLUTUANTE */
+#catalogo .catalog-filters {
+    position: absolute !important;
+    top: 148px !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+    width: 210px !important;
+    max-height: none !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+    padding: 7px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    background: rgba(12,12,12,.98) !important;
+    border: 1px solid #292929 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,.6) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+}
+
+#catalogo .catalog-filters.open {
+    display: flex !important;
+}
+
+#catalogo .filter-option {
+    width: 100% !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 0 12px !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+    color: #888 !important;
+    font-family: inherit !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    transition: background .2s ease, color .2s ease !important;
+}
+
+#catalogo .filter-option:hover {
+    background: #181818 !important;
+    color: #fff !important;
+}
+
+#catalogo .filter-option.active {
+    background: var(--red) !important;
+    color: #fff !important;
+}
+
+/* ORDENAÇÃO */
+#catalogo .catalog-sort {
+    display: flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+}
+
+#catalogo .catalog-sort label {
+    color: #777 !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+}
+
+#catalogo .catalog-sort select {
+    min-width: 125px !important;
+    height: 36px !important;
+    padding: 0 20px 0 0 !important;
+    border: 0 !important;
+    outline: none !important;
+    background: transparent !important;
+    color: #eee !important;
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+}
+
+#catalogo .catalog-sort select option {
+    background: #0b0b0b !important;
+    color: #fff !important;
+}
+
+/* GRADE */
+#catalogo .products {
+    width: 100% !important;
+    max-width: 1160px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    margin: 0 !important;
+}
+
+#catalogo .product {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+#catalogo .product-img {
+    height: 275px !important;
+}
+
+@media (max-width: 950px) {
+    #catalogo .catalog-wrap {
+        width: calc(100% - 40px) !important;
+    }
+
+    #catalogo .products {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 700px) {
+    #catalogo.catalog-section {
+        padding: 70px 0 80px !important;
+    }
+
+    #catalogo .catalog-wrap {
+        width: calc(100% - 28px) !important;
+    }
+
+    #catalogo .catalog-toolbar {
+        height: 56px !important;
+    }
+
+    #catalogo .catalog-results {
+        font-size: 9px !important;
+    }
+
+    #catalogo .catalog-sort label {
+        display: none !important;
+    }
+
+    #catalogo .catalog-sort select {
+        min-width: 105px !important;
+    }
+
+    #catalogo .catalog-filters {
+        top: 142px !important;
+        width: 190px !important;
+    }
+
+    #catalogo .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 9px !important;
+    }
+
+    #catalogo .product-img {
+        height: 190px !important;
+    }
 }
