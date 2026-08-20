@@ -3063,3 +3063,23 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
   background-color: #ff0000 !important;
   color: white !important;
 }
+/* --- CENTRALIZAÇÃO SEGURA (ESTILO BLACK ARTES) --- */
+
+/* 1. Limitamos a largura das seções principais */
+.hero, .stats-section, .section, footer, .cta {
+  max-width: 1250px !important; /* Largura máxima confortável */
+  margin-left: auto !important;  /* Centraliza */
+  margin-right: auto !important; /* Centraliza */
+  width: 92% !important;         /* Garante folga em telas menores */
+}
+
+/* 2. Mantemos o fundo da Header e do Ticker ocupando a tela toda */
+.header, .ticker, .announcement {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* 3. Ajuste para a barra de filtro e produtos não passarem do limite */
+.catalog-toolbar, .products {
+  max-width: 100% !important; /* Eles vão respeitar o tamanho da seção pai */
+}
