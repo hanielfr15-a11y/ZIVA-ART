@@ -3489,3 +3489,349 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     }
 }
 
+/* =========================================================
+   ZIVA ART - CATÁLOGO FINAL
+   NÃO ALTERAR OUTRAS ÁREAS DO SITE
+   ========================================================= */
+
+/* CATÁLOGO */
+#catalogo {
+    position: relative !important;
+
+    width: 1000px !important;
+    max-width: calc(100% - 44px) !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* CABEÇALHO */
+#catalogo .section-head {
+    width: 100% !important;
+    margin-bottom: 28px !important;
+}
+
+
+/* BARRA */
+#catalogo .catalog-toolbar {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 58px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    margin: 0 0 24px 0 !important;
+    padding: 0 !important;
+
+    border-top: 1px solid rgba(255,255,255,.09) !important;
+    border-bottom: 1px solid rgba(255,255,255,.09) !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* LADO DO FILTRO */
+#catalogo .catalog-left {
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 16px !important;
+
+    height: 100% !important;
+}
+
+
+/* BOTÃO FILTRO */
+#catalogo .catalog-filter-btn {
+    height: 40px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    padding: 0 18px !important;
+
+    margin: 0 !important;
+
+    background: var(--red) !important;
+
+    border: 1px solid var(--red) !important;
+    border-radius: 8px !important;
+
+    color: #fff !important;
+
+    font-size: 10px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+
+    cursor: pointer !important;
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease !important;
+}
+
+
+#catalogo .catalog-filter-btn:hover {
+    background: #ff3039 !important;
+    border-color: #ff3039 !important;
+
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 8px 22px rgba(255,23,34,.20) !important;
+}
+
+
+/* RESULTADOS */
+#catalogo .catalog-results {
+    color: #777 !important;
+
+    font-size: 10px !important;
+    font-weight: 500 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   FILTRO FLUTUANTE
+   ========================================================= */
+
+#catalogo .catalog-filters {
+    position: absolute !important;
+
+    top: calc(100% + 8px) !important;
+    left: 0 !important;
+
+    width: 205px !important;
+
+    display: none !important;
+
+    flex-direction: column !important;
+
+    gap: 3px !important;
+
+    padding: 7px !important;
+    margin: 0 !important;
+
+    background: rgba(12,12,12,.98) !important;
+
+    border: 1px solid rgba(255,255,255,.10) !important;
+    border-radius: 8px !important;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.55) !important;
+
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+
+    z-index: 9999 !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* ABRE QUANDO O MOUSE ESTÁ NO BOTÃO/ÁREA */
+#catalogo .catalog-left:hover .catalog-filters {
+    display: flex !important;
+}
+
+
+/* TAMBÉM PERMANECE ABERTO AO PASSAR SOBRE O MENU */
+#catalogo .catalog-filters:hover {
+    display: flex !important;
+}
+
+
+/* OPÇÕES */
+#catalogo .catalog-filters .filter-option {
+    width: 100% !important;
+    height: 38px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    padding: 0 12px !important;
+    margin: 0 !important;
+
+    border: 0 !important;
+    border-radius: 5px !important;
+
+    background: transparent !important;
+
+    color: #888 !important;
+
+    font-family: inherit !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+
+    text-align: left !important;
+    text-transform: uppercase !important;
+
+    cursor: pointer !important;
+
+    box-sizing: border-box !important;
+
+    transition:
+        background .2s ease,
+        color .2s ease !important;
+}
+
+
+#catalogo .catalog-filters .filter-option:hover {
+    background: rgba(255,255,255,.06) !important;
+    color: #fff !important;
+}
+
+
+#catalogo .catalog-filters .filter-option.active {
+    background: var(--red) !important;
+    color: #fff !important;
+}
+
+
+/* =========================================================
+   ORDENAÇÃO
+   ========================================================= */
+
+#catalogo .catalog-sort {
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 7px !important;
+}
+
+
+#catalogo .catalog-sort label {
+    color: #777 !important;
+
+    font-size: 10px !important;
+
+    white-space: nowrap !important;
+}
+
+
+#catalogo .catalog-sort select {
+    width: 135px !important;
+    height: 36px !important;
+
+    padding: 0 20px 0 0 !important;
+
+    border: 0 !important;
+    outline: none !important;
+
+    background-color: transparent !important;
+
+    color: #ddd !important;
+
+    font-family: inherit !important;
+
+    font-size: 10px !important;
+    font-weight: 700 !important;
+
+    cursor: pointer !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   ARTES
+   ========================================================= */
+
+#catalogo .products {
+    width: 100% !important;
+    max-width: 1000px !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr)) !important;
+
+    gap: 14px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    box-sizing: border-box !important;
+}
+
+
+#catalogo .product {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    #catalogo {
+        width: calc(100% - 40px) !important;
+        max-width: none !important;
+    }
+
+    #catalogo .products {
+        grid-template-columns:
+            repeat(3, minmax(0,1fr)) !important;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    #catalogo {
+        width: calc(100% - 28px) !important;
+        max-width: none !important;
+    }
+
+    #catalogo .catalog-toolbar {
+        height: auto !important;
+        min-height: 58px !important;
+    }
+
+    #catalogo .catalog-results {
+        font-size: 9px !important;
+    }
+
+    #catalogo .catalog-sort label {
+        display: none !important;
+    }
+
+    #catalogo .catalog-sort select {
+        width: 110px !important;
+    }
+
+    #catalogo .products {
+        grid-template-columns:
+            repeat(2, minmax(0,1fr)) !important;
+
+        gap: 9px !important;
+    }
+
+}
