@@ -3353,7 +3353,7 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 /* Container igual à referência: estreito e centralizado */
 .catalog-wrap,
 #catalogo {
-    width: min(880px, calc(100% - 40px)) !important;
+    width: min(1000px, calc(100% - 40px)) !important;
     max-width: 880px !important;
     margin-left: auto !important;
     margin-right: auto !important;
