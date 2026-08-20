@@ -3344,3 +3344,149 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 .catalog-bar-left {
     position: relative;
 }
+
+/* =========================================================
+   ZIVA ART - AJUSTE FINAL DO CATÁLOGO
+   Somente largura/posicionamento + filtro flutuante
+   ========================================================= */
+
+/* Container igual à referência: estreito e centralizado */
+.catalog-wrap,
+#catalogo {
+    width: min(880px, calc(100% - 40px)) !important;
+    max-width: 880px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Barra acompanha exatamente a largura do catálogo */
+.catalog-wrap .catalog-toolbar,
+.catalog-wrap .catalog-bar,
+#catalogo .catalog-toolbar,
+#catalogo .catalog-bar {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Grade acompanha exatamente a largura do catálogo */
+.catalog-wrap .products,
+#catalogo .products {
+    width: 100% !important;
+    max-width: 880px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Botão FILTRO no mesmo vermelho dos botões principais */
+.catalog-filter-btn,
+.catalog-filter {
+    background: var(--red) !important;
+    border-color: var(--red) !important;
+    color: #fff !important;
+}
+
+.catalog-filter-btn:hover,
+.catalog-filter:hover {
+    background: #ff3039 !important;
+    border-color: #ff3039 !important;
+    color: #fff !important;
+}
+
+/* Filtro abre como menu flutuante, sem empurrar os cards */
+.catalog-bar-left,
+.catalog-left {
+    position: relative !important;
+}
+
+.catalog-bar-left .catalog-filters,
+.catalog-left .catalog-filters {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: 0 !important;
+    width: 205px !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 7px !important;
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 3px !important;
+    overflow: visible !important;
+    z-index: 999 !important;
+    background: rgba(12,12,12,.98) !important;
+    border: 1px solid rgba(255,255,255,.10) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,.55) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* Passou o mouse no botão/área do filtro = menu aparece */
+.catalog-bar-left:hover .catalog-filters,
+.catalog-left:hover .catalog-filters,
+.catalog-bar-left:focus-within .catalog-filters,
+.catalog-left:focus-within .catalog-filters,
+.catalog-filters:hover {
+    display: flex !important;
+}
+
+/* Opções do filtro */
+.catalog-filters .filter-option {
+    width: 100% !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 12px !important;
+    border: 0 !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+    color: #888 !important;
+    text-align: left !important;
+}
+
+.catalog-filters .filter-option:hover,
+.catalog-filters .filter-option.active {
+    background: var(--red) !important;
+    color: #fff !important;
+}
+
+/* Não deixa as categorias aparecerem na barra */
+.catalog-bar > .catalog-filters,
+.catalog-toolbar > .catalog-filters {
+    position: absolute !important;
+}
+
+/* Ordenação limpa, sem aparência de caixa */
+.catalog-order select,
+.catalog-sort select {
+    border: 0 !important;
+    outline: 0 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #eee !important;
+}
+
+/* Responsivo */
+@media (max-width: 950px) {
+    .catalog-wrap,
+    #catalogo {
+        width: calc(100% - 40px) !important;
+        max-width: 880px !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .catalog-wrap,
+    #catalogo {
+        width: calc(100% - 28px) !important;
+        max-width: none !important;
+    }
+
+    .catalog-wrap .products,
+    #catalogo .products {
+        max-width: none !important;
+    }
+}
+
