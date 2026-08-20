@@ -3354,7 +3354,7 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 .catalog-wrap,
 #catalogo {
     width: min(1000px, calc(100% - 40px)) !important;
-    max-width: 880px !important;
+    max-width: 1000px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding-left: 0 !important;
