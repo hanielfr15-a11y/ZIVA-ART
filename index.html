@@ -486,62 +486,109 @@
        BARRA DA LOJA
        ================================================= -->
 
-  <div class="catalog-toolbar">
+<div class="catalog-toolbar">
 
-    <!-- ESQUERDA -->
-    <div class="catalog-left">
+  <!-- ESQUERDA -->
+  <div class="catalog-left">
+
+    <button
+      type="button"
+      class="catalog-filter-btn"
+      id="catalogFilterBtn"
+    >
+      <span>☰</span>
+      FILTRO
+    </button>
+
+    <span
+      class="catalog-results"
+      id="catalogResults"
+    >
+      Há 0 resultados no total
+    </span>
+
+
+    <!-- FILTROS -->
+    <div
+      class="catalog-filters"
+      id="catalogFilters"
+    >
 
       <button
         type="button"
-        class="catalog-filter-btn"
-        id="catalogFilterBtn"
+        class="filter-option active"
+        data-filter="all"
       >
-        <span>☰</span>
-        FILTRO
+        Todos
       </button>
 
-
-      <span
-        class="catalog-results"
-        id="catalogResults"
+      <button
+        type="button"
+        class="filter-option"
+        data-filter="Interclasse"
       >
-        Há 0 resultados no total
-      </span>
+        Interclasse
+      </button>
 
-    </div>
+      <button
+        type="button"
+        class="filter-option"
+        data-filter="Mascotes"
+      >
+        Mascotes
+      </button>
 
+      <button
+        type="button"
+        class="filter-option"
+        data-filter="Vetores"
+      >
+        Vetores
+      </button>
 
-    <!-- DIREITA -->
-    <div class="catalog-sort">
-
-      <label for="catalogSort">
-        Ordenar por:
-      </label>
-
-      <select id="catalogSort">
-
-        <option value="default">
-          Mais vendidos
-        </option>
-
-        <option value="recent">
-          Mais recentes
-        </option>
-
-        <option value="low">
-          Menor preço
-        </option>
-
-        <option value="high">
-          Maior preço
-        </option>
-
-      </select>
+      <button
+        type="button"
+        class="filter-option"
+        data-filter="Esportivo"
+      >
+        Esportivo
+      </button>
 
     </div>
 
   </div>
 
+
+  <!-- DIREITA -->
+  <div class="catalog-sort">
+
+    <label for="catalogSort">
+      Ordenar por:
+    </label>
+
+    <select id="catalogSort">
+
+      <option value="default">
+        Mais vendidos
+      </option>
+
+      <option value="recent">
+        Mais recentes
+      </option>
+
+      <option value="low">
+        Menor preço
+      </option>
+
+      <option value="high">
+        Maior preço
+      </option>
+
+    </select>
+
+  </div>
+
+</div>
 
   <!-- =================================================
        FILTROS
