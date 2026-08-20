@@ -652,3 +652,96 @@ function initCounters() {
 
 
 initCounters();
+/* =========================================================
+   ZIVA ART - BARRA DO CATÁLOGO (FILTRO + ORDENAÇÃO)
+   ========================================================= */
+
+(function () {
+
+    const filterBtn = document.querySelector(".catalog-filter");
+    const filterPanel = document.querySelector(".catalog-filters");
+    const filterOptions = document.querySelectorAll(".catalog-filters .filter-option");
+    const sortSelect = document.querySelector(".catalog-order select");
+    const countLabel = document.querySelector(".catalog-count");
+
+    let currentCategory = "all";
+
+    function getFiltered() {
+        if (currentCategory === "all") {
+            return [...products];
+        }
+        return products.filter((p) => p.cat === currentCategory);
+    }
+
+    function getSorted(list) {
+        const label = sortSelect
+            ? sortSelect.options[sortSelect.selectedIndex].textContent.trim()
+            : "Mais vendidos";
+
+        const sorted = [...list];
+
+        if (label === "Mais recentes") {
+            sorted.sort((a, b) => b.id - a.id);
+        } else if (label === "Menor preço") {
+            sorted.sort((a, b) => a.price - b.price);
+        } else if (label === "Maior preço") {
+            sorted.sort((a, b) => b.price - a.price);
+        }
+
+        return sorted;
+    }
+
+    function updateCatalog() {
+        const filtered = getFiltered();
+        const sorted = getSorted(filtered);
+
+        renderProducts(sorted);
+
+        if (countLabel) {
+            countLabel.textContent =
+                `Há ${sorted.length} resultado${sorted.length === 1 ? "" : "s"} no total`;
+        }
+    }
+
+    if (filterBtn && filterPanel) {
+
+        filterBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            filterPanel.classList.toggle("open");
+        });
+
+        document.addEventListener("click", (event) => {
+            if (
+                !filterPanel.contains(event.target) &&
+                !filterBtn.contains(event.target)
+            ) {
+                filterPanel.classList.remove("open");
+            }
+        });
+
+    }
+
+    filterOptions.forEach((option) => {
+
+        option.addEventListener("click", () => {
+
+            currentCategory = option.dataset.filter;
+
+            filterOptions.forEach((opt) => opt.classList.remove("active"));
+            option.classList.add("active");
+
+            updateCatalog();
+
+            if (filterPanel) {
+                filterPanel.classList.remove("open");
+            }
+
+        });
+
+    });
+
+    if (sortSelect) {
+        sortSelect.addEventListener("change", updateCatalog);
+    }
+
+})();
