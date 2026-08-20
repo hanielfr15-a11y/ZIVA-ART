@@ -2458,1047 +2458,11 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
         font-size: 10px;
     }
 /* =========================================================
-   ZIVA ART - CATÁLOGO CENTRALIZADO
-   ========================================================= */
-
-#catalogo {
-    width: min(1160px, calc(100% - 44px));
-    max-width: 1160px;
-    margin-left: auto;
-    margin-right: auto;
-
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-
-/* Título e controles ficam na mesma largura das artes */
-
-#catalogo .section-head {
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-
-/* Grade das artes */
-
-#catalogo .products {
-    width: 100%;
-    max-width: 1160px;
-
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: 14px;
-}
-
-
-/* Cards */
-
-#catalogo .product {
-    width: 100%;
-    min-width: 0;
-}
-
-
-/* =========================================================
-   RESPONSIVO
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    #catalogo {
-        width: calc(100% - 40px);
-    }
-
-    #catalogo .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    #catalogo {
-        width: calc(100% - 32px);
-
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    #catalogo .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-    }
-
-}
-/* =========================================================
-   ZIVA ART - NOVO LAYOUT DO CATÁLOGO
-   ========================================================= */
-
-.catalog-section {
-    padding: 90px 0 100px !important;
-}
-
-.catalog-wrap {
-    width: min(1180px, calc(100% - 48px));
-    margin: 0 auto;
-}
-
-/* TÍTULO */
-.catalog-wrap .section-head {
-    width: 100%;
-    margin-bottom: 28px;
-}
-
-/* BARRA DE FILTRO */
-.catalog-toolbar {
-    width: 100%;
-    min-height: 58px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    border-top: 1px solid #242424;
-    border-bottom: 1px solid #242424;
-
-    margin-bottom: 24px;
-    padding: 8px 0;
-}
-
-.catalog-left {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.catalog-filter-btn {
-    height: 40px;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 0 18px;
-
-    background: #111;
-    color: #fff;
-
-    border: 1px solid #303030;
-    border-radius: 6px;
-
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1px;
-
-    cursor: pointer;
-
-    transition:
-        background .25s ease,
-        border-color .25s ease,
-        transform .25s ease;
-}
-
-.catalog-filter-btn:hover {
-    background: var(--red);
-    border-color: var(--red);
-    transform: translateY(-2px);
-}
-
-.catalog-filter-btn span {
-    font-size: 13px;
-}
-
-.catalog-results {
-    color: #777;
-    font-size: 11px;
-}
-
-/* ORDENAÇÃO */
-
-.catalog-sort {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-}
-
-.catalog-sort label {
-    color: #777;
-    font-size: 11px;
-}
-
-.catalog-sort select {
-    appearance: none;
-    -webkit-appearance: none;
-
-    border: 0;
-    outline: none;
-
-    background: transparent;
-
-    color: #eee;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    padding-right: 8px;
-}
-
-.catalog-sort select option {
-    background: #0b0b0b;
-    color: #fff;
-}
-
-
-/* =========================================================
-   FILTROS
-   ========================================================= */
-
-.catalog-filters {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    max-height: 0;
-    opacity: 0;
-
-    overflow: hidden;
-
-    margin-bottom: 0;
-
-    transition:
-        max-height .3s ease,
-        opacity .25s ease,
-        margin-bottom .3s ease;
-}
-
-.catalog-filters.open {
-    max-height: 100px;
-    opacity: 1;
-    margin-bottom: 20px;
-}
-
-.filter-option {
-    height: 36px;
-
-    padding: 0 15px;
-
-    border: 1px solid #292929;
-    border-radius: 5px;
-
-    background: #0c0c0c;
-    color: #888;
-
-    font-size: 9px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    transition:
-        background .25s ease,
-        border-color .25s ease,
-        color .25s ease;
-}
-
-.filter-option:hover,
-.filter-option.active {
-    background: var(--red);
-    border-color: var(--red);
-    color: #fff;
-}
-
-
-/* =========================================================
-   GRADE
-   ========================================================= */
-
-.catalog-wrap .products {
-    width: 100% !important;
-
-    display: grid !important;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr)) !important;
-
-    gap: 16px !important;
-}
-
-.catalog-wrap .product {
-    width: 100% !important;
-    min-width: 0 !important;
-}
-
-
-/* =========================================================
-   TAMANHO DA IMAGEM
-   ========================================================= */
-
-.catalog-wrap .product-img {
-    height: 285px;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 950px) {
-
-    .catalog-wrap {
-        width: calc(100% - 40px);
-    }
-
-    .catalog-wrap .products {
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr)) !important;
-    }
-
-}
-
-
-/* =========================================================
-   CELULAR
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .catalog-section {
-        padding: 70px 0 80px !important;
-    }
-
-    .catalog-wrap {
-        width: calc(100% - 28px);
-    }
-
-    .catalog-toolbar {
-        min-height: auto;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 14px;
-
-        padding: 12px 0;
-    }
-
-    .catalog-left {
-        justify-content: space-between;
-    }
-
-    .catalog-sort {
-        justify-content: space-between;
-    }
-
-    .catalog-wrap .products {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 9px !important;
-    }
-
-    .catalog-wrap .product-img {
-        height: 190px;
-    }
-
-    .catalog-filters {
-        flex-wrap: wrap;
-    }
-
-}
-/* =========================================================
-   ZIVA ART - CATÁLOGO PREMIUM / CLEAN
-   ========================================================= */
-
-.catalog-section {
-    padding: 90px 0 110px !important;
-}
-
-.catalog-wrap {
-    width: min(1160px, calc(100% - 48px));
-    margin: 0 auto;
-}
-
-/* CABEÇALHO */
-
-.catalog-wrap .section-head {
-    width: 100%;
-    margin-bottom: 28px;
-}
-
-.catalog-wrap .section-head h2 {
-    margin-bottom: 0;
-}
-
-
-/* =========================================================
-   BARRA DA LOJA
-   ========================================================= */
-
-.catalog-toolbar {
-    position: relative;
-
-    width: 100%;
-    height: 58px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    border-top: 1px solid rgba(255,255,255,.09);
-    border-bottom: 1px solid rgba(255,255,255,.09);
-
-    margin-bottom: 26px;
-}
-
-
-/* LADO ESQUERDO */
-
-.catalog-left {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    gap: 18px;
-}
-
-
-/* =========================================================
-   BOTÃO FILTRO
-   ========================================================= */
-
-.catalog-filter-btn {
-    height: 42px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    padding: 0 17px;
-
-    border: 0;
-    border-radius: 6px;
-
-    background: var(--red);
-    color: #fff;
-
-    font-family: inherit;
-
-    font-size: 10px;
-    font-weight: 800;
-
-    letter-spacing: 1px;
-
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    transition:
-        transform .2s ease,
-        background .2s ease,
-        box-shadow .2s ease;
-}
-
-.catalog-filter-btn:hover {
-    background: #ff3039;
-
-    transform: translateY(-1px);
-
-    box-shadow:
-        0 8px 22px rgba(255,23,34,.18);
-}
-
-.catalog-filter-btn span {
-    font-size: 12px;
-    line-height: 1;
-}
-
-
-/* RESULTADOS */
-
-.catalog-results {
-    color: #777;
-
-    font-size: 11px;
-    font-weight: 500;
-
-    white-space: nowrap;
-}
-
-
-/* =========================================================
-   MENU DO FILTRO
-   FICA FLUTUANDO, NÃO EMPURRA OS CARDS
-   ========================================================= */
-
-.catalog-filters {
-    position: absolute;
-
-    top: calc(100% + 9px);
-    left: 0;
-
-    z-index: 100;
-
-    width: 205px;
-
-    display: none;
-
-    flex-direction: column;
-
-    gap: 3px;
-
-    padding: 7px;
-
-    background: rgba(12,12,12,.97);
-
-    border: 1px solid rgba(255,255,255,.10);
-
-    border-radius: 8px;
-
-    box-shadow:
-        0 18px 45px rgba(0,0,0,.55);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-}
-
-.catalog-filters.open {
-    display: flex;
-}
-
-
-/* OPÇÕES */
-
-.filter-option {
-    width: 100%;
-    height: 38px;
-
-    display: flex;
-    align-items: center;
-
-    padding: 0 12px;
-
-    border: 0;
-    border-radius: 5px;
-
-    background: transparent;
-
-    color: #888;
-
-    font-family: inherit;
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: .8px;
-
-    text-align: left;
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    transition:
-        background .2s ease,
-        color .2s ease;
-}
-
-.filter-option:hover {
-    background: rgba(255,255,255,.06);
-
-    color: #fff;
-}
-
-.filter-option.active {
-    background: var(--red);
-
-    color: #fff;
-}
-
-
-/* =========================================================
-   ORDENAÇÃO
-   ========================================================= */
-
-.catalog-sort {
-    display: flex;
-    align-items: center;
-
-    gap: 7px;
-}
-
-.catalog-sort label {
-    color: #777;
-
-    font-size: 11px;
-
-    white-space: nowrap;
-}
-
-.catalog-sort select {
-    appearance: none;
-    -webkit-appearance: none;
-
-    min-width: 115px;
-
-    padding: 0 18px 0 0;
-
-    border: 0;
-    outline: 0;
-
-    background:
-        linear-gradient(45deg, transparent 50%, #888 50%)
-        calc(100% - 7px) 50% / 5px 5px no-repeat,
-        linear-gradient(135deg, #888 50%, transparent 50%)
-        calc(100% - 3px) 50% / 5px 5px no-repeat;
-
-    color: #eee;
-
-    font-family: inherit;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-.catalog-sort select option {
-    background: #0c0c0c;
-    color: #fff;
-}
-
-
-/* =========================================================
-   GRADE
-   ========================================================= */
-
-.catalog-wrap .products {
-    width: 100% !important;
-
-    display: grid !important;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr)) !important;
-
-    gap: 14px !important;
-}
-
-.catalog-wrap .product {
-    width: 100% !important;
-    min-width: 0 !important;
-}
-
-
-/* IMAGEM */
-
-.catalog-wrap .product-img {
-    height: 275px;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 950px) {
-
-    .catalog-wrap {
-        width: calc(100% - 40px);
-    }
-
-    .catalog-wrap .products {
-        grid-template-columns:
-            repeat(3, minmax(0,1fr)) !important;
-    }
-
-}
-
-
-/* =========================================================
-   CELULAR
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .catalog-section {
-        padding: 70px 0 80px !important;
-    }
-
-    .catalog-wrap {
-        width: calc(100% - 28px);
-    }
-
-    .catalog-toolbar {
-        height: auto;
-
-        min-height: 58px;
-
-        padding: 9px 0;
-    }
-
-    .catalog-left {
-        gap: 10px;
-    }
-
-    .catalog-results {
-        font-size: 9px;
-    }
-
-    .catalog-sort label {
-        display: none;
-    }
-
-    .catalog-sort select {
-        min-width: 105px;
-    }
-
-    .catalog-wrap .products {
-        grid-template-columns:
-            repeat(2, minmax(0,1fr)) !important;
-
-        gap: 9px !important;
-    }
-
-    .catalog-wrap .product-img {
-        height: 190px;
-    }
-
-}
-
-}
-/* =========================================================
-   ZIVA ART - BARRA CATÁLOGO
-   ========================================================= */
-
-.catalog-bar {
-    width: 100%;
-    height: 58px;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-
-    margin: 0 0 24px 0;
-    padding: 0;
-
-    border-top: 1px solid rgba(255,255,255,0.08);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-
-    box-sizing: border-box;
-}
-
-.catalog-bar-left {
-    position: relative;
-
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px;
-
-    height: 100%;
-}
-
-.catalog-filter {
-    appearance: none !important;
-    -webkit-appearance: none !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    gap: 8px;
-
-    height: 40px;
-
-    padding: 0 18px;
-
-    margin: 0;
-
-    background: var(--red) !important;
-
-    border: 1px solid var(--red) !important;
-    border-radius: 8px !important;
-
-    color: #fff !important;
-
-    font-family: inherit !important;
-    font-size: 11px !important;
-    font-weight: 800 !important;
-
-    letter-spacing: 1px;
-    text-transform: uppercase;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    box-sizing: border-box;
-
-    transition: all .2s ease;
-}
-
-.catalog-filter:hover {
-    background: #ff3039 !important;
-    border-color: #ff3039 !important;
-    color: #fff !important;
-    transform: translateY(-2px);
-}
-
-.catalog-order > span {
-    color: #777 !important;
-
-    font-family: inherit !important;
-    font-size: 10px !important;
-    font-weight: 500 !important;
-
-    white-space: nowrap;
-}
-
-
-/* SELECT */
-
-.catalog-order select {
-    appearance: none !important;
-    -webkit-appearance: none !important;
-
-    display: block !important;
-
-    width: 135px !important;
-    height: 36px !important;
-
-    margin: 0;
-    padding: 0 22px 0 0 !important;
-
-    border: 0 !important;
-    outline: none !important;
-
-    border-radius: 0 !important;
-
-    background-color: transparent !important;
-
-    color: #ddd !important;
-
-    font-family: inherit !important;
-    font-size: 10px !important;
-    font-weight: 700 !important;
-
-    cursor: pointer;
-
-    box-sizing: border-box;
-}
-
-.catalog-order select:hover {
-    color: #fff !important;
-}
-
-.catalog-order select:focus {
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-.catalog-order select option {
-    background: #0b0b0b !important;
-    color: #fff !important;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-    .catalog-bar {
-        height: 56px;
-    }
-
-    .catalog-bar-left {
-        gap: 9px;
-    }
-
-    .catalog-count {
-        font-size: 9px !important;
-    }
-
-    .catalog-order > span {
-        display: none !important;
-    }
-
-    .catalog-order select {
-        width: 110px !important;
-    }
-
-}
-/* =========================================================
-   ZIVA ART - ANCORAGEM DO PAINEL DE FILTRO
-   ========================================================= */
-
-.catalog-bar-left {
-    position: relative;
-}
-
-/* =========================================================
-   ZIVA ART - AJUSTE FINAL DO CATÁLOGO
-   Somente largura/posicionamento + filtro flutuante
-   ========================================================= */
-
-/* Container igual à referência: estreito e centralizado */
-.catalog-wrap,
-#catalogo {
-    width: min(1100px, calc(100% - 40px)) !important;
-    max-width: 1100px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-/* Barra acompanha exatamente a largura do catálogo */
-.catalog-wrap .catalog-toolbar,
-.catalog-wrap .catalog-bar,
-#catalogo .catalog-toolbar,
-#catalogo .catalog-bar {
-    width: 100% !important;
-    box-sizing: border-box !important;
-}
-
-/* Grade acompanha exatamente a largura do catálogo */
-.catalog-wrap .products,
-#catalogo .products {
-    width: 100% !important;
-    max-width: 1000px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-/* Botão FILTRO no mesmo vermelho dos botões principais */
-.catalog-filter-btn,
-.catalog-filter {
-    background: var(--red) !important;
-    border-color: var(--red) !important;
-    color: #fff !important;
-}
-
-.catalog-filter-btn:hover,
-.catalog-filter:hover {
-    background: #ff3039 !important;
-    border-color: #ff3039 !important;
-    color: #fff !important;
-}
-
-/* Filtro abre como menu flutuante, sem empurrar os cards */
-.catalog-bar-left,
-.catalog-left {
-    position: relative !important;
-}
-
-.catalog-bar-left .catalog-filters,
-.catalog-left .catalog-filters {
-    position: absolute !important;
-    top: calc(100% + 8px) !important;
-    left: 0 !important;
-    width: 205px !important;
-    max-height: none !important;
-    margin: 0 !important;
-    padding: 7px !important;
-    display: none !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 3px !important;
-    overflow: visible !important;
-    z-index: 999 !important;
-    background: rgba(12,12,12,.98) !important;
-    border: 1px solid rgba(255,255,255,.10) !important;
-    border-radius: 8px !important;
-    box-shadow: 0 18px 45px rgba(0,0,0,.55) !important;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-}
-
-/* Passou o mouse no botão/área do filtro = menu aparece */
-.catalog-bar-left:hover .catalog-filters,
-.catalog-left:hover .catalog-filters,
-.catalog-bar-left:focus-within .catalog-filters,
-.catalog-left:focus-within .catalog-filters,
-.catalog-filters:hover {
-    display: flex !important;
-}
-
-/* Opções do filtro */
-.catalog-filters .filter-option {
-    width: 100% !important;
-    height: 38px !important;
-    display: flex !important;
-    align-items: center !important;
-    padding: 0 12px !important;
-    border: 0 !important;
-    border-radius: 5px !important;
-    background: transparent !important;
-    color: #888 !important;
-    text-align: left !important;
-}
-
-.catalog-filters .filter-option:hover,
-.catalog-filters .filter-option.active {
-    background: var(--red) !important;
-    color: #fff !important;
-}
-
-/* Não deixa as categorias aparecerem na barra */
-.catalog-bar > .catalog-filters,
-.catalog-toolbar > .catalog-filters {
-    position: absolute !important;
-}
-
-/* Ordenação limpa, sem aparência de caixa */
-.catalog-order select,
-.catalog-sort select {
-    border: 0 !important;
-    outline: 0 !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    color: #eee !important;
-}
-
-/* Responsivo */
-@media (max-width: 950px) {
-    .catalog-wrap,
-    #catalogo {
-        width: calc(100% - 40px) !important;
-        max-width: 880px !important;
-    }
-}
-
-@media (max-width: 700px) {
-    .catalog-wrap,
-    #catalogo {
-        width: calc(100% - 28px) !important;
-        max-width: none !important;
-    }
-
-    .catalog-wrap .products,
-    #catalogo .products {
-        max-width: none !important;
-    }
-}
-
-/* =========================================================
    ZIVA ART - CATÁLOGO FINAL
-   NÃO ALTERAR OUTRAS ÁREAS DO SITE
    ========================================================= */
 
-/* CATÁLOGO */
 #catalogo {
-    position: relative !important;
-
-    width: 1000px !important;
+    width: 1100px !important;
     max-width: calc(100% - 44px) !important;
 
     margin-left: auto !important;
@@ -3511,14 +2475,20 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 }
 
 
-/* CABEÇALHO */
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
 #catalogo .section-head {
     width: 100% !important;
     margin-bottom: 28px !important;
 }
 
 
-/* BARRA */
+/* =========================================================
+   BARRA DO CATÁLOGO
+   ========================================================= */
+
 #catalogo .catalog-toolbar {
     position: relative !important;
 
@@ -3539,7 +2509,10 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 }
 
 
-/* LADO DO FILTRO */
+/* =========================================================
+   LADO ESQUERDO
+   ========================================================= */
+
 #catalogo .catalog-left {
     position: relative !important;
 
@@ -3552,7 +2525,10 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 }
 
 
-/* BOTÃO FILTRO */
+/* =========================================================
+   BOTÃO FILTRO
+   ========================================================= */
+
 #catalogo .catalog-filter-btn {
     height: 40px !important;
 
@@ -3573,6 +2549,7 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
     color: #fff !important;
 
+    font-family: inherit !important;
     font-size: 10px !important;
     font-weight: 800 !important;
 
@@ -3587,7 +2564,6 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
         box-shadow .2s ease !important;
 }
 
-
 #catalogo .catalog-filter-btn:hover {
     background: #ff3039 !important;
     border-color: #ff3039 !important;
@@ -3599,7 +2575,10 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 }
 
 
-/* RESULTADOS */
+/* =========================================================
+   CONTADOR
+   ========================================================= */
+
 #catalogo .catalog-results {
     color: #777 !important;
 
@@ -3611,7 +2590,7 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
 
 /* =========================================================
-   FILTRO FLUTUANTE
+   MENU DO FILTRO
    ========================================================= */
 
 #catalogo .catalog-filters {
@@ -3648,20 +2627,23 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 }
 
 
-/* ABRE QUANDO O MOUSE ESTÁ NO BOTÃO/ÁREA */
+/* PASSOU O MOUSE NO FILTRO */
 #catalogo .catalog-left:hover .catalog-filters {
     display: flex !important;
 }
 
 
-/* TAMBÉM PERMANECE ABERTO AO PASSAR SOBRE O MENU */
+/* MANTÉM ABERTO AO PASSAR SOBRE O MENU */
 #catalogo .catalog-filters:hover {
     display: flex !important;
 }
 
 
-/* OPÇÕES */
-#catalogo .catalog-filters .filter-option {
+/* =========================================================
+   OPÇÕES DO FILTRO
+   ========================================================= */
+
+#catalogo .filter-option {
     width: 100% !important;
     height: 38px !important;
 
@@ -3694,14 +2676,12 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
         color .2s ease !important;
 }
 
-
-#catalogo .catalog-filters .filter-option:hover {
+#catalogo .filter-option:hover {
     background: rgba(255,255,255,.06) !important;
     color: #fff !important;
 }
 
-
-#catalogo .catalog-filters .filter-option.active {
+#catalogo .filter-option.active {
     background: var(--red) !important;
     color: #fff !important;
 }
@@ -3718,7 +2698,6 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     gap: 7px !important;
 }
 
-
 #catalogo .catalog-sort label {
     color: #777 !important;
 
@@ -3727,8 +2706,10 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     white-space: nowrap !important;
 }
 
-
 #catalogo .catalog-sort select {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
     width: 135px !important;
     height: 36px !important;
 
@@ -3742,7 +2723,6 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     color: #ddd !important;
 
     font-family: inherit !important;
-
     font-size: 10px !important;
     font-weight: 700 !important;
 
@@ -3751,9 +2731,14 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     box-shadow: none !important;
 }
 
+#catalogo .catalog-sort select option {
+    background: #0b0b0b !important;
+    color: #fff !important;
+}
+
 
 /* =========================================================
-   ARTES
+   GRADE DAS ARTES
    ========================================================= */
 
 #catalogo .products {
@@ -3774,9 +2759,15 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 }
 
 
+/* =========================================================
+   CARDS
+   ========================================================= */
+
 #catalogo .product {
     width: 100% !important;
     min-width: 0 !important;
+
+    box-sizing: border-box !important;
 }
 
 
