@@ -3359,3 +3359,10 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     }
 
 }
+/* =========================================================
+   ZIVA ART - ANCORAGEM DO PAINEL DE FILTRO
+   ========================================================= */
+
+.catalog-bar-left {
+    position: relative;
+}
