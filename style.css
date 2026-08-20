@@ -2849,3 +2849,77 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     }
 
 }
+/* ===================================================
+   ESTILO DA BARRA DE FILTRO (ZIVA ART)
+   =================================================== */
+
+.catalog-toolbar {
+  display: flex;
+  justify-content: space-between; /* Empurra um pra cada lado */
+  align-items: center;
+  background-color: #0d0d0d;      /* Fundo da barra cinza escuro */
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid #1a1a1a;      /* Borda bem sutil */
+  margin: 30px 0;
+  width: 100%;
+}
+
+.catalog-left {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espaço entre o botão e o texto */
+}
+
+.catalog-filter-btn {
+  background-color: #ff0000 !important; /* Vermelho ZIVA */
+  color: white !important;
+  border: none;
+  padding: 10px 25px;
+  font-weight: 800;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  transition: 0.3s;
+}
+
+.catalog-filter-btn:hover {
+  background-color: #cc0000 !important; /* Escurece um pouco ao passar o mouse */
+}
+
+.catalog-results {
+  color: #666; /* Cor cinza do texto */
+  font-size: 14px;
+}
+
+.catalog-sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.catalog-sort select {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 8px 12px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Ajuste para telas de celular */
+@media (max-width: 768px) {
+  .catalog-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+  }
+}
