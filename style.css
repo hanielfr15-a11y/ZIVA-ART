@@ -10,8 +10,7 @@
    ========================================================= */
 
 :root {
-  --bg: #050505;
-  --panel: #0b0b0b;
+  --bg: #050505;  --panel: #0b0b0b;
   --line: #232323;
 
   --text: #f4f4f4;
@@ -3374,7 +3373,7 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 .catalog-wrap .products,
 #catalogo .products {
     width: 100% !important;
-    max-width: 880px !important;
+    max-width: 1000px !important;
     margin-left: auto !important;
     margin-right: auto !important;
 }
