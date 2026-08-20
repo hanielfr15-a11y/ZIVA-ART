@@ -2458,3 +2458,79 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     .ticker-track b {
         font-size: 10px;
     }
+/* =========================================================
+   ZIVA ART - CATÁLOGO CENTRALIZADO
+   ========================================================= */
+
+#catalogo {
+    width: min(1160px, calc(100% - 44px));
+    max-width: 1160px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
+/* Título e controles ficam na mesma largura das artes */
+
+#catalogo .section-head {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+
+/* Grade das artes */
+
+#catalogo .products {
+    width: 100%;
+    max-width: 1160px;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+/* Cards */
+
+#catalogo .product {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    #catalogo {
+        width: calc(100% - 40px);
+    }
+
+    #catalogo .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    #catalogo {
+        width: calc(100% - 32px);
+
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #catalogo .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+}
