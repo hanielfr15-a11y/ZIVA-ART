@@ -32,6 +32,72 @@
   box-sizing: border-box;
 }
 
+/* --- ESTILO DA BARRA DE FILTRO ZIVA --- */
+.catalog-toolbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background-color: var(--panel) !important; /* Usa seu cinza escuro */
+  padding: 12px 20px !important;
+  border-radius: 8px !important;
+  margin: 30px 0 !important;
+  border: 1px solid var(--line) !important;
+}
+
+.catalog-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  position: relative;
+}
+
+.catalog-filter-btn {
+  background-color: var(--red) !important; /* Usa seu vermelho */
+  color: white !important;
+  border: none !important;
+  padding: 10px 25px !important;
+  font-weight: 800 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-family: 'Inter', sans-serif;
+}
+
+/* MENU DE CATEGORIAS (QUE VAI ABRIR AO CLICAR) */
+.filter-menu {
+  display: none; /* Começa escondido */
+  position: absolute;
+  top: 55px;
+  left: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 15px;
+  z-index: 1000;
+  border-radius: 8px;
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.filter-menu.active {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter-menu button {
+  background: none;
+  border: none;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: 0.2s;
+}
+
+.filter-menu button:hover {
+  color: var(--red);
+  padding-left: 5px;
+}
+
 html {
   scroll-behavior: smooth;
 }
