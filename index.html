@@ -453,52 +453,151 @@
     </section>
 
 
-    <!-- ===================================================
-         CATÁLOGO
-         =================================================== -->
+  <!-- ===================================================
+     CATÁLOGO
+     =================================================== -->
 
-    <!-- BARRA DO CATÁLOGO -->
-    
-<div class="catalog-wrap">
-  
-  <div class="catalog-bar">
+<section class="section" id="catalogo">
 
-    <div class="catalog-bar-left">
+  <!-- CABEÇALHO -->
+  <div class="section-head">
 
-    <button type="button" class="catalog-filter">
-      ☰
-      <span>FILTRO</span>
-    </button>
+    <div>
+      <span class="eyebrow">
+        01 / CATÁLOGO
+      </span>
 
-    <span class="catalog-count">
-      Há 8 resultados no total
-    </span>
+      <h2>
+        EM DESTAQUE
+      </h2>
+    </div>
 
-    <div class="catalog-filters" id="catalogFilters">
-      <button class="filter-option active" data-filter="all">Todas</button>
-      <button class="filter-option" data-filter="Interclasse">Interclasse</button>
-      <button class="filter-option" data-filter="Mascotes">Mascotes</button>
-      <button class="filter-option" data-filter="Vetores">Vetores</button>
-      <button class="filter-option" data-filter="Esportivo">Esportivo</button>
+    <a
+      href="#catalogo"
+      class="text-link"
+    >
+      Ver tudo ↗
+    </a>
+
+  </div>
+
+
+  <!-- =================================================
+       BARRA DA LOJA
+       ================================================= -->
+
+  <div class="catalog-toolbar">
+
+    <!-- ESQUERDA -->
+    <div class="catalog-left">
+
+      <button
+        type="button"
+        class="catalog-filter-btn"
+        id="catalogFilterBtn"
+      >
+        <span>☰</span>
+        FILTRO
+      </button>
+
+
+      <span
+        class="catalog-results"
+        id="catalogResults"
+      >
+        Há 0 resultados no total
+      </span>
+
+    </div>
+
+
+    <!-- DIREITA -->
+    <div class="catalog-sort">
+
+      <label for="catalogSort">
+        Ordenar por:
+      </label>
+
+      <select id="catalogSort">
+
+        <option value="default">
+          Mais vendidos
+        </option>
+
+        <option value="recent">
+          Mais recentes
+        </option>
+
+        <option value="low">
+          Menor preço
+        </option>
+
+        <option value="high">
+          Maior preço
+        </option>
+
+      </select>
+
     </div>
 
   </div>
 
-  <div class="catalog-order">
-    <span>
-      Ordenar por:
-    </span>
-    <select>
-      <option>Mais vendidos</option>
-      <option>Mais recentes</option>
-      <option>Menor preço</option>
-      <option>Maior preço</option>
-    </select>
+
+  <!-- =================================================
+       FILTROS
+       ================================================= -->
+
+  <div
+    class="catalog-filters"
+    id="catalogFilters"
+  >
+
+    <button
+      type="button"
+      class="filter-option active"
+      data-filter="all"
+    >
+      Todos
+    </button>
+
+    <button
+      type="button"
+      class="filter-option"
+      data-filter="Interclasse"
+    >
+      Interclasse
+    </button>
+
+    <button
+      type="button"
+      class="filter-option"
+      data-filter="Mascotes"
+    >
+      Mascotes
+    </button>
+
+    <button
+      type="button"
+      class="filter-option"
+      data-filter="Vetores"
+    >
+      Vetores
+    </button>
+
+    <button
+      type="button"
+      class="filter-option"
+      data-filter="Esportivo"
+    >
+      Esportivo
+    </button>
+
   </div>
 
-</div>
 
-  <!-- ARTES -->
+  <!-- =================================================
+       ARTES
+       ================================================= -->
 
   <div
     class="products"
@@ -506,7 +605,6 @@
   ></div>
 
 </section>
-
 
     <!-- ===================================================
          CATEGORIAS
