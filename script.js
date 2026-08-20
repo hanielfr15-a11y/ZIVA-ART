@@ -745,3 +745,18 @@ initCounters();
     }
 
 })();
+// --- LÓGICA PARA ABRIR O FILTRO ---
+const btnFiltro = document.getElementById('catalogFilterBtn');
+const menuFiltro = document.getElementById('filterMenu');
+
+if (btnFiltro && menuFiltro) {
+    btnFiltro.addEventListener('click', (e) => {
+        e.stopPropagation(); // Impede que o clique feche o menu na mesma hora
+        menuFiltro.classList.toggle('active');
+    });
+
+    // Fecha o menu se você clicar em qualquer outro lugar da tela
+    document.addEventListener('click', () => {
+        menuFiltro.classList.remove('active');
+    });
+}
