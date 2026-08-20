@@ -3175,155 +3175,166 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     }
 
 }
+
+}
 /* =========================================================
-   ZIVA ART - BARRA DO CATÁLOGO
+   ZIVA ART - BARRA CATÁLOGO
    ========================================================= */
 
 .catalog-bar {
     width: 100%;
-
     height: 58px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 
-    margin-bottom: 24px;
+    margin: 0 0 24px 0;
+    padding: 0;
 
-    border-top: 1px solid rgba(255,255,255,.08);
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    box-sizing: border-box;
 }
-
-
-/* ESQUERDA */
 
 .catalog-bar-left {
-    display: flex;
-    align-items: center;
-
+    display: flex !important;
+    align-items: center !important;
     gap: 16px;
+
+    height: 100%;
 }
 
-
-/* FILTRO */
-
 .catalog-filter {
-    height: 38px;
+    appearance: none !important;
+    -webkit-appearance: none !important;
 
-    display: flex;
-    align-items: center;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
     gap: 8px;
 
-    padding: 0 15px;
+    height: 38px;
 
-    border: 1px solid #292929;
-    border-radius: 5px;
+    padding: 0 16px;
 
-    background: #111;
+    margin: 0;
 
-    color: #eee;
+    background: #111 !important;
 
-    font-family: inherit;
+    border: 1px solid #292929 !important;
+    border-radius: 6px !important;
 
-    font-size: 10px;
-    font-weight: 800;
+    color: #ddd !important;
+
+    font-family: inherit !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
 
     letter-spacing: 1px;
 
+    line-height: 1;
+
     cursor: pointer;
 
-    transition: .2s ease;
-}
+    box-sizing: border-box;
 
+    transition: all .2s ease;
+}
 
 .catalog-filter:hover {
-    background: #191919;
-
-    border-color: #444;
-
-    color: #fff;
+    background: #181818 !important;
+    border-color: #444 !important;
+    color: #fff !important;
 }
-
-
-.catalog-filter span {
-    font-size: 10px;
-}
-
-
-/* RESULTADOS */
 
 .catalog-count {
-    color: #666;
+    display: inline-block !important;
 
-    font-size: 10px;
-    font-weight: 500;
-}
+    margin: 0;
 
+    color: #777 !important;
 
-/* =========================================================
-   ORDENAR
-   ========================================================= */
-
-.catalog-order {
-    display: flex;
-    align-items: center;
-
-    gap: 7px;
-}
-
-
-.catalog-order > span {
-    color: #666;
-
-    font-size: 10px;
+    font-family: inherit !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
 
     white-space: nowrap;
 }
 
 
-/* SELECT LIMPO */
+/* ORDENAR */
+
+.catalog-order {
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 7px;
+
+    height: 100%;
+}
+
+.catalog-order > span {
+    color: #777 !important;
+
+    font-family: inherit !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+
+    white-space: nowrap;
+}
+
+
+/* SELECT */
 
 .catalog-order select {
-    appearance: none;
-    -webkit-appearance: none;
+    appearance: none !important;
+    -webkit-appearance: none !important;
 
-    min-width: 125px;
+    display: block !important;
 
-    height: 36px;
+    width: 135px !important;
+    height: 36px !important;
 
-    padding: 0 20px 0 0;
+    margin: 0;
+    padding: 0 22px 0 0 !important;
 
-    border: 0;
-    outline: none;
+    border: 0 !important;
+    outline: none !important;
 
-    background: transparent;
+    border-radius: 0 !important;
 
-    color: #ddd;
+    background-color: transparent !important;
 
-    font-family: inherit;
+    color: #ddd !important;
 
-    font-size: 10px;
-    font-weight: 700;
+    font-family: inherit !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
 
     cursor: pointer;
-}
 
+    box-sizing: border-box;
+}
 
 .catalog-order select:hover {
-    color: #fff;
+    color: #fff !important;
 }
 
+.catalog-order select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
 
 .catalog-order select option {
-    background: #0c0c0c;
-
-    color: #fff;
+    background: #0b0b0b !important;
+    color: #fff !important;
 }
 
 
-/* =========================================================
-   RESPONSIVO
-   ========================================================= */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
@@ -3331,24 +3342,20 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
         height: 56px;
     }
 
-
     .catalog-bar-left {
         gap: 9px;
     }
 
-
     .catalog-count {
-        font-size: 9px;
+        font-size: 9px !important;
     }
-
 
     .catalog-order > span {
-        display: none;
+        display: none !important;
     }
 
-
     .catalog-order select {
-        min-width: 105px;
+        width: 110px !important;
     }
 
 }
