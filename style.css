@@ -2390,7 +2390,33 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
 /* Movimento da esquerda para a direita */
 
-@keyframes tickerRight {
+/* =========================================================
+   TICKER ZIVA ART - MOVIMENTO CONTÍNUO
+   ========================================================= */
+
+.ticker {
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.ticker-track {
+    display: flex !important;
+    align-items: center !important;
+
+    width: max-content !important;
+    flex-shrink: 0 !important;
+
+    white-space: nowrap !important;
+
+    animation: tickerMoveRight 24s linear infinite !important;
+
+    will-change: transform !important;
+}
+
+
+/* ESQUERDA → DIREITA */
+
+@keyframes tickerMoveRight {
 
     from {
         transform: translateX(-50%);
@@ -2402,6 +2428,12 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
 }
 
+
+/* mantém o movimento mesmo quando passar o mouse */
+
+.ticker:hover .ticker-track {
+    animation-play-state: running !important;
+}
 
 /* =========================================================
    MOBILE
@@ -2415,8 +2447,7 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 
     .ticker-track {
         gap: 35px;
-
-        animation-duration: 24s;
+        animation: tickerMoveRight 24s linear infinite !important;
     }
 
     .ticker-track span {
