@@ -3013,3 +3013,39 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     padding: 20px;
   }
 }
+/* --- CONSERTO FINAL DO LAYOUT --- */
+
+/* Isso tira o "efeito fila" que esmagou os produtos */
+#catalogo {
+  display: block !important;
+}
+
+/* Isso garante que os produtos voltem a ter 4 colunas */
+.products {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 25px;
+  width: 100% !important;
+  margin-top: 20px;
+}
+
+/* Ajuste para o título não sumir ou ficar torto */
+.section-head {
+  display: flex !important;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Ajuste para celular: se a tela for pequena, mostra apenas 2 colunas */
+@media (max-width: 900px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .products {
+    grid-template-columns: 1fr !important;
+  }
+}
