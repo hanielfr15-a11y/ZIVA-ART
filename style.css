@@ -2324,3 +2324,108 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
   border: 0 !important;
   box-shadow: none !important;
 }
+/* =========================================================
+   TICKER CONTÍNUO - ZIVA ART
+   ========================================================= */
+
+.ticker {
+    width: 100%;
+    height: 82px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    border-top: 1px solid #242424;
+    border-bottom: 1px solid #242424;
+
+    background: #050505;
+
+    position: relative;
+    z-index: 20;
+}
+
+.ticker-track {
+    display: flex;
+    align-items: center;
+
+    width: max-content;
+
+    gap: 55px;
+
+    white-space: nowrap;
+
+    animation: tickerRight 28s linear infinite;
+
+    will-change: transform;
+}
+
+.ticker-track span {
+    display: inline-block;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    color: #eeeeee;
+
+    text-transform: uppercase;
+}
+
+.ticker-track b {
+    display: inline-block;
+
+    font-size: 13px;
+
+    color: #ff1722;
+
+    font-weight: 700;
+}
+
+
+/* Movimento da esquerda para a direita */
+
+@keyframes tickerRight {
+
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .ticker {
+        height: 70px;
+    }
+
+    .ticker-track {
+        gap: 35px;
+
+        animation-duration: 24s;
+    }
+
+    .ticker-track span {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    .ticker-track b {
+        font-size: 10px;
+    }
+
+}
