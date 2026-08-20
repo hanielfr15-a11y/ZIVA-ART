@@ -297,8 +297,6 @@
         <b>✦</b>
 
 
-        <!-- REPETIÇÃO PARA LOOP -->
-
         <span>
           ARTE EXCLUSIVAS
         </span>
@@ -453,206 +451,167 @@
     </section>
 
 
-  <!-- ===================================================
-     CATÁLOGO
-     =================================================== -->
+    <!-- ===================================================
+         CATÁLOGO
+         =================================================== -->
 
-<section class="section" id="catalogo">
+    <section class="section" id="catalogo">
 
-  <!-- CABEÇALHO -->
-  <div class="section-head">
+      <!-- CABEÇALHO -->
 
-    <div>
-      <span class="eyebrow">
-        01 / CATÁLOGO
-      </span>
+      <div class="section-head">
 
-      <h2>
-        EM DESTAQUE
-      </h2>
-    </div>
+        <div>
 
-    <a
-      href="#catalogo"
-      class="text-link"
-    >
-      Ver tudo ↗
-    </a>
+          <span class="eyebrow">
+            01 / CATÁLOGO
+          </span>
 
-  </div>
+          <h2>
+            EM DESTAQUE
+          </h2>
 
+        </div>
 
-  <!-- =================================================
-       BARRA DA LOJA
-       ================================================= -->
+        <a
+          href="#catalogo"
+          class="text-link"
+        >
+          Ver tudo ↗
+        </a>
 
-<div class="catalog-toolbar">
-
-  <div class="catalog-left">
-
-    <button
-      type="button"
-      class="catalog-filter-btn"
-      id="catalogFilterBtn"
-    >
-      <span>☰</span>
-      FILTRO
-    </button>
-
-    <span
-      class="catalog-results"
-      id="catalogResults"
-    >
-      Há 0 resultados no total
-    </span>
-
-    <div
-      class="catalog-filters"
-      id="catalogFilters"
-    >
-
-      <button
-        type="button"
-        class="filter-option active"
-        data-filter="all"
-      >
-        Todos
-      </button>
-
-      <button
-        type="button"
-        class="filter-option"
-        data-filter="Interclasse"
-      >
-        Interclasse
-      </button>
-
-      <button
-        type="button"
-        class="filter-option"
-        data-filter="Mascotes"
-      >
-        Mascotes
-      </button>
-
-      <button
-        type="button"
-        class="filter-option"
-        data-filter="Vetores"
-      >
-        Vetores
-      </button>
-
-      <button
-        type="button"
-        class="filter-option"
-        data-filter="Esportivo"
-      >
-        Esportivo
-      </button>
-
-    </div>
-
-  </div>
+      </div>
 
 
-  <div class="catalog-sort">
+      <!-- =================================================
+           BARRA DA LOJA
+           ================================================= -->
 
-    <label for="catalogSort">
-      Ordenar por:
-    </label>
+      <div class="catalog-toolbar">
 
-    <select id="catalogSort">
+        <div class="catalog-left">
 
-      <option value="default">
-        Mais vendidos
-      </option>
+          <button
+            type="button"
+            class="catalog-filter-btn"
+            id="catalogFilterBtn"
+          >
 
-      <option value="recent">
-        Mais recentes
-      </option>
+            <span>☰</span>
 
-      <option value="low">
-        Menor preço
-      </option>
+            FILTRO
 
-      <option value="high">
-        Maior preço
-      </option>
-
-    </select>
-
-  </div>
-
-</div>
-
-<div
-  class="products"
-  id="products"
-></div>
-
-  <!-- =================================================
-       FILTROS
-       ================================================= -->
-
-  <div
-    class="catalog-filters"
-    id="catalogFilters"
-  >
-
-    <button
-      type="button"
-      class="filter-option active"
-      data-filter="all"
-    >
-      Todos
-    </button>
-
-    <button
-      type="button"
-      class="filter-option"
-      data-filter="Interclasse"
-    >
-      Interclasse
-    </button>
-
-    <button
-      type="button"
-      class="filter-option"
-      data-filter="Mascotes"
-    >
-      Mascotes
-    </button>
-
-    <button
-      type="button"
-      class="filter-option"
-      data-filter="Vetores"
-    >
-      Vetores
-    </button>
-
-    <button
-      type="button"
-      class="filter-option"
-      data-filter="Esportivo"
-    >
-      Esportivo
-    </button>
-
-  </div>
+          </button>
 
 
-  <!-- =================================================
-       ARTES
-       ================================================= -->
+          <span
+            class="catalog-results"
+            id="catalogResults"
+          >
 
-  <div
-    class="products"
-    id="products"
-  ></div>
+            Há 0 resultados no total
 
-</section>
+          </span>
+
+
+          <!-- ÚNICO FILTRO -->
+
+          <div
+            class="catalog-filters"
+            id="catalogFilters"
+          >
+
+            <button
+              type="button"
+              class="filter-option active"
+              data-filter="all"
+            >
+              Todos
+            </button>
+
+
+            <button
+              type="button"
+              class="filter-option"
+              data-filter="Interclasse"
+            >
+              Interclasse
+            </button>
+
+
+            <button
+              type="button"
+              class="filter-option"
+              data-filter="Mascotes"
+            >
+              Mascotes
+            </button>
+
+
+            <button
+              type="button"
+              class="filter-option"
+              data-filter="Vetores"
+            >
+              Vetores
+            </button>
+
+
+            <button
+              type="button"
+              class="filter-option"
+              data-filter="Esportivo"
+            >
+              Esportivo
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="catalog-sort">
+
+          <label for="catalogSort">
+            Ordenar por:
+          </label>
+
+
+          <select id="catalogSort">
+
+            <option value="default">
+              Mais vendidos
+            </option>
+
+            <option value="recent">
+              Mais recentes
+            </option>
+
+            <option value="low">
+              Menor preço
+            </option>
+
+            <option value="high">
+              Maior preço
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <!-- ÚNICO CONTAINER DOS PRODUTOS -->
+
+      <div
+        class="products"
+        id="products"
+      ></div>
+
+
+    </section>
+
 
     <!-- ===================================================
          CATEGORIAS
@@ -785,7 +744,9 @@
 
 
     </section>
-        <!-- ===================================================
+
+
+    <!-- ===================================================
          COMO FUNCIONA
          =================================================== -->
 
