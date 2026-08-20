@@ -359,86 +359,29 @@
 
           <!-- ÚNICO FILTRO -->
 
-          <div
-            class="catalog-filters"
-            id="catalogFilters"
-          >
+          <div class="catalog-toolbar">
 
-            <button
-              type="button"
-              class="filter-option active"
-              data-filter="all"
-            >
-              Todos
-            </button>
+        <div class="catalog-left">
+          <button type="button" class="catalog-filter-btn" id="catalogFilterBtn">
+            <span>☰</span> FILTRO
+          </button>
 
-            <button
-              type="button"
-              class="filter-option"
-              data-filter="Interclasse"
-            >
-              Interclasse
-            </button>
-
-            <button
-              type="button"
-              class="filter-option"
-              data-filter="Mascotes"
-            >
-              Mascotes
-            </button>
-
-            <button
-              type="button"
-              class="filter-option"
-              data-filter="Vetores"
-            >
-              Vetores
-            </button>
-
-            <button
-              type="button"
-              class="filter-option"
-              data-filter="Esportivo"
-            >
-              Esportivo
-            </button>
-
-          </div>
-
+          <span class="catalog-results" id="catalogResults">
+            Há 0 resultados no total
+          </span>
         </div>
 
-
         <div class="catalog-sort">
-
-          <label for="catalogSort">
-            Ordenar por:
-          </label>
-
+          <label for="catalogSort">Ordenar por:</label>
           <select id="catalogSort">
-
-            <option value="default">
-              Mais vendidos
-            </option>
-
-            <option value="recent">
-              Mais recentes
-            </option>
-
-            <option value="low">
-              Menor preço
-            </option>
-
-            <option value="high">
-              Maior preço
-            </option>
-
+            <option value="default">Mais vendidos</option>
+            <option value="recent">Mais recentes</option>
+            <option value="low">Menor preço</option>
+            <option value="high">Maior preço</option>
           </select>
-
         </div>
 
       </div>
-
 
       <!-- ÚNICO CONTAINER DOS PRODUTOS -->
 
