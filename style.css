@@ -3406,3 +3406,60 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 }
 
 .auth-footer span { color: #ff0000; font-weight: bold; cursor: pointer; }
+/* --- BOTÕES PREMIUM COM ÍCONE VERMELHO --- */
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-premium {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  padding: 10px 22px;
+  border-radius: 50px; /* Formato pílula */
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* AQUI MUDAMOS A COR DO ÍCONE PARA VERMELHO */
+.btn-premium i {
+  font-size: 15px;
+  color: #ff0000 !important; /* Vermelho ZIVA */
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3); /* Brilho suave no ícone */
+}
+
+/* Efeito ao passar o mouse */
+.btn-premium:hover {
+  border-color: #ff0000;
+  background-color: #111;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* A BOLINHA DO CONTADOR */
+.badge-count {
+  position: absolute;
+  top: -4px;
+  right: 2px;
+  background-color: #ff0000;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  border: 2px solid #050505;
+}
