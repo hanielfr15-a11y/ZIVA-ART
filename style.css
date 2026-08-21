@@ -3566,3 +3566,115 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
   background: #fff;
   color: #000;
 }
+/* --- ESTILO DO RODAPÉ ZIVA --- */
+.footer-ziva {
+  background-color: #050505;
+  border-top: 1px solid #1a1a1a;
+  padding: 80px 0 30px 0;
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr; /* Divide em 4 colunas */
+  gap: 40px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.footer-col p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-col h4 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: #666;
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--red);
+  padding-left: 5px;
+}
+
+/* Ícones Sociais */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--red);
+}
+
+/* Ícones de Pagamento */
+.payment-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 24px;
+  color: #333;
+  margin-top: 15px;
+}
+
+/* Rodapé Final */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #1a1a1a;
+  margin-top: 60px;
+  padding-top: 30px;
+}
+
+.footer-bottom p {
+  color: #444;
+  font-size: 12px;
+}
+
+/* Ajuste para Celular */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .social-links, .payment-icons {
+    justify-content: center;
+  }
+}
