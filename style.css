@@ -3866,3 +3866,13 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
   .header-search-bar { display: none; }
   .header-nav-bottom { gap: 20px; overflow-x: auto; padding: 12px 20px; justify-content: flex-start; }
 }
+/* CORAÇÃO ATIVO (VERMELHO) */
+.wishlist-btn.active i {
+    color: #ff0000 !important; /* Força o vermelho */
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5)); /* Dá um brilho leve */
+}
+
+/* Garante que o ícone mude para o estilo preenchido */
+.wishlist-btn.active .fa-heart {
+    font-weight: 900; /* Deixa o coração 'cheio' */
+}
