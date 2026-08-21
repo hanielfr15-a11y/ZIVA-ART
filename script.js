@@ -47,7 +47,7 @@ function renderProducts(list = products) {
     `).join("");
 }
 
-/* --- FUNÇÃO FAVORITOS (CORAÇÃO) --- */
+/* --- FUNÇÃO FAVORITOS (CORAÇÃO VERMELHO) --- */
 function toggleFav(btn) {
     btn.classList.toggle('active');
     const icon = btn.querySelector('i');
@@ -55,9 +55,11 @@ function toggleFav(btn) {
     let count = parseInt(favCount.innerText) || 0;
 
     if (btn.classList.contains('active')) {
+        // Quando ativa: muda para coração CHEIO e aumenta contador
         icon.classList.replace('fa-regular', 'fa-solid');
         favCount.innerText = count + 1;
     } else {
+        // Quando desativa: muda para coração VAZIO e diminui contador
         icon.classList.replace('fa-solid', 'fa-regular');
         favCount.innerText = count - 1;
     }
