@@ -3748,3 +3748,121 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     right: -5px;
   }
 }
+/* --- HEADER REESTRUTURADO ZIVA ART (VERMELHO) --- */
+.header {
+  height: auto !important;
+  padding: 15px 0 0 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: rgba(5, 5, 5, 0.95) !important;
+}
+
+.header-top-row {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 15px 20px;
+  gap: 30px;
+}
+
+/* Barra de Busca Premium */
+.header-search-bar {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+}
+
+.header-search-bar input {
+  width: 100%;
+  background: #0d0d0d;
+  border: 1px solid #222;
+  padding: 12px 25px;
+  border-radius: 50px;
+  color: #fff;
+  outline: none;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.header-search-bar input:focus {
+  border-color: #ff0000; /* Borda Vermelha */
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.header-search-bar button {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ff0000; /* Lupa Vermelha */
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Navegação de Baixo */
+.header-nav-bottom {
+  width: 100%;
+  border-top: 1px solid #111;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 12px 0;
+  background: #050505;
+}
+
+.header-nav-bottom a {
+  font-size: 11px;
+  font-weight: 800;
+  color: #777;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  transition: 0.3s;
+}
+
+.header-nav-bottom a:hover {
+  color: #ff0000; /* Texto Vermelho no hover */
+}
+
+/* Ajuste dos ícones dos botões para serem Vermelhos */
+.btn-premium i {
+  color: #ff0000 !important;
+}
+
+/* --- CORAÇÃO NOS PRODUTOS --- */
+.wishlist-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.wishlist-btn:hover {
+  background: #ff0000;
+  border-color: #ff0000;
+}
+
+.wishlist-btn.active i {
+  color: white !important; /* Coração preenchido fica branco sobre o fundo vermelho */
+}
+
+/* Esconder busca no celular para não bugar */
+@media (max-width: 900px) {
+  .header-search-bar { display: none; }
+  .header-nav-bottom { gap: 20px; overflow-x: auto; padding: 12px 20px; justify-content: flex-start; }
+}
