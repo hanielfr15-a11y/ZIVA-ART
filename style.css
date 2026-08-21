@@ -3876,3 +3876,80 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 .wishlist-btn.active .fa-heart {
     font-weight: 900; /* Deixa o coração 'cheio' */
 }
+/* --- ESTILO DO PAINEL DE FAVORITOS --- */
+.fav-panel {
+    position: fixed;
+    top: 0;
+    right: -430px; /* Começa escondido na direita */
+    width: min(400px, 100vw);
+    height: 100vh;
+    background: #0b0b0b;
+    border-left: 1px solid #1a1a1a;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fav-panel.open {
+    right: 0; /* Desliza para dentro da tela */
+}
+
+.fav-head {
+    padding: 25px;
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fav-head h3 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+#closeFavs {
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#closeFavs:hover { color: #ff0000; }
+
+.fav-items {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Item dentro da lista de favoritos */
+.fav-product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #151515;
+}
+
+.fav-product-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.fav-product-item h4 {
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.fav-product-item .btn-buy-fav {
+    color: #ff0000;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+}
