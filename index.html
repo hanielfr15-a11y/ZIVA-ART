@@ -2,7 +2,9 @@
 <html lang="pt-BR">
 
 <head>
-
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
   <meta charset="utf-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,9 +63,20 @@
     </nav>
 
     <div class="actions">
-      <button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button>
+      <!-- Ícone da Lupa -->
+      <button class="icon-btn" id="searchBtn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+
+      <!-- Ícone do Usuário (Minha Conta) -->
+      <button class="icon-btn" id="userBtn">
+        <i class="fa-solid fa-user"></i>
+      </button>
+
+      <!-- Ícone do Carrinho -->
       <button class="cart-btn" id="cartBtn">
-        Carrinho <b id="cartCount">0</b>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <b id="cartCount">0</b>
       </button>
     </div>
 
