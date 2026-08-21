@@ -3319,3 +3319,90 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
         grid-template-columns: 1fr; /* 1 por linha no celular */
     }
 }
+/* --- ESTILO DO MODAL DE LOGIN (ZIVA ART) --- */
+.ziva-modal {
+  display: none; /* Ele começa escondido */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85); /* Fundo escuro */
+  backdrop-filter: blur(10px);    /* Efeito de vidro fosco */
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Essa classe ".open" é o que o JS vai colocar para o modal aparecer */
+.ziva-modal.open {
+  display: flex;
+}
+
+.modal-box {
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  width: min(400px, 95vw);
+  padding: 40px;
+  border-radius: 16px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.close-modal:hover { color: #ff0000; }
+
+.auth-header h2 {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.auth-header p {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  background: #050505;
+  border: 1px solid #222;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+}
+
+.form-group input:focus { border-color: #ff0000; }
+
+.btn-block { width: 100%; margin-top: 10px; }
+
+.auth-footer {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #1a1a1a;
+}
+
+.auth-footer span { color: #ff0000; font-weight: bold; cursor: pointer; }
