@@ -760,3 +760,28 @@ if (btnFiltro && menuFiltro) {
         menuFiltro.classList.remove('active');
     });
 }
+// --- LOGICA DO MODAL DE LOGIN ---
+const loginModal = document.getElementById('loginModal');
+const userBtn = document.getElementById('userBtn');
+const closeLogin = document.getElementById('closeLogin');
+
+// 1. Abrir o modal quando clicar no ícone de usuário
+if (userBtn) {
+  userBtn.addEventListener('click', () => {
+    loginModal.classList.add('open');
+  });
+}
+
+// 2. Fechar o modal quando clicar no X
+if (closeLogin) {
+  closeLogin.addEventListener('click', () => {
+    loginModal.classList.remove('open');
+  });
+}
+
+// 3. Fechar o modal se clicar no fundo escuro (fora da caixa)
+window.addEventListener('click', (e) => {
+  if (e.target === loginModal) {
+    loginModal.classList.remove('open');
+  }
+});
