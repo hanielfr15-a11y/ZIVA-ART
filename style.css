@@ -27,7 +27,7 @@
 
 /* 1. Centraliza o topo (Header) */
 .header {
-    max-width: 1250px !important;
+    max-width: 1400px !important;
     margin: 0 auto !important;
     width: 95% !important;
     float: none !important;
@@ -39,7 +39,7 @@
 section.section, 
 .feature, 
 .cta {
-    max-width: 1250px !important;
+    max-width: 1400px !important;
     margin: 0 auto !important;
     width: 95% !important;
     float: none !important;
@@ -47,7 +47,7 @@ section.section,
 
 /* 3. Centraliza o rodapé (Footer) */
 footer {
-    max-width: 1250px !important;
+    max-width: 1400px !important;
     margin: 0 auto !important;
     width: 95% !important;
 }
