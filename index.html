@@ -50,39 +50,49 @@
   </div>
 
   <header class="header">
+    <!-- LINHA DE CIMA: LOGO, BUSCA E BOTÕES -->
+    <div class="header-top-row">
+      <a class="brand" href="#inicio">
+        <img src="assets/ziva-logo.png" alt="ZIVA ART">
+      </a>
 
-    <a class="brand" href="#inicio">
-      <img src="assets/ziva-logo.png" alt="ZIVA ART">
-    </a>
+      <!-- BUSCA SEMPRE ABERTA -->
+      <div class="header-search-bar">
+        <input type="text" placeholder="Explore artes exclusivas..." id="searchInput">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
 
-    <nav class="nav">
-      <a href="#catalogo">Catálogo</a>
-      <a href="#categorias">Categorias</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#contato">Contato</a>
-    </nav>
+      <div class="actions">
+        <!-- Login -->
+        <button class="btn-premium" id="userBtn">
+          <i class="fa-solid fa-user"></i>
+          <span>LOGIN</span>
+        </button>
 
-    <div class="actions">
-      <!-- Botão Busca -->
-      <button class="btn-premium" id="searchBtn">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <span>BUSCA</span>
-      </button>
+        <!-- Favoritos (Vermelho) -->
+        <button class="btn-premium" id="favBtn">
+          <i class="fa-solid fa-heart"></i>
+          <span>FAVORITOS</span>
+          <span class="badge-count" id="favCount">0</span>
+        </button>
 
-      <!-- Botão Login -->
-      <button class="btn-premium" id="userBtn">
-        <i class="fa-solid fa-user"></i>
-        <span>LOGIN</span>
-      </button>
-
-      <!-- Botão Carrinho -->
-      <button class="btn-premium" id="cartBtn">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span>CARRINHO</span>
-        <span class="badge-count" id="cartCount">0</span>
-      </button>
+        <!-- Carrinho -->
+        <button class="btn-premium" id="cartBtn">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>CARRINHO</span>
+          <span class="badge-count" id="cartCount">0</span>
+        </button>
+      </div>
     </div>
 
+    <!-- LINHA DE BAIXO: MENU DE NAVEGAÇÃO -->
+    <nav class="header-nav-bottom">
+      <a href="#inicio">INÍCIO</a>
+      <a href="#catalogo">CATÁLOGO</a>
+      <a href="#categorias">CATEGORIAS</a>
+      <a href="#como-funciona">COMO FUNCIONA</a>
+      <a href="#contato">CONTATO</a>
+    </nav>
   </header>
 
   <main id="inicio">
