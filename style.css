@@ -3716,3 +3716,35 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 }
 
 #closeSearch:hover { color: #ff0000; }
+/* --- AJUSTE PARA O TOPO NÃO QUEBRAR NO CELULAR --- */
+@media (max-width: 600px) {
+  
+  /* 1. Esconde as palavras (Busca, Login, Carrinho) e deixa só o desenho */
+  .btn-premium span {
+    display: none !important;
+  }
+
+  /* 2. Deixa os botões redondinhos e menores no celular */
+  .btn-premium {
+    padding: 10px !important;
+    min-width: 40px;
+    justify-content: center;
+    gap: 0 !important;
+  }
+
+  /* 3. Ajusta o espaço entre os botões para caber tudo */
+  .actions {
+    gap: 8px !important;
+  }
+
+  /* 4. Ajusta o tamanho da Logo no celular para não empurrar os botões */
+  .brand img {
+    width: 100px !important;
+  }
+
+  /* 5. Garante que a bolinha do carrinho fique no lugar certo */
+  .badge-count {
+    top: -5px;
+    right: -5px;
+  }
+}
