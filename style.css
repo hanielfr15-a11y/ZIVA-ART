@@ -3463,3 +3463,102 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
   font-weight: bold;
   border: 2px solid #050505;
 }
+/* --- ESTILO DA ÁREA DE DOWNLOADS (ZIVA ART) --- */
+
+.area-cliente-visual {
+  margin-top: 50px;
+  padding-bottom: 80px;
+  border-top: 1px solid #1a1a1a; /* Linha sutil para separar as seções */
+}
+
+/* Criando a grade de quadrados */
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* O Quadrado (Card) do Download */
+.card-download {
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.card-download:hover {
+  border-color: #ff0000;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Área da Imagem */
+.download-preview {
+  position: relative;
+  height: 200px;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-preview img {
+  max-width: 80%;
+  opacity: 0.4; /* Deixa a imagem mais escura, estilo 'comprada' */
+}
+
+/* A Tag Verde de Liberado */
+.status-liberado {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #00ff00; /* Verde limão */
+  color: #000;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 5px 12px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+/* Informações e Botão */
+.download-detalhes {
+  padding: 25px;
+}
+
+.download-detalhes small {
+  color: #555;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.download-detalhes h3 {
+  font-size: 16px;
+  margin: 8px 0 20px 0;
+  color: #fff;
+}
+
+/* O Botão de Baixar Vermelho */
+.btn-baixar-ziva {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #ff0000;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: 0.3s;
+}
+
+.btn-baixar-ziva:hover {
+  background: #fff;
+  color: #000;
+}
