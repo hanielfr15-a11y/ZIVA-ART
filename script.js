@@ -810,3 +810,17 @@ window.addEventListener('click', (e) => {
     searchModal.classList.remove('open');
   }
 });
+function toggleFav(btn) {
+    btn.classList.toggle('active');
+    const icon = btn.querySelector('i');
+    const favCountElement = document.getElementById('favCount');
+    let currentCount = parseInt(favCountElement.innerText);
+
+    if (btn.classList.contains('active')) {
+        icon.classList.replace('fa-regular', 'fa-solid'); // Coração cheio
+        favCountElement.innerText = currentCount + 1;
+    } else {
+        icon.classList.replace('fa-solid', 'fa-regular'); // Coração vazio
+        favCountElement.innerText = currentCount - 1;
+    }
+}
