@@ -23,6 +23,48 @@
   --red-soft: rgba(255, 23, 34, 0.12);
 }
 
+/* --- CENTRALIZAÇÃO TOTAL DO CONTEÚDO --- */
+
+/* 1. Centraliza o topo (Header) */
+.header {
+    max-width: 1250px !important;
+    margin: 0 auto !important;
+    width: 95% !important;
+    float: none !important;
+}
+
+/* 2. Centraliza todas as seções do meio (Hero, Stats, Catalogo, Categorias, CTA) */
+.hero, 
+.stats-section, 
+section.section, 
+.feature, 
+.cta {
+    max-width: 1250px !important;
+    margin: 0 auto !important;
+    width: 95% !important;
+    float: none !important;
+}
+
+/* 3. Centraliza o rodapé (Footer) */
+footer {
+    max-width: 1250px !important;
+    margin: 0 auto !important;
+    width: 95% !important;
+}
+
+/* 4. EXCEÇÃO: O Ticker (texto correndo) continua ocupando a tela toda */
+.ticker {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* 5. Garante que o fundo do site continue preto nas laterais */
+body {
+    background-color: #050505 !important;
+    overflow-x: hidden; /* Evita que o site "dance" para os lados */
+}
+
 
 /* =========================================================
    02. RESET
@@ -3082,45 +3124,4 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
 /* 3. Ajuste para a barra de filtro e produtos não passarem do limite */
 .catalog-toolbar, .products {
   max-width: 100% !important; /* Eles vão respeitar o tamanho da seção pai */
-}
-/* --- CENTRALIZAÇÃO TOTAL DO CONTEÚDO --- */
-
-/* 1. Centraliza o topo (Header) */
-.header {
-    max-width: 1250px !important;
-    margin: 0 auto !important;
-    width: 95% !important;
-    float: none !important;
-}
-
-/* 2. Centraliza todas as seções do meio (Hero, Stats, Catalogo, Categorias, CTA) */
-.hero, 
-.stats-section, 
-section.section, 
-.feature, 
-.cta {
-    max-width: 1250px !important;
-    margin: 0 auto !important;
-    width: 95% !important;
-    float: none !important;
-}
-
-/* 3. Centraliza o rodapé (Footer) */
-footer {
-    max-width: 1250px !important;
-    margin: 0 auto !important;
-    width: 95% !important;
-}
-
-/* 4. EXCEÇÃO: O Ticker (texto correndo) continua ocupando a tela toda */
-.ticker {
-    max-width: none !important;
-    width: 100% !important;
-    margin: 0 !important;
-}
-
-/* 5. Garante que o fundo do site continue preto nas laterais */
-body {
-    background-color: #050505 !important;
-    overflow-x: hidden; /* Evita que o site "dance" para os lados */
 }
