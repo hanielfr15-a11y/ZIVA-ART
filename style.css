@@ -3953,3 +3953,27 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     font-weight: bold;
     text-decoration: none;
 }
+/* AJUSTE PARA A IMAGEM FICAR PERFEITA NO QUADRADO */
+.product-img {
+  width: 100%;
+  height: 280px; /* Define uma altura fixa para o quadrado */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111; /* Fundo escuro caso a imagem demore a carregar */
+  position: relative;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a imagem preencher o quadrado sem esticar */
+  object-fit: center; /* Centraliza a parte principal da arte */
+  transition: transform 0.5s ease;
+}
+
+/* Efeito de zoom sutil ao passar o mouse */
+.product:hover .product-img img {
+  transform: scale(1.1);
+}
