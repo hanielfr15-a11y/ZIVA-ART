@@ -3218,3 +3218,102 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     grid-template-columns: 1fr;
   }
 }
+/* --- ESTILO SEÇÃO COMO COMPRAR (IGUAL À REFERÊNCIA) --- */
+
+.como-comprar-secao {
+    background-color: #000;
+    padding: 80px 0;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+.comprar-wrapper {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.comprar-titulo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.passo-label {
+    color: #ff0000;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.comprar-titulo h2 {
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.comprar-titulo p {
+    color: #888;
+}
+
+/* Criando os Quadrados (Grid) */
+.comprar-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 colunas iguais */
+    gap: 20px;
+}
+
+.card-passo {
+    background-color: #0b0b0b; /* Cinza bem escuro */
+    border: 1px solid #1a1a1a;
+    padding: 30px 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+/* Os quadradinhos com os números */
+.num-caixa {
+    background-color: #ff0000;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: 900;
+    font-size: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.card-passo h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card-passo p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* O 5º Passo com destaque vermelho igual na foto */
+.destaque-vermelho {
+    border: 2px solid #ff0000 !important;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+}
+
+/* Para o Celular (Responsivo) */
+@media (max-width: 1100px) {
+    .comprar-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 por linha no tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .comprar-grid {
+        grid-template-columns: 1fr; /* 1 por linha no celular */
+    }
+}
