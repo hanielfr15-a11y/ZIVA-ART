@@ -3,7 +3,7 @@
    ========================================================= */
 
 const products = [
-    { id: 1, name: "Panda Black & White", cat: "Interclasse", price: 14.99, old: 55, img: "assets/img/teste.jpg" },
+    { id: 1, name: "Panda Black & White", cat: "Interclasse", price: 14.99, old: 55, img: "assets/img/Panda branco e preto.jpg" },
     { id: 2, name: "Pantera Black", cat: "Mascotes", price: 12.99, old: 45, img: "assets/img/teste.jpg" },
     { id: 3, name: "Wolf Red Elite", cat: "Interclasse", price: 15.99, old: 55, img: "assets/img/teste.jpg" },
     { id: 4, name: "Fenix Concept", cat: "Mascotes", price: 14.99, old: 50, img: "assets/img/teste.jpg" },
