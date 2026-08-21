@@ -3678,3 +3678,41 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
     justify-content: center;
   }
 }
+/* --- AJUSTE DO MODAL DE BUSCA --- */
+.search-modal {
+  display: none; /* Esconde por padrão */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 10000; /* Fica em cima de tudo */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Quando a busca estiver aberta */
+.search-modal.open {
+  display: flex;
+}
+
+.search-box {
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+  width: min(600px, 90vw);
+  padding: 40px;
+  border-radius: 16px;
+  position: relative;
+}
+
+#closeSearch {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#closeSearch:hover { color: #ff0000; }
