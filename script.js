@@ -1,5 +1,5 @@
 /* =========================================================
-   ZIVA ART - PRODUTOS (COM IMAGEM E CORAÇÃO)
+   ZIVA ART - MASTER SCRIPT (PRODUTOS + CORAÇÃO + CONTADORES)
    ========================================================= */
 
 const products = [
@@ -13,20 +13,17 @@ const products = [
     { id: 8, name: "Lion Gold", cat: "Mascotes", price: 16.99, old: 60, img: "assets/img/teste.jpg" }
 ];
 
-/* --- FORMATAÇÃO DE PREÇO --- */
+/* --- FORMATAÇÃO E CARRINHO --- */
 const money = (val) => val.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+let cart = JSON.parse(localStorage.getItem("zivaCart") || "[]");
 
-/* --- MOSTRAR PRODUTOS NA TELA --- */
+/* --- MOSTRAR PRODUTOS NA TELA (COM CORAÇÃO) --- */
 function renderProducts(list = products) {
     const container = document.getElementById("products");
     const countLabel = document.getElementById("catalogResults");
-
     if (!container) return;
 
-    // Atualiza o texto de contagem (Há X resultados...)
-    if (countLabel) {
-        countLabel.innerText = `Há ${list.length} resultados no total`;
-    }
+    if (countLabel) countLabel.innerText = `Há ${list.length} resultados no total`;
 
     container.innerHTML = list.map((p) => `
         <article class="product">
@@ -66,9 +63,38 @@ function toggleFav(btn) {
     }
 }
 
-/* --- CARRINHO --- */
-let cart = JSON.parse(localStorage.getItem("zivaCart") || "[]");
+/* --- ANIMAÇÃO DOS NÚMEROS (SUA CONTAGEM VOLTOU!) --- */
+function animateCounter(element) {
+    const target = Number(element.dataset.target);
+    const suffix = element.dataset.suffix || "";
+    const duration = 2000;
+    let start = null;
 
+    function step(timestamp) {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        const current = Math.floor(progress * target);
+        element.innerText = current.toLocaleString("pt-BR") + suffix;
+        if (progress < 1) window.requestAnimationFrame(step);
+        else element.innerText = target.toLocaleString("pt-BR") + suffix;
+    }
+    window.requestAnimationFrame(step);
+}
+
+function initCounters() {
+    const statsSection = document.querySelector(".stats");
+    if (!statsSection) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            statsSection.querySelectorAll("strong[data-target]").forEach(animateCounter);
+            observer.disconnect();
+        }
+    }, { threshold: 0.5 });
+    observer.observe(statsSection);
+}
+
+/* --- LÓGICA DO CARRINHO --- */
 function save() {
     localStorage.setItem("zivaCart", JSON.stringify(cart));
     renderCart();
@@ -108,32 +134,29 @@ function removeCart(id) { cart = cart.filter(i => i.id !== id); save(); }
 function openCart() { document.querySelector("#cart")?.classList.add("open"); document.querySelector("#overlay")?.classList.add("open"); }
 function closeCart() { document.querySelector("#cart")?.classList.remove("open"); document.querySelector("#overlay")?.classList.remove("open"); }
 
-/* --- EVENTOS --- */
+/* --- INICIALIZAÇÃO --- */
 document.addEventListener("DOMContentLoaded", () => {
-    // Abrir/Fechar Carrinho
+    // Eventos de clique
     document.querySelector("#cartBtn").onclick = openCart;
     document.querySelector("#closeCart").onclick = closeCart;
     document.querySelector("#overlay").onclick = closeCart;
 
-    // Modal Login
     const userBtn = document.getElementById('userBtn');
-    const loginModal = document.getElementById('loginModal');
-    if (userBtn && loginModal) userBtn.onclick = () => loginModal.classList.add('open');
-    if (document.getElementById('closeLogin')) document.getElementById('closeLogin').onclick = () => loginModal.classList.remove('open');
+    if (userBtn) userBtn.onclick = () => document.getElementById('loginModal')?.classList.add('open');
+    if (document.getElementById('closeLogin')) document.getElementById('closeLogin').onclick = () => document.getElementById('loginModal')?.classList.remove('open');
 
     // Busca
     const searchIn = document.getElementById('searchInput');
     if (searchIn) {
         searchIn.oninput = () => {
             const query = searchIn.value.toLowerCase();
-            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.cat.toLowerCase().includes(query));
-            renderProducts(filtered);
+            renderProducts(products.filter(p => p.name.toLowerCase().includes(query) || p.cat.toLowerCase().includes(query)));
         };
     }
 
-    // Inicializa site
     renderProducts();
     save();
+    initCounters(); // LIGA A ANIMAÇÃO DOS NÚMEROS
     
     // Loader
     setTimeout(() => {
