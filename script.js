@@ -785,3 +785,28 @@ window.addEventListener('click', (e) => {
     loginModal.classList.remove('open');
   }
 });
+// --- LÓGICA DA BUSCA ---
+const searchBtn = document.getElementById('searchBtn');
+const searchModal = document.getElementById('searchModal');
+const closeSearch = document.getElementById('closeSearch');
+
+// Abrir busca
+if (searchBtn) {
+  searchBtn.addEventListener('click', () => {
+    searchModal.classList.add('open');
+  });
+}
+
+// Fechar busca no X
+if (closeSearch) {
+  closeSearch.addEventListener('click', () => {
+    searchModal.classList.remove('open');
+  });
+}
+
+// Fechar busca ao clicar fora
+window.addEventListener('click', (e) => {
+  if (e.target === searchModal) {
+    searchModal.classList.remove('open');
+  }
+});
