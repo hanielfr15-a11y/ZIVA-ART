@@ -1,0 +1,1242 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ZIVA ART | Artes Digitais Premium</title>
+
+  <!-- Favicon - Ícone da aba do navegador -->
+  <link rel="icon" type="image/png" href="assets/favicon-z.png">
+  <link rel="apple-touch-icon" href="assets/favicon-z.png">
+
+  <meta
+    name="description"
+    content="ZIVA ART. Artes digitais premium para interclasse, uniformes, mascotes e projetos de impressão."
+  >
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="ziva-loader" id="zivaLoader">
+    <div class="loader-logo">
+      <span>ZIVA</span>
+      <small>ART</small>
+    </div>
+    <div class="loader-line"></div>
+  </div>
+
+  <div class="announcement">
+    ⚡ NOVAS ARTES TODA SEMANA
+    <span>•</span>
+    DOWNLOAD DIGITAL
+  </div>
+
+  <header class="header">
+    <!-- LINHA DE CIMA: LOGO, BUSCA E BOTÕES -->
+    <div class="header-top-row">
+      <a class="brand" href="#inicio">
+        <img src="assets/ziva-logo.png" alt="ZIVA ART">
+      </a>
+
+      <!-- BUSCA SEMPRE ABERTA -->
+      <div class="header-search-bar">
+        <input type="text" placeholder="Explore artes exclusivas..." id="searchInput">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <div class="actions">
+        <!-- Login -->
+        <button class="btn-premium" id="userBtn">
+          <i class="fa-solid fa-user"></i>
+          <span>LOGIN</span>
+        </button>
+
+        <!-- Favoritos (Vermelho) -->
+        <button class="btn-premium" id="favBtn">
+          <i class="fa-solid fa-heart"></i>
+          <span>FAVORITOS</span>
+          <span class="badge-count" id="favCount">0</span>
+        </button>
+
+        <!-- Carrinho -->
+        <button class="btn-premium" id="cartBtn">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>CARRINHO</span>
+          <span class="badge-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- LINHA DE BAIXO: MENU DE NAVEGAÇÃO -->
+    <nav class="header-nav-bottom">
+      <a href="#inicio">INÍCIO</a>
+      <a href="#como-comprar">COMO COMPRAR</a>
+      <a href="#catalogo">LOJA COMPLETA</a>
+      <a href="#feedbacks">FEEDBACKS</a>
+      <a href="#faq">DÚVIDAS / FAQ</a>
+      <a href="#contato">CONTATO</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <div id="homeView">
+      <!-- BANNER PRINCIPAL OFICIAL -->
+      <section class="hero-banner-section">
+        <div class="hero-banner-wrap">
+          <img src="assets/hero-banner.png" alt="ZIVA ART - Artes Digitais Premium em CDR" class="hero-banner-img" draggable="false" oncontextmenu="return false;">
+        </div>
+      </section>
+
+
+    <section class="ticker">
+
+      <div class="ticker-track">
+
+        <span>ARTE EXCLUSIVAS</span>
+        <b>✦</b>
+
+        <span>ALTA RESOLUÇÃO</span>
+        <b>✦</b>
+
+        <span>FORMADOS</span>
+        <b>✦</b>
+
+        <span>ENVIO IMEDIATO</span>
+        <b>✦</b>
+
+        <span>100% EDITÁVEL</span>
+        <b>✦</b>
+
+        <span>ARTE EXCLUSIVAS</span>
+        <b>✦</b>
+
+        <span>ALTA RESOLUÇÃO</span>
+        <b>✦</b>
+
+        <span>FORMADOS</span>
+        <b>✦</b>
+
+        <span>ENVIO IMEDIATO</span>
+        <b>✦</b>
+
+        <span>100% EDITÁVEL</span>
+        <b>✦</b>
+
+        <span>ARTE EXCLUSIVAS</span>
+        <b>✦</b>
+
+        <span>ALTA RESOLUÇÃO</span>
+        <b>✦</b>
+
+        <span>FORMADOS</span>
+        <b>✦</b>
+
+        <span>ENVIO IMEDIATO</span>
+        <b>✦</b>
+
+        <span>100% EDITÁVEL</span>
+        <b>✦</b>
+
+      </div>
+
+    </section>
+
+
+    <section class="stats-section">
+
+      <div class="stats">
+
+        <div class="stat-item">
+
+          <strong
+            data-target="500"
+            data-suffix="+"
+          >
+            0
+          </strong>
+
+          <small>
+            ESTAMPAS
+          </small>
+
+        </div>
+
+        <div class="stat-item">
+
+          <strong
+            data-target="1500"
+            data-suffix="+"
+          >
+            0
+          </strong>
+
+          <small>
+            DOWNLOADS
+          </small>
+
+        </div>
+
+        <div class="stat-item">
+
+          <strong
+            data-target="100"
+            data-suffix="%"
+          >
+            0
+          </strong>
+
+          <small>
+            DIGITAL
+          </small>
+
+        </div>
+
+        <div class="stat-item">
+
+          <strong
+            data-target="24"
+            data-suffix="/7"
+          >
+            0
+          </strong>
+
+          <small>
+            SUPORTE
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PASSO A PASSO: COMO COMPRAR NO SITE
+         =================================================== -->
+
+    <section class="como-comprar-secao" id="como-comprar">
+      <div class="comprar-wrapper">
+        <div class="comprar-titulo">
+          <span class="passo-label">PASSO A PASSO</span>
+          <h2>Como Comprar no Site</h2>
+          <p>Tudo automatizado! Comprou, baixou. Veja como é simples.</p>
+        </div>
+
+        <div class="comprar-grid">
+          <div class="card-passo">
+            <div class="num-caixa">1</div>
+            <h3>Escolha a Arte</h3>
+            <p>Navegue pelo nosso catálogo e escolha as artes de vetores que deseja baixar.</p>
+          </div>
+
+          <div class="card-passo">
+            <div class="num-caixa">2</div>
+            <h3>Crie sua Conta</h3>
+            <p>Faça um cadastro super rápido para garantir que os arquivos fiquem salvos no seu perfil.</p>
+          </div>
+
+          <div class="card-passo">
+            <div class="num-caixa">3</div>
+            <h3>Adicionar Carrinho</h3>
+            <p>Adicione tudo que curtiu ao carrinho e confira o valor final antes do pagamento.</p>
+          </div>
+
+          <div class="card-passo">
+            <div class="num-caixa">4</div>
+            <h3>Pagamento Seguro</h3>
+            <p>Pague via PIX ou Cartão de forma 100% segura e instantânea através do checkout.</p>
+          </div>
+
+          <div class="card-passo">
+            <div class="num-caixa">5</div>
+            <h3>Download Imediato</h3>
+            <p>Aprovou, liberou! Seus arquivos vão direto para a aba Meus Downloads na mesma hora.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         CATÁLOGO / LOJA COMPLETA
+         =================================================== -->
+
+    <section
+      class="section"
+      id="catalogo"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <span class="eyebrow">
+            01 / CATÁLOGO
+          </span>
+
+          <h2>
+            LOJA COMPLETA
+          </h2>
+
+        </div>
+
+        <a
+          href="#catalogo"
+          class="text-link"
+        >
+          Ver tudo ↗
+        </a>
+
+      </div>
+
+          <!-- ÚNICO FILTRO -->
+
+          <div class="catalog-toolbar">
+        <div class="catalog-left">
+          <button type="button" class="catalog-filter-btn" id="catalogFilterBtn">
+            <span>☰</span> FILTRO
+          </button>
+          
+          <!-- ESSE É O MENU COM AS OPÇÕES -->
+          <div id="filterMenu" class="filter-menu">
+            <button class="filter-option active" data-filter="all">Todos</button>
+            <button class="filter-option" data-filter="Mascote">Mascote</button>
+            <button class="filter-option" data-filter="Interclasse">Interclasse</button>
+            <button class="filter-option" data-filter="famosas">Mais famosas</button>
+            <button class="filter-option" data-filter="outros">Outros temas</button>
+          </div>
+
+          <span class="catalog-results" id="catalogResults">Há 0 resultados no total</span>
+        </div>
+
+        <div class="catalog-sort">
+  <label>Ordenar por:</label>
+  <!-- Dropdown customizado no estilo ZIVA (sem aparência nativa do Windows) -->
+  <div class="custom-sort-dropdown" id="customSortDropdown">
+    <button type="button" class="sort-selected" id="sortSelectedBtn">
+      <span id="sortSelectedLabel">Mais vendidos</span>
+      <i class="fa-solid fa-chevron-down sort-arrow"></i>
+    </button>
+    <div class="sort-options" id="sortOptions">
+      <button class="sort-opt active" data-value="default">Mais vendidos</button>
+      <button class="sort-opt" data-value="recent">Mais recentes</button>
+      <button class="sort-opt" data-value="low">Menor preço</button>
+      <button class="sort-opt" data-value="high">Maior preço</button>
+    </div>
+  </div>
+</div>
+            </div> 
+      
+      <!-- ÚNICO CONTAINER DOS PRODUTOS -->
+
+      <div
+        class="products"
+        id="products"
+      ></div>
+
+    </section>
+
+
+    <!-- Seção "Como Funciona" removida a pedido -->
+
+
+    <!-- ===================================================
+         FEEDBACKS REAIS / DEPOIMENTOS
+         =================================================== -->
+
+    <section class="section feedbacks-section" id="feedbacks">
+      <div class="section-head text-center">
+        <span class="eyebrow">— COMUNIDADE VIP</span>
+        <h2>FEEDBACKS <em>REAIS</em></h2>
+      </div>
+
+      <div class="feedbacks-grid">
+        <!-- CARD 1 -->
+        <div class="feedback-card">
+          <div class="feedback-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <p class="feedback-text">
+            "Estávamos correndo contra o tempo para fechar os uniformes do interclasse. Encontrei a <strong>ZIVA ART</strong>, compramos o vetor em CDR e enviamos direto pra confecção. O arquivo veio perfeitamente organizado, com fontes e separação de cores. Ficou o uniforme mais bonito da escola!"
+          </p>
+
+          <div class="feedback-author">
+            <div class="author-avatar">L</div>
+            <div class="author-info">
+              <strong>Lucas Henrique</strong>
+              <small>Líder de Turma • Interclasse 2024</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="feedback-card">
+          <div class="feedback-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <p class="feedback-text">
+            "Trabalho com estamparia e sublimação há mais de 6 anos. O que mais atrasa o dia a dia é receber imagem ruim da internet. As artes da <strong>ZIVA ART</strong> vêm 100% editáveis no Corel, prontas para plotter e estampa. Economiza muito o meu tempo de produção."
+          </p>
+
+          <div class="feedback-author">
+            <div class="author-avatar">T</div>
+            <div class="author-info">
+              <strong>Thiago Silveira</strong>
+              <small>Estúdio Silk & Sublimação</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="feedback-card">
+          <div class="feedback-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <p class="feedback-text">
+            "A qualidade dos traços e a criatividade das artes são surreais. Comprei para produzir os abadás e camisas esportivas dos meus clientes e a liberação do download foi na mesma hora. Fidelidade de cores nota 10, super recomendo!"
+          </p>
+
+          <div class="feedback-author">
+            <div class="author-avatar">C</div>
+            <div class="author-info">
+              <strong>Camila Rezende</strong>
+              <small>Designer Gráfica & Personalizados</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         BARRA DE GARANTIA & SELOS DE SEGURANÇA
+         =================================================== -->
+
+    <section class="trust-bar-section">
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div class="trust-info">
+            <strong>Download Automático</strong>
+            <span>Liberado na hora via PIX e Cartão</span>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="trust-info">
+            <strong>100% Editável</strong>
+            <span>Arquivos CDR e PDF com curvas limpas</span>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon"><i class="fa-solid fa-font"></i></div>
+          <div class="trust-info">
+            <strong>Fontes Inclusas</strong>
+            <span>Tipografia TTF completa no ZIP</span>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="trust-info">
+            <strong>Compra 100% Segura</strong>
+            <span>Garantia de Qualidade ZIVA ART</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         FAQ - PERGUNTAS FREQUENTES (ACORDEÃO)
+         =================================================== -->
+
+    <section class="section faq-section" id="faq">
+      <div class="section-head text-center">
+        <span class="eyebrow">— TIRE SUAS DÚVIDAS</span>
+        <h2>PERGUNTAS <em>FREQUENTES</em></h2>
+      </div>
+
+      <div class="faq-container">
+        <!-- ITEM 1 -->
+        <div class="faq-item active">
+          <button class="faq-question" type="button">
+            <span>Vocês vendem a camisa física pronta?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Não. Aqui no site não vendemos camisas físicas, apenas as artes em vetor.</p>
+          </div>
+        </div>
+
+        <!-- ITEM 2 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Como recebo as artes após o pagamento?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>É automático! Assim que o seu pagamento via PIX ou Cartão for aprovado, o arquivo ficará disponível na aba "Meus Downloads" do seu perfil aqui mesmo no site. Você também receberá um link de acesso no e-mail cadastrado.</p>
+          </div>
+        </div>
+
+        <!-- ITEM 3 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Quais programas preciso para abrir os vetores?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>A maioria dos nossos pacotes são editados no CorelDraw. Disponibilizamos os arquivos nas extensões .CDR e .PDF (vetor), além de incluir as fontes.</p>
+          </div>
+        </div>
+
+        <!-- ITEM 4 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Posso alterar as cores, textos e mascotes?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Os arquivos são 100% editáveis e a gráfica consegue editar tranquilamente. Porém, se quiser algo mais elaborado pro gosto da sua turma, a Ziva Art faz serviços de arte personalizada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         CONTATO
+         =================================================== -->
+
+    <section
+      class="cta"
+      id="contato"
+    >
+
+      <div class="cta-mark">
+        Z
+      </div>
+
+      <span class="eyebrow">
+        04 / ZIVA ART
+      </span>
+
+      <h2>
+        PRONTO PARA<br>
+        <em>CRIAR?</em>
+      </h2>
+
+      <p>
+        Entre em contato para artes exclusivas,
+        mascotes e projetos personalizados.
+      </p>
+
+      <a
+        class="btn primary"
+        href="https://wa.me/5511986424121?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20projeto%20personalizado."
+        target="_blank"
+        rel="noreferrer"
+      >
+        Falar no WhatsApp ↗
+      </a>
+
+    </section>
+
+    </div><!-- /#homeView -->
+
+    <!-- PÁGINA DEDICADA DA ARTE -->
+    <div id="productView" style="display:none;">
+      <div class="pv-topbar">
+        <button class="pv-back" id="btnBackCatalog">
+          <i class="fa-solid fa-arrow-left"></i> VOLTAR AO CATÁLOGO
+        </button>
+        <nav class="pv-breadcrumb">
+          <span onclick="closeProductPage()" style="cursor:pointer;">INÍCIO</span>
+          <span> / </span>
+          <span onclick="closeProductPage()" style="cursor:pointer;">CATÁLOGO</span>
+          <span> / </span>
+          <strong id="pvBreadTitle">ARTE</strong>
+        </nav>
+      </div>
+
+      <div class="pv-grid">
+        <!-- COLUNA ESQUERDA: IMAGEM -->
+        <div class="pv-img-col">
+          <div class="pv-img-frame">
+            <img id="pvImg" src="" alt="Arte ZIVA" draggable="false" oncontextmenu="return false;" />
+            <span class="pv-discount-tag" id="pvTag" style="display:none;"></span>
+          </div>
+          <div class="pv-badges">
+            <div class="pv-badge"><i class="fa-solid fa-gem"></i><span>Vetor Premium em Alta Resolução</span></div>
+            <div class="pv-badge"><i class="fa-solid fa-bolt"></i><span>Download Imediato após Pagamento</span></div>
+            <div class="pv-badge"><i class="fa-solid fa-shield-halved"></i><span>Garantia de Qualidade ZIVA ART</span></div>
+          </div>
+        </div>
+
+        <!-- COLUNA DIREITA: INFO -->
+        <div class="pv-info-col">
+          <span class="pv-cat" id="pvCat"></span>
+          <h1 class="pv-title" id="pvTitle">Nome da Arte</h1>
+
+          <div class="pv-feature-bar">
+            <i class="fa-solid fa-layer-group"></i>
+            <div>
+              <strong>ALTA RESOLUÇÃO &amp; 100% EDITÁVEL</strong>
+              <small>Arquivos prontos para confecção e estamparia</small>
+            </div>
+          </div>
+
+          <div class="pv-files">
+            <p class="pv-files-label"><i class="fa-solid fa-folder-open"></i> FORMATOS INCLUSOS:</p>
+            <div class="pv-files-grid">
+              <div class="pv-file-card"><i class="fa-solid fa-bezier-curve"></i><strong>CorelDRAW</strong><small>.CDR (X7–2024)</small></div>
+              <div class="pv-file-card"><i class="fa-solid fa-file-pdf"></i><strong>PDF Vetor</strong><small>Aberto em curvas</small></div>
+              <div class="pv-file-card"><i class="fa-solid fa-font"></i><strong>Fontes</strong><small>Inclusas no pacote</small></div>
+            </div>
+          </div>
+
+          <div class="pv-checkout">
+            <div class="pv-price-row">
+              <span class="pv-price" id="pvPrice">R$ 0,00</span>
+              <del class="pv-old-price" id="pvOldPrice" style="display:none;"></del>
+            </div>
+            <div class="pv-btns">
+              <button class="pv-btn-buy" id="pvBtnBuy"><i class="fa-solid fa-bolt"></i> COMPRAR AGORA</button>
+              <button class="pv-btn-cart" id="pvBtnCart"><i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho</button>
+            </div>
+            <a href="#" id="pvBtnWhats" target="_blank" class="pv-whats-link">
+              <i class="fa-brands fa-whatsapp"></i> Tirar dúvidas no WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTRAS ARTES -->
+      <div class="pv-related">
+        <h3>✦ VOCÊ TAMBÉM PODE GOSTAR</h3>
+        <div class="products" id="pvRelated"></div>
+      </div>
+    </div><!-- /#productView -->
+
+  </main>
+
+  <!-- =====================================================
+       RODAPÉ PREMIUM (ZIVA ART)
+       ===================================================== -->
+  <footer class="footer-ziva">
+    <div class="footer-container">
+      
+      <!-- Coluna 1: Logo e Sobre -->
+      <div class="footer-col">
+        <img src="assets/ziva-logo.png" alt="ZIVA ART" class="footer-logo">
+        <p>Artes digitais premium para quem busca exclusividade e qualidade em cada detalhe.</p>
+        <div class="social-links">
+          <a href="#" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/5511986424121?text=Ol%C3%A1!%20Vim%20do%20site%20ZIVA%20ART%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20uma%20arte." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" target="_blank" rel="noopener"><i class="fa-brands fa-behance"></i></a>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Navegação -->
+      <div class="footer-col">
+        <h4>NAVEGAÇÃO</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#como-comprar">Como Comprar</a></li>
+          <li><a href="#feedbacks">Feedbacks</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Suporte -->
+      <div class="footer-col">
+        <h4>SUPORTE</h4>
+        <ul>
+          <li><a href="#">Minha Conta</a></li>
+          <li><a href="#">Meus Downloads</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 4: Pagamento -->
+      <div class="footer-col">
+        <h4>PAGAMENTO SEGURO</h4>
+        <p>Aceitamos as principais bandeiras:</p>
+        <div class="payment-icons">
+          <i class="fa-brands fa-pix"></i>
+          <i class="fa-solid fa-barcode"></i>
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 ZIVA ART. Todos os direitos reservados. Desenvolvido por Haniel.</p>
+    </div>
+  </footer>
+  <!-- Modal de busca removido: busca integrada diretamente no header -->
+
+
+  <!-- =====================================================
+       CARRINHO
+       ===================================================== -->
+
+  <aside
+    class="cart"
+    id="cart"
+  >
+
+    <div class="cart-head">
+
+      <h3>
+        SEU CARRINHO
+      </h3>
+
+      <button id="closeCart">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      id="cartItems"
+      class="cart-items"
+    >
+
+      <p class="empty">
+        Seu carrinho está vazio.
+      </p>
+
+    </div>
+
+
+    <div class="cart-foot">
+
+      <div>
+        <span>
+          Total
+        </span>
+        <strong id="cartTotal">
+          R$ 0,00
+        </strong>
+      </div>
+
+      <button
+        class="btn primary"
+        id="checkoutBtn"
+      >
+        <i class="fa-solid fa-bolt"></i> Finalizar Compra
+      </button>
+
+      <button
+        type="button"
+        class="btn-continue-shopping"
+        id="continueShoppingBtn"
+      >
+        <i class="fa-solid fa-arrow-left"></i> Continuar Comprando
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <div
+    class="overlay"
+    id="overlay"
+  ></div>
+
+  <!-- PAINEL LATERAL DE FAVORITOS -->
+<aside class="fav-panel" id="favPanel">
+    <div class="fav-head">
+        <h3>MEUS FAVORITOS</h3>
+        <button id="closeFavs">&times;</button>
+    </div>
+
+    <div id="favItems" class="fav-items">
+        <!-- As artes favoritadas vão aparecer aqui -->
+    </div>
+</aside>
+
+
+  <!-- =====================================================
+       JAVASCRIPT PRINCIPAL
+       ===================================================== -->
+
+  <!-- =====================================================
+       MODAL DE LOGIN / CADASTRO / RECUPERAÇÃO (ZIVA ART)
+       ===================================================== -->
+  <div class="ziva-modal" id="loginModal">
+    <div class="modal-backdrop" id="closeLoginBackdrop"></div>
+    <div class="modal-box auth-box">
+      <button class="close-modal" id="closeLogin">&times;</button>
+      
+      <!-- LOGO / HEADER DO MODAL -->
+      <div class="auth-header">
+        <div class="auth-logo-badge">
+          <img src="assets/favicon-z.png" alt="ZIVA ART">
+        </div>
+        <h2 id="authTitle">ACESSAR CONTA</h2>
+        <p id="authSubtitle">Entre para gerenciar seus pedidos e baixar suas artes.</p>
+      </div>
+
+      <!-- MENSAGEM DE STATUS (SUCESSO / ERRO) -->
+      <div id="authAlert" class="auth-alert" style="display: none;"></div>
+
+      <!-- FORMULÁRIO DE LOGIN -->
+      <form class="auth-form" id="loginForm">
+        <div class="form-group">
+          <label><i class="fa-solid fa-envelope"></i> E-mail</label>
+          <input type="email" id="loginEmail" placeholder="seuemail@exemplo.com" required autocomplete="email">
+        </div>
+        
+        <div class="form-group">
+          <div class="label-row">
+            <label><i class="fa-solid fa-lock"></i> Senha</label>
+            <a href="javascript:void(0)" id="btnForgotPass" class="forgot-link">Esqueceu a senha?</a>
+          </div>
+          <div class="input-pass-wrap">
+            <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+            <button type="button" class="btn-toggle-pass" id="toggleLoginPass"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-auth-submit" id="btnLoginSubmit">
+          <i class="fa-solid fa-right-to-bracket"></i> ENTRAR NA CONTA
+        </button>
+      </form>
+
+      <!-- FORMULÁRIO DE CADASTRO -->
+      <form class="auth-form" id="registerForm" style="display: none;">
+        <div class="form-group">
+          <label><i class="fa-solid fa-user"></i> Nome Completo</label>
+          <input type="text" id="regName" placeholder="Seu Nome" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-envelope"></i> E-mail</label>
+          <input type="email" id="regEmail" placeholder="seuemail@exemplo.com" required autocomplete="email">
+        </div>
+        
+        <div class="form-group">
+          <label><i class="fa-solid fa-lock"></i> Criar Senha</label>
+          <div class="input-pass-wrap">
+            <input type="password" id="regPassword" placeholder="Mínimo 6 caracteres" minlength="6" required autocomplete="new-password">
+            <button type="button" class="btn-toggle-pass" id="toggleRegPass"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-auth-submit" id="btnRegisterSubmit">
+          <i class="fa-solid fa-user-plus"></i> CRIAR CONTA GRÁTIS
+        </button>
+      </form>
+
+      <!-- FORMULÁRIO DE RECUPERAÇÃO DE SENHA -->
+      <form class="auth-form" id="forgotForm" style="display: none;">
+        <p class="forgot-instructions">Digite seu e-mail cadastrado. O Supabase enviará um link seguro para você redefinir sua senha na hora.</p>
+        
+        <div class="form-group">
+          <label><i class="fa-solid fa-envelope"></i> E-mail Cadastrado</label>
+          <input type="email" id="forgotEmail" placeholder="seuemail@exemplo.com" required autocomplete="email">
+        </div>
+
+        <button type="submit" class="btn-auth-submit" id="btnForgotSubmit">
+          <i class="fa-solid fa-paper-plane"></i> ENVIAR LINK DE RECUPERAÇÃO
+        </button>
+      </form>
+
+      <!-- FOOTER DE ALTERNÂNCIA -->
+      <div class="auth-footer">
+        <p id="toggleToRegister">Ainda não tem conta? <a href="javascript:void(0)" id="linkGoRegister">Cadastre-se</a></p>
+        <p id="toggleToLogin" style="display: none;">Já tem uma conta? <a href="javascript:void(0)" id="linkGoLogin">Entrar</a></p>
+        <p id="toggleBackToLogin" style="display: none;"><a href="javascript:void(0)" id="linkBackLogin">← Voltar para o Login</a></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- =====================================================
+       BOTÃO FLUTUANTE DO WHATSAPP
+       ===================================================== -->
+  <div class="whatsapp-float" id="whatsappFloat">
+    <a
+      href="https://wa.me/5511986424121?text=Ol%C3%A1!%20Vim%20do%20site%20ZIVA%20ART%20e%20gostaria%20de%20mais%20informa%C3%B5es%20sobre%20uma%20arte."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-btn"
+      id="whatsappBtn"
+      aria-label="Fale conosco no WhatsApp"
+    >
+      <div class="whatsapp-pulse"></div>
+      <div class="whatsapp-pulse whatsapp-pulse-2"></div>
+      <i class="fa-brands fa-whatsapp"></i>
+      <div class="whatsapp-tooltip">
+        <i class="fa-brands fa-whatsapp"></i>
+        Fale conosco!
+      </div>
+    </a>
+  </div>
+
+  <!-- =====================================================
+       NOTIFICAÇÃO FLUTUANTE DE PROVA SOCIAL
+       ===================================================== -->
+  <div class="social-proof-toast" id="socialProofToast">
+    <div class="toast-icon">
+      <i class="fa-solid fa-bolt"></i>
+    </div>
+    <div class="toast-body">
+      <strong id="toastUser">Lucas • SP</strong>
+      <p id="toastText">Acabou de baixar: <b id="toastArt">Mascote Interclasse Leão</b></p>
+      <small id="toastTime"><i class="fa-solid fa-circle-check"></i> há 2 minutos • Download Liberado</small>
+    </div>
+    <button type="button" class="toast-close" id="toastCloseBtn" title="Fechar">&times;</button>
+  </div>
+
+  <!-- =====================================================
+       MODAL DE SUCESSO / DOWNLOAD LIBERADO APÓS PAGAMENTO
+       ===================================================== -->
+  <!-- =====================================================
+       CHECKOUT TRANSPARENTE MULTI-ETAPAS (ZIVA ART)
+       ===================================================== -->
+  <div class="ziva-modal checkout-modal" id="zivaCheckoutModal">
+    <div class="modal-backdrop" onclick="closeZivaCheckout()"></div>
+    <div class="checkout-window">
+      <!-- HEADER DO CHECKOUT -->
+      <div class="checkout-header">
+        <div class="checkout-brand">
+          <img src="assets/ziva-logo.png" alt="ZIVA ART" class="checkout-logo">
+        </div>
+        
+        <!-- STEP INDICATOR -->
+        <div class="checkout-stepper" id="checkoutStepper">
+          <div class="step-node active" id="stepNode1">
+            <span class="step-num">1</span>
+            <span class="step-title">Informacao</span>
+          </div>
+          <div class="step-divider" id="stepDivider1"></div>
+          <div class="step-node" id="stepNode2">
+            <span class="step-num">2</span>
+            <span class="step-title">Pagamento</span>
+          </div>
+          <div class="step-divider" id="stepDivider2"></div>
+          <div class="step-node" id="stepNode3">
+            <span class="step-num">3</span>
+            <span class="step-title">PIX</span>
+          </div>
+        </div>
+
+        <button type="button" class="checkout-close-btn" onclick="closeZivaCheckout()" title="Fechar">&times;</button>
+      </div>
+
+      <!-- CORPO DO CHECKOUT (2 COLUNAS) -->
+      <div class="checkout-body">
+        
+        <!-- COLUNA ESQUERDA: FORMULARIO / ETAPAS -->
+        <div class="checkout-main-col">
+          
+          <!-- ETAPA 1: INFORMACOES DE CONTATO E COBRANCA -->
+          <div class="checkout-step-panel" id="checkoutStep1">
+            <div class="checkout-section-head">
+              <h3>Contato</h3>
+              <button type="button" class="btn-checkout-login-trigger" id="btnCheckoutLogin" onclick="openLoginModal()">
+                <i class="fa-solid fa-user"></i> <span id="checkoutLoginLabel">Entrar ou Criar conta</span>
+              </button>
+            </div>
+
+            <div class="checkout-input-group">
+              <label for="checkoutEmail">E-mail *</label>
+              <input type="email" id="checkoutEmail" placeholder="seu@email.com" required autocomplete="email">
+              <small class="field-hint">Seus arquivos e comprovante serao vinculados a este e-mail.</small>
+            </div>
+
+            <div class="checkout-section-head" style="margin-top: 24px;">
+              <h3>Cobranca</h3>
+            </div>
+
+            <div class="checkout-row-2">
+              <div class="checkout-input-group">
+                <label for="checkoutFirstName">Nome *</label>
+                <input type="text" id="checkoutFirstName" placeholder="Ex: Lucas" required autocomplete="given-name">
+              </div>
+              <div class="checkout-input-group">
+                <label for="checkoutLastName">Sobrenome *</label>
+                <input type="text" id="checkoutLastName" placeholder="Ex: Silva" required autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="checkout-row-2">
+              <div class="checkout-input-group">
+                <label for="checkoutCpf">CPF (opcional para PIX)</label>
+                <input type="text" id="checkoutCpf" placeholder="000.000.000-00" maxlength="14" oninput="formatCpfInput(this)">
+              </div>
+              <div class="checkout-input-group">
+                <label for="checkoutPhone">WhatsApp / Celular</label>
+                <input type="text" id="checkoutPhone" placeholder="(00) 00000-0000" maxlength="15" oninput="formatPhoneInput(this)">
+              </div>
+            </div>
+
+            <div class="checkout-actions">
+              <button type="button" class="btn-checkout-primary" id="btnGoToStep2" onclick="goToCheckoutStep(2)">
+                Va para o pagamento <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ETAPA 2: FORMA DE PAGAMENTO -->
+          <div class="checkout-step-panel" id="checkoutStep2" style="display: none;">
+            
+            <div class="checkout-review-card">
+              <div class="review-row">
+                <div>
+                  <span class="review-label">Contato</span>
+                  <p class="review-value" id="reviewContactEmail">cliente@email.com</p>
+                </div>
+                <button type="button" class="btn-review-edit" onclick="goToCheckoutStep(1)">Editar</button>
+              </div>
+              <div class="review-row" style="border-top: 1px solid #222; padding-top: 10px; margin-top: 10px;">
+                <div>
+                  <span class="review-label">Nome de Cobranca</span>
+                  <p class="review-value" id="reviewContactName">Lucas Silva</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="checkout-section-head" style="margin-top: 24px;">
+              <h3>Forma de Pagamento</h3>
+              <span class="security-badge"><i class="fa-solid fa-lock"></i> Pagamento Seguro</span>
+            </div>
+
+            <div class="payment-method-card active">
+              <div class="pm-radio-head">
+                <div class="pm-radio-label">
+                  <input type="radio" name="payment_method" id="pmPix" checked>
+                  <label for="pmPix">
+                    <strong>PIX</strong> (Aprovacao Instantanea)
+                  </label>
+                </div>
+                <div class="pm-badge-pix">
+                  <i class="fa-solid fa-bolt"></i> LIBERA NA HORA
+                </div>
+              </div>
+              <p class="pm-desc">
+                O QR Code e o codigo Pix Copia e Cola serao gerados na tela. O arquivo e liberado imediatamente apos o pagamento nesta mesma tela.
+              </p>
+            </div>
+
+            <div class="checkout-actions-split">
+              <button type="button" class="btn-checkout-back" onclick="goToCheckoutStep(1)">
+                <i class="fa-solid fa-arrow-left"></i> Voltar as informacoes
+              </button>
+              <button type="button" class="btn-checkout-primary" id="btnGeneratePix" onclick="executePixGeneration()">
+                <i class="fa-solid fa-bolt"></i> Fazer Pedido / Gerar PIX
+              </button>
+            </div>
+          </div>
+
+          <!-- ETAPA 3: QR CODE DO PIX NATIVO -->
+          <div class="checkout-step-panel" id="checkoutStep3" style="display: none;">
+            <div class="pix-screen-wrapper">
+              <div class="pix-screen-header">
+                <h2>Pague com PIX</h2>
+                <p>Escaneie o codigo abaixo ou copie a chave para pagar no app do seu banco:</p>
+              </div>
+
+              <!-- CARD DO QR CODE -->
+              <div class="pix-qr-container">
+                <div class="pix-qr-frame">
+                  <img id="checkoutPixQrImg" src="" alt="QR Code PIX ZIVA ART" draggable="false">
+                </div>
+
+                <div class="pix-amount-badge">
+                  <span>Valor a pagar:</span>
+                  <strong id="checkoutPixAmountDisplay">R$ 0,00</strong>
+                </div>
+
+                <!-- COPIA E COLA -->
+                <div class="pix-copy-box">
+                  <input type="text" id="checkoutPixCopyInput" readonly value="">
+                  <button type="button" class="btn-copy-pix" id="btnCopyPixAction" onclick="copyPixCode()">
+                    <i class="fa-solid fa-copy"></i> Copiar Codigo PIX
+                  </button>
+                </div>
+
+                <!-- STATUS E TIMER -->
+                <div class="pix-status-box">
+                  <div class="pix-pulse-indicator">
+                    <span class="pulse-dot"></span>
+                    <span id="pixStatusMsg">Aguardando confirmacao do pagamento...</span>
+                  </div>
+                  <div class="pix-timer-text">
+                    <i class="fa-regular fa-clock"></i> Codigo expira em: <strong id="pixCountDown">15:00</strong>
+                  </div>
+                </div>
+
+                <button type="button" class="btn-cancel-pix" onclick="cancelPixAndBack()">
+                  <i class="fa-solid fa-xmark"></i> Cancelar / Voltar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ETAPA 4: SUCESSO E DOWNLOAD DOS ARQUIVOS -->
+          <div class="checkout-step-panel" id="checkoutStep4" style="display: none;">
+            <div class="checkout-success-box">
+              <div class="success-glow-icon">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <h2>PAGAMENTO CONFIRMADO!</h2>
+              <p class="success-sub">Seu pagamento via PIX foi aprovado com sucesso. Seus arquivos em <strong>.CDR + Fontes TTF</strong> ja estao liberados abaixo para download:</p>
+
+              <div class="checkout-downloads-list" id="checkoutDownloadsList"></div>
+
+              <div class="success-footer-actions">
+                <button type="button" class="btn-checkout-primary" onclick="closeZivaCheckout()">
+                  Continuar Navegando na Loja
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COLUNA DIREITA: RESUMO DO PEDIDO -->
+        <div class="checkout-sidebar-col">
+          <div class="checkout-summary-box">
+            <div class="summary-top">
+              <span class="summary-count" id="checkoutSummaryCount">1 item</span>
+              <button type="button" class="summary-back-btn" onclick="closeZivaCheckout()">Voltar</button>
+            </div>
+
+            <!-- LISTA DE ITENS -->
+            <div class="checkout-items-scroll" id="checkoutItemsList"></div>
+
+            <!-- CUPOM DE DESCONTO -->
+            <div class="checkout-coupon-box">
+              <div class="coupon-input-wrap">
+                <input type="text" id="checkoutCouponCode" placeholder="Codigo de desconto">
+                <button type="button" id="btnApplyCoupon" onclick="applyCheckoutCoupon()">Aplicar codigo</button>
+              </div>
+              <small id="couponFeedback" class="coupon-feedback"></small>
+            </div>
+
+            <!-- TOTAIS -->
+            <div class="checkout-totals">
+              <div class="total-line">
+                <span>Subtotal</span>
+                <span id="checkoutSubtotalDisplay">R$ 0,00</span>
+              </div>
+              <div class="total-line discount-line" id="checkoutDiscountRow" style="display:none;">
+                <span>Desconto</span>
+                <span id="checkoutDiscountDisplay" style="color: #00ff88;">- R$ 0,00</span>
+              </div>
+              <div class="total-line grand-total-line">
+                <strong>Total</strong>
+                <strong id="checkoutGrandTotalDisplay">R$ 0,00</strong>
+              </div>
+            </div>
+
+            <!-- BENEFICIOS / CONFIANCA -->
+            <div class="checkout-trust-list">
+              <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Compra 100% Segura</div>
+              <div class="trust-item"><i class="fa-solid fa-bolt"></i> Envio Imediato Automatico</div>
+              <div class="trust-item"><i class="fa-solid fa-file-zipper"></i> Arquivos .CDR Vetorizados</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="ziva-modal" id="paymentSuccessModal">
+    <div class="modal-backdrop" onclick="document.getElementById('paymentSuccessModal').classList.remove('open')"></div>
+    <div class="modal-box auth-box" style="text-align:center; max-width:480px;">
+      <button class="close-modal" onclick="document.getElementById('paymentSuccessModal').classList.remove('open')">&times;</button>
+      <div style="font-size: 52px; color: #25D366; margin-bottom: 12px;">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h2 style="font-family:'Space Grotesk', sans-serif; font-size: 24px; color: #fff; margin-bottom: 8px;">PAGAMENTO APROVADO!</h2>
+      <p style="color: #aaa; font-size: 14px; margin-bottom: 24px;">Seu pedido foi confirmado com sucesso. Seus arquivos <strong>.CDR + Fontes TTF</strong> já estão liberados para download imediato abaixo.</p>
+      
+      <div id="purchasedItemsList" style="display:flex; flex-direction:column; gap:10px; margin-bottom:24px;"></div>
+
+      <button type="button" class="btn-continue-shopping" style="width:100%; border:1px solid #333; padding:12px; color:#aaa;" onclick="document.getElementById('paymentSuccessModal').classList.remove('open')">
+        Continuar Navegando
+      </button>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       MODAL MEUS DOWNLOADS (ÁREA SEGURA DO CLIENTE)
+       ===================================================== -->
+  <div class="ziva-modal" id="myDownloadsModal">
+    <div class="modal-backdrop" onclick="closeMyDownloadsModal()"></div>
+    <div class="modal-box auth-box" style="text-align:center; max-width:500px;">
+      <button class="close-modal" onclick="closeMyDownloadsModal()">&times;</button>
+      <div style="font-size: 40px; color: #ff1722; margin-bottom: 10px;">
+        <i class="fa-solid fa-cloud-arrow-down"></i>
+      </div>
+      <h2 style="font-family:'Space Grotesk', sans-serif; font-size: 22px; color: #fff; margin-bottom: 6px;">MEUS DOWNLOADS</h2>
+      <p style="color: #aaa; font-size: 13px; margin-bottom: 20px;">Artes digitais adquiridas e liberadas para download permanente na sua conta.</p>
+      
+      <div id="myDownloadsList" style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px; max-height:300px; overflow-y:auto; padding-right:4px;"></div>
+
+      <button type="button" class="btn-continue-shopping" style="width:100%; border:1px solid #333; padding:12px; color:#aaa;" onclick="closeMyDownloadsModal()">
+        Fechar
+      </button>
+    </div>
+  </div>
+
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js?v=3.0"></script>
+
+</body>
+
+</html>
