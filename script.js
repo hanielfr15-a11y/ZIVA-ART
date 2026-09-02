@@ -8,7 +8,7 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 // --- CONFIGURAÇÃO DO MERCADO PAGO ---
 const MP_PUBLIC_KEY = "APP_USR-93cad6a3-8d80-4fa6-92aa-2c0c5ee21b61";
-const MP_ACCESS_TOKEN = "APP_USR-6831589121833969-082409-9cba38328b231e44ee8a872de03e5733-522171992";
+// Token privado removido do frontend por seguranca (processado via /api/ no backend)
 let mp = null;
 if (window.MercadoPago) {
     try {
@@ -104,7 +104,7 @@ async function fetchProductsFromSupabase() {
     // 1. Tenta buscar via SDK do Supabase
     if (db) {
         try {
-            const { data, error } = await db.from("produtos").select("*");
+            const { data, error } = await db.from("produtos").select("nome, cat, price, old_price, img_url");
             if (!error && data && data.length > 0) {
                 rawData = data;
             }
@@ -116,7 +116,7 @@ async function fetchProductsFromSupabase() {
     // 2. Fallback garantido via REST API direta do Supabase
     if (!rawData || rawData.length === 0) {
         try {
-            const resp = await fetch(`${SUPABASE_URL}/rest/v1/produtos?select=*`, {
+            const resp = await fetch(`${SUPABASE_URL}/rest/v1/produtos?select=nome,cat,price,old_price,img_url`, {
                 headers: {
                     "apikey": SUPABASE_ANON_KEY,
                     "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
@@ -605,7 +605,7 @@ async function initiateMercadoPagoCheckout(itemsToPay, buttonEl = null) {
         const response = await fetch("https://api.mercadopago.com/checkout/preferences", {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${MP_ACCESS_TOKEN}`,
+                // Token de checkout externo movido para backend
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(prefPayload)
@@ -637,6 +637,7 @@ async function initiateMercadoPagoCheckout(itemsToPay, buttonEl = null) {
 
 async function checkPaymentReturn() {
     const urlParams = new URLSearchParams(window.location.search);
+    const paymentId = urlParams.get("payment_id") || urlParams.get("collection_id");
     const status = urlParams.get("status") || urlParams.get("collection_status");
     let itemsParam = urlParams.get("items") || localStorage.getItem("zivaLastPendingOrder");
 
@@ -656,26 +657,25 @@ async function checkPaymentReturn() {
 
         // Busca com segurança os links de download reais das artes compradas
         let unlockedArts = [];
-        if (purchasedItems.length > 0 && db) {
+        if (paymentId) {
             try {
-                const { data: allProds } = await db.from("produtos").select("nome, cdr_url");
-                if (allProds) {
-                    unlockedArts = purchasedItems.map(p => {
-                        const match = allProds.find(item => 
-                            (item.nome && p.name && item.nome.trim().toLowerCase() === p.name.trim().toLowerCase()) ||
-                            (item.name && p.name && item.name.trim().toLowerCase() === p.name.trim().toLowerCase())
-                        );
-                        return {
-                            name: p.name,
-                            cdr: match ? match.cdr_url : ""
-                        };
-                    });
+                const checkUrl = window.location.origin.includes("localhost") || window.location.protocol.startsWith("http")
+                    ? ("/api/check-pix?id=" + paymentId)
+                    : ("http://localhost:5500/api/check-pix?id=" + paymentId);
+                const resp = await fetch(checkUrl);
+                if (resp.ok) {
+                    const checkData = await resp.json();
+                    if (checkData && checkData.status === "approved" && Array.isArray(checkData.downloads)) {
+                        unlockedArts = checkData.downloads.map(dl => ({
+                            name: dl.name,
+                            cdr: dl.cdrUrl
+                        }));
+                    }
                 }
             } catch (err) {
-                console.error("Erro ao resgatar downloads aprovados:", err);
+                console.error("Erro ao validar pagamento no backend:", err);
             }
         }
-
         // Salva na biblioteca permanente de downloads do usuário
         if (unlockedArts.length > 0) {
             try {
@@ -1810,16 +1810,23 @@ async function executePixGeneration() {
     };
 
     try {
-        const response = await fetch("https://api.mercadopago.com/v1/payments", {
+        const safePayload = {
+            items: checkoutItems.map(i => ({ name: i.name, qty: i.qty, price: i.price })),
+            payer: payerObj,
+            couponCode: checkoutCouponApplied
+        };
+        const apiUrl = window.location.origin.includes("localhost") || window.location.protocol.startsWith("http")
+            ? "/api/create-pix"
+            : "http://localhost:5500/api/create-pix";
+
+        const response = await fetch(apiUrl, {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${MP_ACCESS_TOKEN}`,
                 "Content-Type": "application/json",
                 "X-Idempotency-Key": generateUUID()
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(safePayload)
         });
-
         const data = await response.json();
 
         if (data && data.point_of_interaction && data.point_of_interaction.transaction_data) {
@@ -1908,11 +1915,11 @@ function startPixPolling(paymentId) {
 
     pixPollingTimer = setInterval(async () => {
         try {
-            const resp = await fetch(`https://api.mercadopago.com/v1/payments/${paymentId}`, {
-                headers: {
-                    "Authorization": `Bearer ${MP_ACCESS_TOKEN}`
-                }
-            });
+            const checkUrl = window.location.origin.includes("localhost") || window.location.protocol.startsWith("http")
+                ? ("/api/check-pix?id=" + paymentId)
+                : ("http://localhost:5500/api/check-pix?id=" + paymentId);
+
+            const resp = await fetch(checkUrl);
 
             if (resp.ok) {
                 const data = await resp.json();
@@ -1953,25 +1960,26 @@ async function onPixPaymentApproved(paymentData) {
         `;
     }
 
-    // Busca as URLs dos arquivos CDR no Supabase
-    let allProds = [];
-    if (db) {
-        try {
-            const { data } = await db.from("produtos").select("nome, cdr_url");
-            if (data) allProds = data;
-        } catch (e) {}
-    }
-
-    const boughtProds = checkoutItems.map(item => {
-        const match = allProds.find(ap => (ap.nome || "").trim().toLowerCase() === (item.name || "").trim().toLowerCase());
-        const cdrRaw = match ? match.cdr_url : (item.cdr_url || item.drive_url || "");
-        return {
+    // Utiliza os links de download verificados e liberados pelo backend seguro
+    let boughtProds = [];
+    if (paymentData && Array.isArray(paymentData.downloads) && paymentData.downloads.length > 0) {
+        boughtProds = paymentData.downloads.map(dl => {
+            const originalItem = checkoutItems.find(i => (i.name || "").trim().toLowerCase() === (dl.name || "").trim().toLowerCase()) || {};
+            return {
+                id: originalItem.id || "art-digital",
+                name: dl.name,
+                img: originalItem.img || dl.img || PLACEHOLDER_IMG,
+                cdrUrl: dl.cdrUrl
+            };
+        });
+    } else {
+        boughtProds = checkoutItems.map(item => ({
             id: item.id,
             name: item.name,
             img: item.img,
-            cdrUrl: getDirectDownloadUrl(cdrRaw)
-        };
-    });
+            cdrUrl: "#"
+        }));
+    }
 
     // Salva no historico de downloads do cliente
     try {
