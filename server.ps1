@@ -8,15 +8,8 @@ $listener.Prefixes.Add("http://127.0.0.1:$port/")
 
 try {
     $listener.Start()
-    Write-Host "==========================================================" -ForegroundColor Red
-    Write-Host "     ZIVA ART - SERVIDOR LOCAL INICIADO COM SUCESSO!      " -ForegroundColor Green
-    Write-Host "     Acesse no seu navegador: http://localhost:$port      " -ForegroundColor Cyan
-    Write-Host "     (PIX Transparente e Mercado Pago Ativos)             " -ForegroundColor Yellow
-    Write-Host "==========================================================" -ForegroundColor Red
-    Start-Process "http://localhost:$port"
-} catch {
-    Write-Host "Servidor ja em execucao ou porta ocupada: $_" -ForegroundColor Yellow
-}
+    Write-Host "Servidor local ZIVA ART rodando em http://localhost:$port" -ForegroundColor Green
+} catch {}
 
 $MP_TOKEN = "APP_USR-6831589121833969-082409-9cba38328b231e44ee8a872de03e5733-522171992"
 
@@ -70,8 +63,12 @@ while ($listener.IsListening) {
         }
 
         # ROTA: /api/check-pix
-        if ($urlPath.StartsWith("api/check-pix/") -and $request.HttpMethod -eq "GET") {
-            $paymentId = $urlPath.Replace("api/check-pix/", "")
+        if ($urlPath.StartsWith("api/check-pix") -and $request.HttpMethod -eq "GET") {
+            $paymentId = $request.QueryString["id"]
+            if (-not $paymentId) {
+                $paymentId = $urlPath.Replace("api/check-pix/", "")
+            }
+
             $headers = @{
                 "Authorization" = "Bearer $MP_TOKEN"
             }
