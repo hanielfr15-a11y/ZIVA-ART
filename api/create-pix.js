@@ -93,10 +93,12 @@ module.exports = async (req, res) => {
       description: `ZIVA ART: ${description}`,
       payment_method_id: "pix",
       payer: payerData,
+      external_reference: payerData.email,
       metadata: {
         items: verifiedItems.map(i => ({ name: i.name, qty: i.qty, price: i.price })),
         coupon_applied: couponCode || null,
-        discount_percent: discountPercent
+        discount_percent: discountPercent,
+        customer_email: payerData.email
       }
     };
 
