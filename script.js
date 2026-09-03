@@ -780,7 +780,9 @@ async function openMyDownloadsModal() {
             const apiUrl = window.location.origin.includes("localhost") || window.location.protocol.startsWith("http")
                 ? `/api/get-downloads?email=${encodeURIComponent(userEmail)}`
                 : `http://localhost:5500/api/get-downloads?email=${encodeURIComponent(userEmail)}`;
-            const resp = await fetch(apiUrl);
+            const resp = await fetch(apiUrl, {
+                headers: { "x-user-email": encodeURIComponent(userEmail) }
+            });
             if (resp.ok) {
                 const data = await resp.json();
                 if (Array.isArray(data.downloads)) {
@@ -881,7 +883,9 @@ async function recoverPurchasesByEmail() {
         const apiUrl = window.location.origin.includes("localhost") || window.location.protocol.startsWith("http")
             ? `/api/get-downloads?email=${encodeURIComponent(email)}`
             : `http://localhost:5500/api/get-downloads?email=${encodeURIComponent(email)}`;
-        const resp = await fetch(apiUrl);
+        const resp = await fetch(apiUrl, {
+            headers: { "x-user-email": encodeURIComponent(email) }
+        });
         if (resp.ok) {
             const data = await resp.json();
             if (Array.isArray(data.downloads) && data.downloads.length > 0) {
@@ -1327,11 +1331,28 @@ document.addEventListener("click", (e) => {
     }
 });
 
+function showZivaToast(msg, icon = "fa-circle-check") {
+    let toast = document.getElementById("zivaToast");
+    if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "zivaToast";
+        toast.style.cssText = "position:fixed; bottom:30px; right:30px; z-index:999999; background:#121218; color:#fff; border:1px solid rgba(255,23,34,0.4); box-shadow:0 10px 30px rgba(0,0,0,0.8); padding:14px 22px; border-radius:10px; font-family:'Space Grotesk',sans-serif; font-size:14px; display:flex; align-items:center; gap:10px; opacity:0; transform:translateY(20px); transition:all 0.3s cubic-bezier(0.16, 1, 0.3, 1); pointer-events:none;";
+        document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<i class="fa-solid ${icon}" style="color:#ff1722; font-size:16px;"></i> <span style="font-weight:600;">${msg}</span>`;
+    toast.style.opacity = "1";
+    toast.style.transform = "translateY(0)";
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(20px)";
+    }, 2800);
+}
+
 async function handleLogout() {
     toggleUserMenu(false);
     if (!supabaseClient) return;
     await supabaseClient.auth.signOut();
-    alert("Você saiu da sua conta.");
+    showZivaToast("Você saiu da sua conta.", "fa-right-from-bracket");
 }
 
 function openAuthModal(view = "login") {
