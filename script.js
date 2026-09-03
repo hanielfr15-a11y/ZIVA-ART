@@ -1101,8 +1101,11 @@ document.addEventListener("DOMContentLoaded", () => {
         clearAuthAlert();
 
         try {
+            const redirectTarget = window.location.origin.includes("zivaart.com.br")
+                ? "https://www.zivaart.com.br"
+                : "https://www.zivaart.com.br";
             const { data, error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-                redirectTo: window.location.origin + window.location.pathname
+                redirectTo: redirectTarget
             });
             if (error) throw error;
             showAuthAlert("Link de recuperação enviado com sucesso para o seu e-mail! Verifique sua caixa de entrada e spam.", "success");
