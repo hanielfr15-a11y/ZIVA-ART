@@ -1253,17 +1253,28 @@ function initSupabaseAuth() {
         }
     });
 
-    // 2. Escuta mudanças em tempo real (Login / Logout / Token Refresh)
+    // 2. Escuta mudanças em tempo real (Login / Logout / Token Refresh / Password Recovery)
     supabaseClient.auth.onAuthStateChange((event, session) => {
         if (event === "SIGNED_IN" && session?.user) {
             setLoggedUserState(session.user);
+            if (window.location.hash.includes("type=recovery") || window.location.href.includes("recovery")) {
+                promptPasswordReset();
+            }
         } else if (event === "SIGNED_OUT") {
             setLoggedUserState(null);
         } else if (event === "PASSWORD_RECOVERY") {
-            // Usuário clicou no link do e-mail para redefinir senha
             promptPasswordReset();
         }
     });
+
+    // 3. Detecção imediata caso a URL contenha o token de recuperação (#access_token=...&type=recovery)
+    const urlHash = window.location.hash || "";
+    const urlSearch = window.location.search || "";
+    if (urlHash.includes("type=recovery") || urlSearch.includes("type=recovery") || urlHash.includes("recovery")) {
+        setTimeout(() => {
+            promptPasswordReset();
+        }, 400);
+    }
 }
 
 function setLoggedUserState(user) {
