@@ -7242,3 +7242,54 @@ img, .product-img img, .pv-img-frame img {
     display: none;
   }
 }
+
+/* =========================================================
+   PAGINAÇÃO DO CATÁLOGO (16 ARTES POR PÁGINA)
+   ========================================================= */
+.catalog-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.catalog-page-btn {
+  background: #111116;
+  border: 1px solid #282834;
+  color: #ccc;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.catalog-page-btn:hover:not(:disabled) {
+  border-color: #ff1722;
+  color: #fff;
+  transform: translateY(-2px);
+  background: #181824;
+}
+
+.catalog-page-btn.active {
+  background: #ff1722;
+  border-color: #ff1722;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 23, 34, 0.4);
+}
+
+.catalog-page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+  border-color: #1e1e28;
+}

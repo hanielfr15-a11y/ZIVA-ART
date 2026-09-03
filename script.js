@@ -212,26 +212,54 @@ function applyFilterAndRender() {
         list = [...list].reverse();
     }
 
+    currentFilteredList = list;
+    currentCatalogPage = 1;
     renderProducts(list);
 }
 
+const ITEMS_PER_PAGE = 16;
+let currentCatalogPage = 1;
+let currentFilteredList = [];
+
+function changeCatalogPage(page) {
+    currentCatalogPage = Math.max(1, page);
+    renderProducts(currentFilteredList);
+    const catalogHeader = document.querySelector(".catalog-header") || document.getElementById("products");
+    if (catalogHeader) {
+        catalogHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+}
+
 function renderProducts(list = products) {
+    currentFilteredList = list;
     const container = document.getElementById("products");
     const countLabel = document.getElementById("catalogResults");
+    const paginationContainer = document.getElementById("catalogPagination");
     if (!container) return;
 
-    if (countLabel) countLabel.innerText = `Há ${list.length} resultado(s) no total`;
+    const totalItems = list.length;
+    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
-    if (list.length === 0) {
+    if (currentCatalogPage > totalPages) {
+        currentCatalogPage = Math.max(1, totalPages);
+    }
+
+    if (countLabel) countLabel.innerText = `Há ${totalItems} resultado(s) no total`;
+
+    if (totalItems === 0) {
         container.innerHTML = `
             <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #777;">
                 <p>Nenhuma arte encontrada com os filtros selecionados.</p>
             </div>
         `;
+        if (paginationContainer) paginationContainer.style.display = "none";
         return;
     }
 
-    container.innerHTML = list.map((p) => {
+    const startIndex = (currentCatalogPage - 1) * ITEMS_PER_PAGE;
+    const pageItems = list.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+    container.innerHTML = pageItems.map((p) => {
         const isFav = favorites.some(f => String(f) === String(p.id));
         const discount = p.old > p.price ? Math.round((1 - p.price / p.old) * 100) : 0;
         
@@ -266,6 +294,36 @@ function renderProducts(list = products) {
             </article>
         `;
     }).join("");
+
+    // Renderiza a barra de páginas apenas quando houver mais de 16 artes
+    if (paginationContainer) {
+        if (totalPages <= 1) {
+            paginationContainer.style.display = "none";
+        } else {
+            paginationContainer.style.display = "flex";
+            let pagesHtml = `
+                <button type="button" class="catalog-page-btn" ${currentCatalogPage === 1 ? 'disabled' : ''} onclick="changeCatalogPage(${currentCatalogPage - 1})" title="Página Anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+            `;
+
+            for (let i = 1; i <= totalPages; i++) {
+                pagesHtml += `
+                    <button type="button" class="catalog-page-btn ${i === currentCatalogPage ? 'active' : ''}" onclick="changeCatalogPage(${i})">
+                        ${i}
+                    </button>
+                `;
+            }
+
+            pagesHtml += `
+                <button type="button" class="catalog-page-btn" ${currentCatalogPage === totalPages ? 'disabled' : ''} onclick="changeCatalogPage(${currentCatalogPage + 1})" title="Próxima Página">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            `;
+
+            paginationContainer.innerHTML = pagesHtml;
+        }
+    }
 }
 
 /* =========================================================
