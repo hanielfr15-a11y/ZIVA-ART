@@ -3230,12 +3230,21 @@ body.ziva-loaded .product:nth-child(8) { animation-delay: 0.77s; }
   margin-top: 20px;
 }
 
-/* Ajuste para o título não sumir ou ficar torto */
-.section-head {
+/* Ajuste para o título do catálogo */
+#catalogo .section-head {
   display: flex !important;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
+}
+
+.section-head.text-center {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
 }
 
 /* Ajuste para celular: se a tela for pequena, mostra apenas 2 colunas */
@@ -5858,37 +5867,46 @@ aside#cart {
    ========================================================= */
 
 .feedbacks-section {
-  padding: 80px 0 90px !important;
+  padding: 90px 6vw !important;
   position: relative;
 }
 
 .feedbacks-section .section-head {
-  text-align: center;
-  margin-bottom: 45px;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin: 0 auto 50px auto !important;
+  width: 100% !important;
 }
 
 .feedbacks-section .section-head .eyebrow {
-  display: inline-block;
+  display: block !important;
+  text-align: center !important;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #ff1722;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+  letter-spacing: 3px;
+  margin: 0 auto 10px auto !important;
 }
 
 .feedbacks-section .section-head h2 {
+  display: block !important;
+  text-align: center !important;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(28px, 3.5vw, 44px);
-  font-weight: 900;
-  letter-spacing: -1px;
-  color: #fff;
-  line-height: 1.15;
+  font-size: clamp(32px, 4.2vw, 50px) !important;
+  font-weight: 900 !important;
+  letter-spacing: -1.5px !important;
+  color: #fff !important;
+  line-height: 1.15 !important;
+  margin: 0 auto !important;
 }
 
 .feedbacks-section .section-head h2 em {
-  color: #ff1722;
-  font-style: normal;
+  color: #ff1722 !important;
+  font-style: normal !important;
 }
 
 .feedbacks-grid {
@@ -6007,7 +6025,7 @@ aside#cart {
    ========================================================= */
 
 .trust-bar-section {
-  padding: 40px 0 60px !important;
+  padding: 40px 6vw 70px !important;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -6089,7 +6107,46 @@ aside#cart {
    ========================================================= */
 
 .faq-section {
-  padding: 80px 0 90px !important;
+  padding: 90px 6vw 110px !important;
+  position: relative;
+}
+
+.faq-section .section-head {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin: 0 auto 50px auto !important;
+  width: 100% !important;
+}
+
+.faq-section .section-head .eyebrow {
+  display: block !important;
+  text-align: center !important;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ff1722;
+  letter-spacing: 3px;
+  margin: 0 auto 10px auto !important;
+}
+
+.faq-section .section-head h2 {
+  display: block !important;
+  text-align: center !important;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 4.2vw, 50px) !important;
+  font-weight: 900 !important;
+  letter-spacing: -1.5px !important;
+  color: #fff !important;
+  line-height: 1.15 !important;
+  margin: 0 auto !important;
+}
+
+.faq-section .section-head h2 em {
+  color: #ff1722 !important;
+  font-style: normal !important;
 }
 
 .faq-container {
