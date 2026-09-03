@@ -726,45 +726,183 @@ async function checkPaymentReturn() {
    SISTEMA MEUS DOWNLOADS (ÁREA DO CLIENTE)
    ========================================================= */
 
-function openMyDownloadsModal() {
+async function openMyDownloadsModal() {
     toggleUserMenu(false);
     const modal = document.getElementById("myDownloadsModal");
     const listEl = document.getElementById("myDownloadsList");
     if (!modal || !listEl) return;
 
-    let purchased = [];
+    modal.classList.add("open");
+
+    // Mostra indicador de carregamento
+    listEl.innerHTML = `
+        <div style="padding:30px 10px; color:#aaa; text-align:center;">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size:28px; color:#ff1722; margin-bottom:12px; display:block;"></i>
+            <p style="font-size:14px; color:#eee;">Buscando suas artes adquiridas...</p>
+        </div>
+    `;
+
+    // 1. Carrega compras salvas no navegador
+    let localPurchased = [];
     try {
-        purchased = JSON.parse(localStorage.getItem("zivaPurchasedArts") || "[]");
+        const p1 = JSON.parse(localStorage.getItem("zivaPurchasedArts") || "[]");
+        const p2 = JSON.parse(localStorage.getItem("zivaUserDownloads") || "[]");
+        const combined = [...p1, ...p2];
+        const unique = new Map();
+        combined.forEach(item => {
+            const name = item.name || item.title;
+            if (name && !unique.has(name.toLowerCase())) {
+                unique.set(name.toLowerCase(), {
+                    name: name,
+                    cdr: item.cdr || item.cdrUrl,
+                    date: item.date || new Date().toLocaleDateString("pt-BR")
+                });
+            }
+        });
+        localPurchased = Array.from(unique.values());
     } catch (e) {
-        purchased = [];
+        localPurchased = [];
     }
 
-    if (purchased.length > 0) {
-        listEl.innerHTML = purchased.map(p => {
-            const downloadUrl = getDirectDownloadUrl(p.cdr);
-            return `
-                <div style="background:#111116; border:1px solid rgba(255,23,34,0.3); border-radius:10px; padding:15px; display:flex; justify-content:space-between; align-items:center; text-align:left; gap:12px;">
-                    <div>
-                        <strong style="display:block; color:#fff; font-size:14px; font-family:'Space Grotesk',sans-serif;">${p.name}</strong>
-                        <small style="color:#25D366; font-size:11px;"><i class="fa-solid fa-circle-check"></i> Licença Vitalícia • .CDR + Fontes</small>
+    // 2. Identifica e-mail do usuário (da conta logada ou do histórico)
+    let userEmail = "";
+    if (currentUser && currentUser.email) {
+        userEmail = currentUser.email.trim();
+    } else {
+        try {
+            userEmail = localStorage.getItem("zivaCustomerEmail") || "";
+        } catch (e) {}
+    }
+
+    let remoteDownloads = [];
+    if (userEmail && userEmail.includes("@")) {
+        try {
+            const apiUrl = window.location.origin.includes("localhost") || window.location.protocol.startsWith("http")
+                ? `/api/get-downloads?email=${encodeURIComponent(userEmail)}`
+                : `http://localhost:5500/api/get-downloads?email=${encodeURIComponent(userEmail)}`;
+            const resp = await fetch(apiUrl);
+            if (resp.ok) {
+                const data = await resp.json();
+                if (Array.isArray(data.downloads)) {
+                    remoteDownloads = data.downloads.map(d => ({
+                        name: d.name,
+                        cdr: d.cdrUrl,
+                        date: d.date || new Date().toLocaleDateString("pt-BR")
+                    }));
+                }
+            }
+        } catch (err) {
+            console.warn("Aviso ao buscar downloads remotos:", err);
+        }
+    }
+
+    // 3. Combina e elimina duplicados
+    const allPurchasedMap = new Map();
+    [...remoteDownloads, ...localPurchased].forEach(item => {
+        if (item.name && !allPurchasedMap.has(item.name.toLowerCase())) {
+            allPurchasedMap.set(item.name.toLowerCase(), item);
+        }
+    });
+
+    const finalPurchased = Array.from(allPurchasedMap.values());
+
+    // Salva em cache no navegador
+    try {
+        localStorage.setItem("zivaPurchasedArts", JSON.stringify(finalPurchased));
+        localStorage.setItem("zivaUserDownloads", JSON.stringify(finalPurchased));
+    } catch (e) {}
+
+    renderMyDownloadsView(finalPurchased, userEmail);
+}
+
+function renderMyDownloadsView(items, searchedEmail = "") {
+    const listEl = document.getElementById("myDownloadsList");
+    if (!listEl) return;
+
+    if (items && items.length > 0) {
+        listEl.innerHTML = `
+            <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #222; font-size: 13px; color: #888;">
+                <span style="color: #00ff88;"><i class="fa-solid fa-circle-check"></i> ${items.length} ${items.length === 1 ? 'arte liberada' : 'artes liberadas'} para download</span>
+            </div>
+            ${items.map(p => {
+                const downloadUrl = getDirectDownloadUrl(p.cdr);
+                return `
+                    <div style="background:#111116; border:1px solid rgba(255,23,34,0.3); border-radius:10px; padding:15px; display:flex; justify-content:space-between; align-items:center; text-align:left; gap:12px; margin-bottom:12px;">
+                        <div>
+                            <strong style="display:block; color:#fff; font-size:15px; font-family:'Space Grotesk',sans-serif;">${p.name}</strong>
+                            <small style="color:#25D366; font-size:11px;"><i class="fa-solid fa-circle-check"></i> Licença Vitalícia • .CDR + Fontes TTF • ${p.date || 'Disponível'}</small>
+                        </div>
+                        <a href="${downloadUrl}" target="_blank" class="btn primary" style="padding:10px 18px; font-size:13px; background:#ff1722; color:#fff; border-radius:6px; text-decoration:none; font-weight:800; display:inline-flex; align-items:center; gap:6px; flex-shrink:0; box-shadow: 0 4px 12px rgba(255,23,34,0.35);">
+                            <i class="fa-solid fa-cloud-arrow-down"></i> BAIXAR (.CDR)
+                        </a>
                     </div>
-                    <a href="${downloadUrl}" target="_blank" class="btn primary" style="padding:10px 16px; font-size:12px; background:#ff1722; color:#fff; border-radius:6px; text-decoration:none; font-weight:800; display:inline-flex; align-items:center; gap:6px; flex-shrink:0;">
-                        <i class="fa-solid fa-download"></i> BAIXAR (.ZIP)
-                    </a>
-                </div>
-            `;
-        }).join("");
+                `;
+            }).join("")}
+        `;
     } else {
         listEl.innerHTML = `
-            <div style="padding:30px 10px; color:#777; text-align:center;">
+            <div style="padding:25px 10px; color:#777; text-align:center;">
                 <i class="fa-solid fa-box-open" style="font-size:36px; color:#444; margin-bottom:12px; display:block;"></i>
-                <p style="font-size:14px; color:#bbb; margin-bottom:6px;">Você ainda não possui artes adquiridas nesta conta.</p>
-                <small style="color:#666;">Adquira suas artes no catálogo para ter downloads ilimitados aqui!</small>
+                <p style="font-size:14px; color:#bbb; margin-bottom:6px;">Você ainda não possui artes salvas localmente.</p>
+                <small style="color:#777; display:block; margin-bottom:16px;">Comprou sem login? Digite o e-mail informado no checkout para resgatar seus arquivos:</small>
+                
+                <div style="display:flex; gap:8px; max-width:380px; margin:0 auto;">
+                    <input type="email" id="recoveryEmailInput" value="${searchedEmail}" placeholder="seu@email.com" style="flex:1; background:#181822; border:1px solid #333; color:#fff; padding:10px 14px; border-radius:6px; font-size:13px; outline:none;">
+                    <button type="button" onclick="recoverPurchasesByEmail()" style="background:#ff1722; color:#fff; border:none; padding:10px 16px; border-radius:6px; font-weight:700; cursor:pointer; font-size:13px; font-family:'Space Grotesk',sans-serif;">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+}
+
+async function recoverPurchasesByEmail() {
+    const emailInput = document.getElementById("recoveryEmailInput");
+    const email = emailInput ? emailInput.value.trim() : "";
+    if (!email || !email.includes("@")) {
+        alert("Por favor, digite um e-mail válido.");
+        return;
+    }
+
+    try { localStorage.setItem("zivaCustomerEmail", email); } catch (e) {}
+
+    const listEl = document.getElementById("myDownloadsList");
+    if (listEl) {
+        listEl.innerHTML = `
+            <div style="padding:30px 10px; color:#aaa; text-align:center;">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size:28px; color:#ff1722; margin-bottom:12px; display:block;"></i>
+                <p style="font-size:14px; color:#eee;">Buscando compras vinculadas a ${email}...</p>
             </div>
         `;
     }
 
-    modal.classList.add("open");
+    try {
+        const apiUrl = window.location.origin.includes("localhost") || window.location.protocol.startsWith("http")
+            ? `/api/get-downloads?email=${encodeURIComponent(email)}`
+            : `http://localhost:5500/api/get-downloads?email=${encodeURIComponent(email)}`;
+        const resp = await fetch(apiUrl);
+        if (resp.ok) {
+            const data = await resp.json();
+            if (Array.isArray(data.downloads) && data.downloads.length > 0) {
+                const formatted = data.downloads.map(d => ({
+                    name: d.name,
+                    cdr: d.cdrUrl,
+                    date: d.date || new Date().toLocaleDateString("pt-BR")
+                }));
+                try {
+                    localStorage.setItem("zivaPurchasedArts", JSON.stringify(formatted));
+                    localStorage.setItem("zivaUserDownloads", JSON.stringify(formatted));
+                } catch (e) {}
+                renderMyDownloadsView(formatted, email);
+                return;
+            }
+        }
+    } catch (err) {
+        console.error("Erro ao resgatar compras:", err);
+    }
+
+    renderMyDownloadsView([], email);
 }
 
 function closeMyDownloadsModal() {
@@ -1979,19 +2117,21 @@ function cancelPixAndBack() {
 }
 
 // LiberaÃ§Ã£o de Sucesso e Download
+// Liberação de Sucesso e Download
 async function onPixPaymentApproved(paymentData) {
     goToCheckoutStep(4);
 
-    // Esvazia carrinho local se a compra continha itens do carrinho
+    // Esvazia carrinho local com segurança
     cart = [];
-    localStorage.setItem("zivaCart", "[]");
-    updateCart();
+    saveCart();
+    renderCart();
 
     const downloadsList = document.getElementById("checkoutDownloadsList");
     if (downloadsList) {
         downloadsList.innerHTML = `
-            <div style="text-align:center; padding: 15px; color:#888;">
-                <i class="fa-solid fa-spinner fa-spin"></i> Preparando seus links de download direto...
+            <div style="text-align:center; padding: 25px 15px; color:#aaa;">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size:24px; color:#ff1722; margin-bottom:12px; display:block;"></i>
+                Preparando seus links de download direto...
             </div>
         `;
     }
@@ -2017,34 +2157,46 @@ async function onPixPaymentApproved(paymentData) {
         }));
     }
 
-    // Salva no historico de downloads do cliente
+    // Salva no historico de downloads do cliente em ambos os locais
+    const customerEmail = document.getElementById("checkoutEmail")?.value?.trim() || "";
+    if (customerEmail) {
+        try { localStorage.setItem("zivaCustomerEmail", customerEmail); } catch (e) {}
+    }
+
     try {
-        const existingDownloads = JSON.parse(localStorage.getItem("zivaUserDownloads") || "[]");
+        const existing = JSON.parse(localStorage.getItem("zivaPurchasedArts") || "[]");
         boughtProds.forEach(bp => {
-            if (!existingDownloads.some(ed => ed.name === bp.name)) {
-                existingDownloads.unshift({
+            if (!existing.some(ed => (ed.name || "").toLowerCase() === bp.name.toLowerCase())) {
+                existing.unshift({
                     name: bp.name,
-                    date: new Date().toLocaleDateString("pt-BR"),
-                    cdrUrl: bp.cdrUrl
+                    cdr: bp.cdrUrl,
+                    img: bp.img,
+                    date: new Date().toLocaleDateString("pt-BR")
                 });
             }
         });
-        localStorage.setItem("zivaUserDownloads", JSON.stringify(existingDownloads));
+        localStorage.setItem("zivaPurchasedArts", JSON.stringify(existing));
+        localStorage.setItem("zivaUserDownloads", JSON.stringify(existing));
     } catch (e) {}
 
-    // Renderiza os botÃµes de download direto
+    // Renderiza os botões de download direto com estilo premium
     if (downloadsList) {
-        downloadsList.innerHTML = boughtProds.map(p => `
-            <div class="download-item-card">
-                <img src="${p.img}" alt="${p.name}">
-                <div class="download-item-info">
-                    <strong>${p.name}</strong>
-                    <span>Arquivo Vetor (.CDR + Fontes TTF)</span>
+        downloadsList.innerHTML = boughtProds.map(p => {
+            const dlUrl = getDirectDownloadUrl(p.cdrUrl);
+            return `
+                <div class="download-item-card" style="display:flex; align-items:center; justify-content:space-between; gap:16px; background:#14141c; border:1px solid #2a2a38; border-radius:12px; padding:16px 20px; margin-bottom:12px; text-align:left;">
+                    <img src="${p.img}" alt="${p.name}" style="width:64px; height:64px; object-fit:cover; border-radius:8px; border:1px solid #333; flex-shrink:0;">
+                    <div class="download-item-info" style="flex:1;">
+                        <strong style="color:#fff; font-size:16px; display:block; margin-bottom:4px;">${p.name}</strong>
+                        <span style="color:#25D366; font-size:12px; display:inline-flex; align-items:center; gap:6px;">
+                            <i class="fa-solid fa-circle-check"></i> Arquivo Vetor (.CDR + Fontes TTF)
+                        </span>
+                    </div>
+                    <a href="${dlUrl}" target="_blank" class="btn-download-cdr" style="background:#ff1722; color:#fff; padding:12px 24px; border-radius:8px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow: 0 4px 15px rgba(255,23,34,0.4); font-size:14px; flex-shrink:0;">
+                        <i class="fa-solid fa-cloud-arrow-down"></i> BAIXAR CDR
+                    </a>
                 </div>
-                <a href="${p.cdrUrl || '#'}" target="_blank" class="btn-download-cdr">
-                    <i class="fa-solid fa-cloud-arrow-down"></i> BAIXAR CDR
-                </a>
-            </div>
-        `).join("");
+            `;
+        }).join("");
     }
 }
