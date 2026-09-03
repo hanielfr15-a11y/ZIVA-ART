@@ -742,29 +742,7 @@ async function openMyDownloadsModal() {
         </div>
     `;
 
-    // 1. Carrega compras salvas no navegador
-    let localPurchased = [];
-    try {
-        const p1 = JSON.parse(localStorage.getItem("zivaPurchasedArts") || "[]");
-        const p2 = JSON.parse(localStorage.getItem("zivaUserDownloads") || "[]");
-        const combined = [...p1, ...p2];
-        const unique = new Map();
-        combined.forEach(item => {
-            const name = item.name || item.title;
-            if (name && !unique.has(name.toLowerCase())) {
-                unique.set(name.toLowerCase(), {
-                    name: name,
-                    cdr: item.cdr || item.cdrUrl,
-                    date: item.date || new Date().toLocaleDateString("pt-BR")
-                });
-            }
-        });
-        localPurchased = Array.from(unique.values());
-    } catch (e) {
-        localPurchased = [];
-    }
-
-    // 2. Identifica e-mail do usuário (da conta logada ou do histórico)
+    // 1. Identifica e-mail do usuário (da conta logada ou do histórico recente)
     let userEmail = "";
     if (currentUser && currentUser.email) {
         userEmail = currentUser.email.trim();
@@ -798,21 +776,21 @@ async function openMyDownloadsModal() {
         }
     }
 
-    // 3. Combina e elimina duplicados
-    const allPurchasedMap = new Map();
-    [...remoteDownloads, ...localPurchased].forEach(item => {
-        if (item.name && !allPurchasedMap.has(item.name.toLowerCase())) {
-            allPurchasedMap.set(item.name.toLowerCase(), item);
+    // 2. Isolamento de conta: se o usuário está logado ou buscou por e-mail, exibe ESTRITAMENTE as compras daquele e-mail
+    let finalPurchased = [];
+    if (userEmail && userEmail.includes("@")) {
+        finalPurchased = remoteDownloads;
+        try {
+            localStorage.setItem("zivaPurchasedArts_" + userEmail.toLowerCase(), JSON.stringify(finalPurchased));
+        } catch (e) {}
+    } else {
+        // Se for um visitante anônimo sem e-mail, lê o cache local da sessão dele
+        try {
+            finalPurchased = JSON.parse(localStorage.getItem("zivaPurchasedArts") || "[]");
+        } catch (e) {
+            finalPurchased = [];
         }
-    });
-
-    const finalPurchased = Array.from(allPurchasedMap.values());
-
-    // Salva em cache no navegador
-    try {
-        localStorage.setItem("zivaPurchasedArts", JSON.stringify(finalPurchased));
-        localStorage.setItem("zivaUserDownloads", JSON.stringify(finalPurchased));
-    } catch (e) {}
+    }
 
     renderMyDownloadsView(finalPurchased, userEmail);
 }
@@ -1365,6 +1343,11 @@ function showZivaToast(msg, icon = "fa-circle-check") {
 async function handleLogout() {
     toggleUserMenu(false);
     if (!supabaseClient) return;
+    try {
+        localStorage.removeItem("zivaPurchasedArts");
+        localStorage.removeItem("zivaUserDownloads");
+        localStorage.removeItem("zivaCustomerEmail");
+    } catch (e) {}
     await supabaseClient.auth.signOut();
     showZivaToast("Você saiu da sua conta.", "fa-right-from-bracket");
 }
