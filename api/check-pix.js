@@ -63,6 +63,36 @@ module.exports = async (req, res) => {
       console.warn("Aviso ao buscar links de download após aprovação:", e.message);
     }
 
+    // 4. Registra automaticamente o pedido aprovado na tabela 'pedidos' do Supabase
+    try {
+      const customerEmail = (paymentData.external_reference || paymentData.metadata?.customer_email || paymentData.payer?.email || "").trim().toLowerCase();
+      const customerName = `${paymentData.payer?.first_name || ""} ${paymentData.payer?.last_name || ""}`.trim() || "Cliente";
+      const customerCpf = paymentData.payer?.identification?.number || null;
+      const boughtItems = paymentData.metadata?.items || [];
+      const totalAmount = Number(paymentData.transaction_amount) || 0;
+
+      await fetch(`${SUPABASE_URL}/rest/v1/pedidos`, {
+        method: "POST",
+        headers: {
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+          "Content-Type": "application/json",
+          "Prefer": "resolution=ignore-duplicates"
+        },
+        body: JSON.stringify({
+          payment_id: String(paymentData.id),
+          cliente_nome: customerName,
+          cliente_email: customerEmail,
+          cliente_cpf: customerCpf,
+          itens: boughtItems,
+          valor_total: totalAmount,
+          status: "aprovado"
+        })
+      });
+    } catch (errDb) {
+      console.warn("Aviso ao registrar pedido no Supabase:", errDb.message);
+    }
+
     return res.status(200).json({
       id: paymentData.id,
       status: "approved",
