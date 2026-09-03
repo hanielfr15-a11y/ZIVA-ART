@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    ZIVA ART - MASTER SCRIPT (INTEGRADO AO SUPABASE & MODAL PRO)
    ========================================================= */
 
@@ -871,7 +871,10 @@ document.addEventListener("DOMContentLoaded", () => {
             showAuthAlert("Login realizado com sucesso! Bem-vindo de volta.", "success");
             setTimeout(() => {
                 closeAuthModal();
-            }, 1000);
+                if (data.session?.user) {
+                    fillCheckoutFromUser(data.session.user);
+                }
+            }, 800);
         } catch (err) {
             let msg = "E-mail ou senha incorretos.";
             if (err.message?.includes("Email not confirmed")) {
@@ -921,7 +924,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 showAuthAlert("Conta criada com sucesso! Você já está conectado.", "success");
                 setTimeout(() => {
                     closeAuthModal();
-                }, 1200);
+                    if (data.session?.user) {
+                        fillCheckoutFromUser(data.session.user);
+                    }
+                }, 800);
             } else {
                 showAuthAlert("Conta criada! Se o Supabase exigir confirmação, verifique seu e-mail para ativar.", "success");
             }
@@ -1194,6 +1200,35 @@ function openAuthModal(view = "login") {
     switchAuthView(view);
     clearAuthAlert();
     document.getElementById("loginModal")?.classList.add("open");
+}
+
+window.openLoginModal = function(view = "login") {
+    openAuthModal(view);
+};
+
+function fillCheckoutFromUser(user) {
+    if (!user) return;
+    const emailInput = document.getElementById("checkoutEmail");
+    const nameInput = document.getElementById("checkoutFirstName");
+    const lastNameInput = document.getElementById("checkoutLastName");
+    const loginLabel = document.getElementById("checkoutLoginLabel");
+    
+    if (emailInput && (!emailInput.value || emailInput.value === "seu@email.com")) {
+        emailInput.value = user.email || "";
+    }
+    if (user.user_metadata?.full_name) {
+        const parts = user.user_metadata.full_name.trim().split(/\s+/);
+        if (nameInput && (!nameInput.value || nameInput.value === "Lucas")) {
+            nameInput.value = parts[0] || "";
+        }
+        if (lastNameInput && (!lastNameInput.value || lastNameInput.value === "Silva") && parts.length > 1) {
+            lastNameInput.value = parts.slice(1).join(" ");
+        }
+    }
+    if (loginLabel) {
+        const firstName = user.user_metadata?.full_name ? user.user_metadata.full_name.trim().split(/\s+/)[0] : "Conectado";
+        loginLabel.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #00ff88;"></i> Conectado como ${firstName}`;
+    }
 }
 
 function closeAuthModal() {
@@ -1758,8 +1793,9 @@ function goToCheckoutStep(step) {
         s3.className = "step-node " + (step >= 3 ? "active" : "");
     }
 
-    // Scroll para o topo do form
-    document.querySelector(".checkout-main-col")?.scrollTo({ top: 0, behavior: "smooth" });
+    // Scroll para o topo da tela do checkout
+    document.getElementById("zivaCheckoutModal")?.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 // GeraÃ§Ã£o de ID Ãšnico para idempotÃªncia do Mercado Pago

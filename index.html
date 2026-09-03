@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 
 <head>
@@ -946,31 +946,35 @@
   <div class="ziva-modal checkout-modal" id="zivaCheckoutModal">
     <div class="modal-backdrop" onclick="closeZivaCheckout()"></div>
     <div class="checkout-window">
-      <!-- HEADER DO CHECKOUT -->
+      <!-- HEADER DO CHECKOUT FULL PAGE -->
       <div class="checkout-header">
-        <div class="checkout-brand">
-          <img src="assets/ziva-logo.png" alt="ZIVA ART" class="checkout-logo">
-        </div>
-        
-        <!-- STEP INDICATOR -->
-        <div class="checkout-stepper" id="checkoutStepper">
-          <div class="step-node active" id="stepNode1">
-            <span class="step-num">1</span>
-            <span class="step-title">Informacao</span>
+        <div class="checkout-header-inner">
+          <div class="checkout-brand" onclick="closeZivaCheckout()" style="cursor: pointer;" title="Voltar à Loja">
+            <img src="assets/ziva-logo.png" alt="ZIVA ART" class="checkout-logo">
           </div>
-          <div class="step-divider" id="stepDivider1"></div>
-          <div class="step-node" id="stepNode2">
-            <span class="step-num">2</span>
-            <span class="step-title">Pagamento</span>
+          
+          <!-- STEP INDICATOR -->
+          <div class="checkout-stepper" id="checkoutStepper">
+            <div class="step-node active" id="stepNode1">
+              <span class="step-num">1</span>
+              <span class="step-title">Informacao</span>
+            </div>
+            <div class="step-divider" id="stepDivider1"></div>
+            <div class="step-node" id="stepNode2">
+              <span class="step-num">2</span>
+              <span class="step-title">Pagamento</span>
+            </div>
+            <div class="step-divider" id="stepDivider2"></div>
+            <div class="step-node" id="stepNode3">
+              <span class="step-num">3</span>
+              <span class="step-title">PIX</span>
+            </div>
           </div>
-          <div class="step-divider" id="stepDivider2"></div>
-          <div class="step-node" id="stepNode3">
-            <span class="step-num">3</span>
-            <span class="step-title">PIX</span>
-          </div>
-        </div>
 
-        <button type="button" class="checkout-close-btn" onclick="closeZivaCheckout()" title="Fechar">&times;</button>
+          <button type="button" class="btn-checkout-back-store" onclick="closeZivaCheckout()" title="Voltar para a Loja">
+            <i class="fa-solid fa-arrow-left"></i> <span>Voltar a Loja</span>
+          </button>
+        </div>
       </div>
 
       <!-- CORPO DO CHECKOUT (2 COLUNAS) -->
@@ -983,7 +987,7 @@
           <div class="checkout-step-panel" id="checkoutStep1">
             <div class="checkout-section-head">
               <h3>Contato</h3>
-              <button type="button" class="btn-checkout-login-trigger" id="btnCheckoutLogin" onclick="openLoginModal()">
+              <button type="button" class="btn-checkout-login-trigger" id="btnCheckoutLogin" onclick="openAuthModal('login')">
                 <i class="fa-solid fa-user"></i> <span id="checkoutLoginLabel">Entrar ou Criar conta</span>
               </button>
             </div>

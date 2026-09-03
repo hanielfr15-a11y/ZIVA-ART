@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    ZIVA ART
    STYLE.CSS
    Identidade: Preto + Vermelho
@@ -6288,58 +6288,80 @@ img, .product-img img, .pv-img-frame img {
    CHECKOUT TRANSPARENTE MULTI-ETAPAS (ZIVA ART PRETO & VERMELHO)
    ========================================================= */
 
+/* CHECKOUT DEDICADO FULL-PAGE (ZIVA ART) */
 .checkout-modal {
   display: none;
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 99999;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(10px);
+  background: #07070a;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
 }
 
 .checkout-modal.open {
-  display: flex;
-  animation: checkoutFadeIn 0.25s ease-out;
+  display: block;
+  animation: checkoutPageIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes checkoutFadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes checkoutPageIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.checkout-modal .modal-backdrop {
+  display: none !important;
 }
 
 .checkout-window {
   position: relative;
   width: 100%;
-  max-width: 1060px;
-  max-height: 92vh;
-  background: #09090c;
-  border: 1px solid #22222a;
-  border-radius: 18px;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 23, 34, 0.15);
+  min-height: 100vh;
+  background: #07070a;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   color: #eee;
   font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
 }
 
-/* HEADER DO CHECKOUT */
+/* HEADER DA TELA DE CHECKOUT */
 .checkout-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 13, 18, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid #1c1c24;
+  width: 100%;
+  padding: 0;
+}
+
+.checkout-header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 28px;
-  background: #0d0d12;
-  border-bottom: 1px solid #1c1c24;
+  gap: 20px;
 }
 
 .checkout-brand .checkout-logo {
   height: 38px;
   width: auto;
   object-fit: contain;
+  transition: transform 0.2s;
+}
+
+.checkout-brand:hover .checkout-logo {
+  transform: scale(1.03);
 }
 
 .checkout-stepper {
@@ -6402,6 +6424,29 @@ img, .product-img img, .pv-img-frame img {
   background: var(--red, #ff1722);
 }
 
+.btn-checkout-back-store {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ddd;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-checkout-back-store:hover {
+  background: rgba(255, 23, 34, 0.15);
+  border-color: rgba(255, 23, 34, 0.45);
+  color: #fff;
+  transform: translateX(-2px);
+}
+
 .checkout-close-btn {
   background: transparent;
   border: none;
@@ -6417,25 +6462,48 @@ img, .product-img img, .pv-img-frame img {
   color: var(--red, #ff1722);
 }
 
-/* CORPO DO CHECKOUT (GRID 2 COLUNAS) */
+/* CORPO DO CHECKOUT DEDICADO (2 COLUNAS) */
 .checkout-body {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
   flex: 1;
-  overflow-y: auto;
-  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: 32px;
+  padding: 36px 24px 60px;
 }
 
 .checkout-main-col {
-  padding: 28px 32px;
-  border-right: 1px solid #1c1c24;
-  overflow-y: auto;
+  background: #0d0d12;
+  border: 1px solid #1c1c24;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 .checkout-sidebar-col {
-  padding: 28px 24px;
   background: #0d0d12;
-  overflow-y: auto;
+  border: 1px solid #1c1c24;
+  border-radius: 18px;
+  padding: 28px;
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* PRIORIDADE MÁXIMA PARA O MODAL DE LOGIN QUANDO ABERTO NO CHECKOUT */
+#loginModal {
+  z-index: 100005 !important;
+}
+
+#loginModal .modal-backdrop {
+  z-index: 100004 !important;
+}
+
+#loginModal .modal-box {
+  z-index: 100006 !important;
 }
 
 /* SEÃ‡ÃƒO HEAD */
