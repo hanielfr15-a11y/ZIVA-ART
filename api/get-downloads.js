@@ -1,10 +1,31 @@
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, x-user-email");
   if (req.method === "OPTIONS") return res.status(200).end();
 
-  const email = (req.query?.email || "").trim().toLowerCase();
+  let body = {};
+  if (req.body) {
+    try {
+      body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+    } catch (e) {}
+  }
+
+  let email = body.email || "";
+  if (!email && req.headers && req.headers["x-user-email"]) {
+    try { email = decodeURIComponent(req.headers["x-user-email"]); } catch (e) { email = req.headers["x-user-email"]; }
+  }
+  if (!email && req.query && req.query.email) {
+    email = req.query.email;
+  }
+  if (!email && req.url) {
+    try {
+      const u = new URL(req.url, "http://localhost");
+      email = u.searchParams.get("email") || "";
+    } catch (e) {}
+  }
+  email = (email || "").trim().toLowerCase();
+
   if (!email || !email.includes("@")) {
     return res.status(400).json({ error: "E-mail válido é obrigatório." });
   }
@@ -21,12 +42,22 @@ module.exports = async (req, res) => {
     const mpData = await mpResp.json();
     const payments = mpData.results || [];
 
-    // 2. Filtra pagamentos aprovados do cliente por e-mail
-    const matchingPayments = payments.filter(p => 
-      p.status === "approved" && 
-      p.payer && 
-      (p.payer.email || "").trim().toLowerCase() === email
-    );
+    const norm = (s) => (s || "").toLowerCase().split("@")[0].replace(/[^a-z]/g, "").replace(/(.)\1+/g, "$1");
+    const userNorm = norm(email);
+
+    // 2. Filtra pagamentos aprovados do cliente por e-mail (exato ou com tolerância inteligente para nomes como aliany / alliany)
+    const matchingPayments = payments.filter(p => {
+      if (p.status !== "approved" || !p.payer) return false;
+      const payerEmail = (p.payer.email || "").trim().toLowerCase();
+      if (!payerEmail) return false;
+      if (payerEmail === email) return true;
+
+      const payerNorm = norm(payerEmail);
+      if (userNorm.length >= 4 && payerNorm.length >= 4) {
+        if (payerNorm.includes(userNorm) || userNorm.includes(payerNorm)) return true;
+      }
+      return false;
+    });
 
     if (matchingPayments.length === 0) {
       return res.status(200).json({ downloads: [] });
